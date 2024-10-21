@@ -70,5 +70,17 @@ final class SignInViewController: UIViewController {
             footerView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9)
             
         ])
+        
+        footerView.forgotPassButton.addTarget(self, action: #selector(forgotPassPressed), for: .touchUpInside)
+    }
+    
+    // MARK: - Selectors
+    @objc private func forgotPassPressed() {
+        let vc = ResetPasswordViewController()
+        if let sheet = vc.sheetPresentationController {
+            sheet.detents = [.medium()]
+        }
+        
+        navigationController?.present(vc, animated: true)
     }
 }

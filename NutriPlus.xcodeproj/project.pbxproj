@@ -21,6 +21,7 @@
 		7079C26F2CC63ADF00E23D59 /* CustomFooterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C26E2CC63ADF00E23D59 /* CustomFooterButton.swift */; };
 		7079C2712CC63AF800E23D59 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C2702CC63AF800E23D59 /* UIButton+Ext.swift */; };
 		7079C2742CC63CD000E23D59 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C2732CC63CD000E23D59 /* SignUpViewController.swift */; };
+		7079C2772CC6404D00E23D59 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C2762CC6404D00E23D59 /* ResetPasswordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		7079C26E2CC63ADF00E23D59 /* CustomFooterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFooterButton.swift; sourceTree = "<group>"; };
 		7079C2702CC63AF800E23D59 /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 		7079C2732CC63CD000E23D59 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		7079C2762CC6404D00E23D59 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				7079C25D2CC6388700E23D59 /* Views */,
 				7079C25C2CC6388300E23D59 /* SignIn */,
 				7079C2722CC63CAF00E23D59 /* SignUp */,
+				7079C2752CC6402600E23D59 /* ResetPassword */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -145,6 +148,14 @@
 				7079C2732CC63CD000E23D59 /* SignUpViewController.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		7079C2752CC6402600E23D59 /* ResetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				7079C2762CC6404D00E23D59 /* ResetPasswordViewController.swift */,
+			);
+			path = ResetPassword;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,6 +237,7 @@
 				7079C2742CC63CD000E23D59 /* SignUpViewController.swift in Sources */,
 				7079C2602CC638C300E23D59 /* SignInViewController.swift in Sources */,
 				7079C26F2CC63ADF00E23D59 /* CustomFooterButton.swift in Sources */,
+				7079C2772CC6404D00E23D59 /* ResetPasswordViewController.swift in Sources */,
 				7079C2642CC6398400E23D59 /* CustomTextField.swift in Sources */,
 				7079C2712CC63AF800E23D59 /* UIButton+Ext.swift in Sources */,
 				7079C26D2CC63ABB00E23D59 /* AuthFooterView.swift in Sources */,

@@ -33,7 +33,7 @@ final class AuthFooterView: UIView {
         return sv
     }()
     
-    private let forgotPassButton = CustomFooterButton(title: "Forgot Password", frame: .zero)
+    let forgotPassButton = CustomFooterButton(title: "Forgot Password", frame: .zero)
     
     init(type: AuthType, frame: CGRect) {
         super.init(frame: frame)
