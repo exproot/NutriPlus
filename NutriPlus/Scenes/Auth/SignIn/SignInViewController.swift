@@ -17,9 +17,18 @@ final class SignInViewController: UIViewController {
     private let appleSignInButton = CustomSignInMethodsButton(type: .apple, frame: .zero)
     private let footerView = AuthFooterView(type: .signIn, frame: .zero)
     
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        
+        footerView.footerButton.addTarget(self, action: #selector(signUpPressed), for: .touchUpInside)
+        footerView.forgotPassButton.addTarget(self, action: #selector(forgotPassPressed), for: .touchUpInside)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.hidesBackButton = true
     }
     
     // MARK: - UI Setup
@@ -70,8 +79,6 @@ final class SignInViewController: UIViewController {
             footerView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9)
             
         ])
-        
-        footerView.forgotPassButton.addTarget(self, action: #selector(forgotPassPressed), for: .touchUpInside)
     }
     
     // MARK: - Selectors
@@ -82,5 +89,10 @@ final class SignInViewController: UIViewController {
         }
         
         navigationController?.present(vc, animated: true)
+    }
+    
+    @objc private func signUpPressed() {
+        let vc = SignUpViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -45,20 +45,21 @@ final class CustomTextField: UITextField {
             keyboardType = .emailAddress
             placeholder = "Enter email adress"
             headerLabel.text = "Email Adress"
-            addIconWithPadding(UIImage(systemName: "envelope.circle.fill")!, padding: 20, isLeftView: true)
+            addIconWithPadding("envelope.circle.fill", padding: 20, isLeftView: true, isConfirmation: false)
         case .password:
             isSecureTextEntry = true
             keyboardType = .default
             returnKeyType = .done
             placeholder = "Enter password"
             headerLabel.text = "Password"
-            addIconWithPadding(UIImage(systemName: "lock.fill")!, padding: 20, isLeftView: true)
+            addIconWithPadding("lock.fill", padding: 20, isLeftView: true, isConfirmation: false)
         case .confirmation:
             isSecureTextEntry = true
             keyboardType = .default
             returnKeyType = .done
+            placeholder = "Re-Enter Password"
             headerLabel.text = "Confirm password"
-            addIconWithPadding(UIImage(systemName: "lock.fill")!, padding: 20, isLeftView: true)
+            addIconWithPadding("lock.open", padding: 20, isLeftView: true, isConfirmation: true)
         }
         
         NSLayoutConstraint.activate([

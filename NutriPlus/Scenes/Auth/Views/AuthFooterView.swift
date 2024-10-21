@@ -21,7 +21,7 @@ final class AuthFooterView: UIView {
         return lbl
     }()
     
-    private var footerButton: CustomFooterButton!
+    var footerButton: CustomFooterButton!
     
     private lazy var footerStack: UIStackView = {
         let sv = UIStackView()

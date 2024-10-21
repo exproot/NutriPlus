@@ -6,8 +6,13 @@
 //
 
 import UIKit
+import Combine
 
 final class SignUpViewController: UIViewController {
+    lazy var viewModel = SignUpViewModel()
+    var cancellables: Set<AnyCancellable> = []
+    var lockImageCancellable: AnyCancellable?
+    
     // MARK: - UI Components
     private var headerView = AuthHeaderView(title: "Hesap Oluştur", subTitle: "Ücretsiz olarak hesabını oluştur.", frame: .zero)
     private let emailTextField = CustomTextField(type: .mail, frame: .zero)
@@ -16,9 +21,33 @@ final class SignUpViewController: UIViewController {
     private let signUpButton = CustomButton(title: "Sign Up", frame: .zero)
     private let footerView = AuthFooterView(type: .signUp, frame: .zero)
     
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        setupFields()
+        footerView.footerButton.addTarget(self, action: #selector(signInPressed), for: .touchUpInside)
+        
+        lockImageCancellable =  viewModel.$confirmImageString
+            .sink { [weak self] imageString in
+                self?.confirmationTextField.addIconWithPadding(imageString, padding: 20, isLeftView: true, isConfirmation: true)
+            }
+        
+        viewModel.$signUpButtonEnabled
+            .assign(to: \.isEnabled, on: signUpButton)
+            .store(in: &cancellables)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.hidesBackButton = true
+    }
+    
+    // MARK: - UI Setup
+    private func setupFields() {
+        emailTextField.addTarget(self, action: #selector(emailFieldDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(passwordFieldDidChange), for: .editingChanged)
+        confirmationTextField.addTarget(self, action: #selector(confirmationFieldDidChange), for: .editingChanged)
     }
     
     private func setupUI() {
@@ -61,5 +90,22 @@ final class SignUpViewController: UIViewController {
             footerView.heightAnchor.constraint(equalToConstant: 100),
             footerView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9)
         ])
+    }
+    
+    // MARK: - Selectors
+    @objc private func emailFieldDidChange() {
+        viewModel.email = emailTextField.text ?? ""
+    }
+    
+    @objc private func passwordFieldDidChange() {
+        viewModel.password = passwordTextField.text ?? ""
+    }
+    
+    @objc private func confirmationFieldDidChange() {
+        viewModel.confirmPass = confirmationTextField.text ?? ""
+    }
+    
+    @objc private func signInPressed() {
+        navigationController?.popToRootViewController(animated: true)
     }
 }
