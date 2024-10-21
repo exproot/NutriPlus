@@ -20,6 +20,7 @@
 		7079C26D2CC63ABB00E23D59 /* AuthFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C26C2CC63ABB00E23D59 /* AuthFooterView.swift */; };
 		7079C26F2CC63ADF00E23D59 /* CustomFooterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C26E2CC63ADF00E23D59 /* CustomFooterButton.swift */; };
 		7079C2712CC63AF800E23D59 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C2702CC63AF800E23D59 /* UIButton+Ext.swift */; };
+		7079C2742CC63CD000E23D59 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C2732CC63CD000E23D59 /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		7079C26C2CC63ABB00E23D59 /* AuthFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFooterView.swift; sourceTree = "<group>"; };
 		7079C26E2CC63ADF00E23D59 /* CustomFooterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFooterButton.swift; sourceTree = "<group>"; };
 		7079C2702CC63AF800E23D59 /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
+		7079C2732CC63CD000E23D59 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			children = (
 				7079C25D2CC6388700E23D59 /* Views */,
 				7079C25C2CC6388300E23D59 /* SignIn */,
+				7079C2722CC63CAF00E23D59 /* SignUp */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -134,6 +137,14 @@
 				7079C2702CC63AF800E23D59 /* UIButton+Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7079C2722CC63CAF00E23D59 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				7079C2732CC63CD000E23D59 /* SignUpViewController.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +223,7 @@
 				7079C2492CC6336D00E23D59 /* SceneDelegate.swift in Sources */,
 				7079C2692CC63A2400E23D59 /* CustomButton.swift in Sources */,
 				7079C26B2CC63A5A00E23D59 /* CustomSignInMethodsButton.swift in Sources */,
+				7079C2742CC63CD000E23D59 /* SignUpViewController.swift in Sources */,
 				7079C2602CC638C300E23D59 /* SignInViewController.swift in Sources */,
 				7079C26F2CC63ADF00E23D59 /* CustomFooterButton.swift in Sources */,
 				7079C2642CC6398400E23D59 /* CustomTextField.swift in Sources */,
