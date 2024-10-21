@@ -9,19 +9,35 @@
 /* Begin PBXBuildFile section */
 		7079C2472CC6336D00E23D59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C2462CC6336D00E23D59 /* AppDelegate.swift */; };
 		7079C2492CC6336D00E23D59 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C2482CC6336D00E23D59 /* SceneDelegate.swift */; };
-		7079C24B2CC6336D00E23D59 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C24A2CC6336D00E23D59 /* ViewController.swift */; };
 		7079C2502CC6336E00E23D59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7079C24F2CC6336E00E23D59 /* Assets.xcassets */; };
 		7079C2532CC6336E00E23D59 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 7079C2522CC6336E00E23D59 /* Base */; };
+		7079C2602CC638C300E23D59 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C25F2CC638C300E23D59 /* SignInViewController.swift */; };
+		7079C2622CC6391300E23D59 /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C2612CC6391300E23D59 /* AuthHeaderView.swift */; };
+		7079C2642CC6398400E23D59 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C2632CC6398400E23D59 /* CustomTextField.swift */; };
+		7079C2672CC639AA00E23D59 /* UITextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C2662CC639AA00E23D59 /* UITextField+Ext.swift */; };
+		7079C2692CC63A2400E23D59 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C2682CC63A2400E23D59 /* CustomButton.swift */; };
+		7079C26B2CC63A5A00E23D59 /* CustomSignInMethodsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C26A2CC63A5A00E23D59 /* CustomSignInMethodsButton.swift */; };
+		7079C26D2CC63ABB00E23D59 /* AuthFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C26C2CC63ABB00E23D59 /* AuthFooterView.swift */; };
+		7079C26F2CC63ADF00E23D59 /* CustomFooterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C26E2CC63ADF00E23D59 /* CustomFooterButton.swift */; };
+		7079C2712CC63AF800E23D59 /* UIButton+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C2702CC63AF800E23D59 /* UIButton+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		7079C2432CC6336D00E23D59 /* NutriPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7079C2462CC6336D00E23D59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7079C2482CC6336D00E23D59 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7079C24A2CC6336D00E23D59 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7079C24F2CC6336E00E23D59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7079C2522CC6336E00E23D59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7079C2542CC6336E00E23D59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7079C25F2CC638C300E23D59 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		7079C2612CC6391300E23D59 /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
+		7079C2632CC6398400E23D59 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		7079C2662CC639AA00E23D59 /* UITextField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Ext.swift"; sourceTree = "<group>"; };
+		7079C2682CC63A2400E23D59 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		7079C26A2CC63A5A00E23D59 /* CustomSignInMethodsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSignInMethodsButton.swift; sourceTree = "<group>"; };
+		7079C26C2CC63ABB00E23D59 /* AuthFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFooterView.swift; sourceTree = "<group>"; };
+		7079C26E2CC63ADF00E23D59 /* CustomFooterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFooterButton.swift; sourceTree = "<group>"; };
+		7079C2702CC63AF800E23D59 /* UIButton+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +70,8 @@
 		7079C2452CC6336D00E23D59 /* NutriPlus */ = {
 			isa = PBXGroup;
 			children = (
-				7079C24A2CC6336D00E23D59 /* ViewController.swift */,
+				7079C2652CC6399800E23D59 /* Extensions */,
+				7079C25E2CC6389200E23D59 /* Scenes */,
 				7079C25A2CC633F100E23D59 /* Supporting */,
 			);
 			path = NutriPlus;
@@ -70,6 +87,53 @@
 				7079C2512CC6336E00E23D59 /* LaunchScreen.storyboard */,
 			);
 			path = Supporting;
+			sourceTree = "<group>";
+		};
+		7079C25B2CC6387F00E23D59 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				7079C25D2CC6388700E23D59 /* Views */,
+				7079C25C2CC6388300E23D59 /* SignIn */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		7079C25C2CC6388300E23D59 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				7079C25F2CC638C300E23D59 /* SignInViewController.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		7079C25D2CC6388700E23D59 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7079C2612CC6391300E23D59 /* AuthHeaderView.swift */,
+				7079C26C2CC63ABB00E23D59 /* AuthFooterView.swift */,
+				7079C2632CC6398400E23D59 /* CustomTextField.swift */,
+				7079C2682CC63A2400E23D59 /* CustomButton.swift */,
+				7079C26A2CC63A5A00E23D59 /* CustomSignInMethodsButton.swift */,
+				7079C26E2CC63ADF00E23D59 /* CustomFooterButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		7079C25E2CC6389200E23D59 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				7079C25B2CC6387F00E23D59 /* Auth */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		7079C2652CC6399800E23D59 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7079C2662CC639AA00E23D59 /* UITextField+Ext.swift */,
+				7079C2702CC63AF800E23D59 /* UIButton+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,9 +206,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7079C24B2CC6336D00E23D59 /* ViewController.swift in Sources */,
 				7079C2472CC6336D00E23D59 /* AppDelegate.swift in Sources */,
+				7079C2672CC639AA00E23D59 /* UITextField+Ext.swift in Sources */,
+				7079C2622CC6391300E23D59 /* AuthHeaderView.swift in Sources */,
 				7079C2492CC6336D00E23D59 /* SceneDelegate.swift in Sources */,
+				7079C2692CC63A2400E23D59 /* CustomButton.swift in Sources */,
+				7079C26B2CC63A5A00E23D59 /* CustomSignInMethodsButton.swift in Sources */,
+				7079C2602CC638C300E23D59 /* SignInViewController.swift in Sources */,
+				7079C26F2CC63ADF00E23D59 /* CustomFooterButton.swift in Sources */,
+				7079C2642CC6398400E23D59 /* CustomTextField.swift in Sources */,
+				7079C2712CC63AF800E23D59 /* UIButton+Ext.swift in Sources */,
+				7079C26D2CC63ABB00E23D59 /* AuthFooterView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
