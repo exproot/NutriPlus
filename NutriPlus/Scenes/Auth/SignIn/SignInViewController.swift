@@ -7,7 +7,15 @@
 
 import UIKit
 
+protocol SignInViewControllerProtocol: AnyObject {
+    func setupButtons()
+    func showSignInErrorAlert(message: String)
+    func checkAuthenticationViaSceneDelegate()
+}
+
 final class SignInViewController: UIViewController {
+    lazy var viewModel = SignInViewModel(authService: AuthService())
+    
     // MARK: - UI Components
     private var headerView = AuthHeaderView(title: "Nutri+'a Giriş Yap.", subTitle: "Yapay zeka desteğiyle hayatını özelleştirelim.", frame: .zero)
     private let emailTextField = CustomTextField(type: .mail, frame: .zero)
@@ -21,9 +29,8 @@ final class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        
-        footerView.footerButton.addTarget(self, action: #selector(signUpPressed), for: .touchUpInside)
-        footerView.forgotPassButton.addTarget(self, action: #selector(forgotPassPressed), for: .touchUpInside)
+        viewModel.view = self
+        viewModel.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -82,6 +89,12 @@ final class SignInViewController: UIViewController {
     }
     
     // MARK: - Selectors
+    @objc private func signInButtonTapped() {
+        if let email = emailTextField.text, let password = passwordTextField.text {
+            viewModel.signInUser(with: email, and: password)
+        }
+    }
+    
     @objc private func forgotPassPressed() {
         let vc = ResetPasswordViewController()
         if let sheet = vc.sheetPresentationController {
@@ -94,5 +107,25 @@ final class SignInViewController: UIViewController {
     @objc private func signUpPressed() {
         let vc = SignUpViewController()
         navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension SignInViewController: SignInViewControllerProtocol {
+    func checkAuthenticationViaSceneDelegate() {
+        if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
+            sceneDelegate.checkAuthentication()
+        }
+    }
+    
+    func showSignInErrorAlert(message: String) {
+        let alert = UIAlertController(title: "Sign In Failed", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default))
+        self.present(alert, animated: true)
+    }
+    
+    func setupButtons() {
+        signInButton.addTarget(self, action: #selector(signInButtonTapped), for: .touchUpInside)
+        footerView.footerButton.addTarget(self, action: #selector(signUpPressed), for: .touchUpInside)
+        footerView.forgotPassButton.addTarget(self, action: #selector(forgotPassPressed), for: .touchUpInside)
     }
 }

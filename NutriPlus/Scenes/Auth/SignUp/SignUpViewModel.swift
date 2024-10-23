@@ -8,7 +8,17 @@
 import Foundation
 import Combine
 
+protocol SignUpViewModelProtocol {
+    var view: SignUpViewControllerProtocol? { get set }
+    
+    func viewDidLoad()
+    func signUpUser(with email: String, and password: String)
+}
+
 final class SignUpViewModel {
+    private let authService: AuthService
+    weak var view: SignUpViewControllerProtocol?
+    
     @Published
     var email = ""
     
@@ -25,7 +35,8 @@ final class SignUpViewModel {
     @Published
     var confirmImageString = "lock.open.fill"
     
-    init() {
+    init(authService: AuthService) {
+        self.authService = authService
         setupPipeline()
     }
     
@@ -86,5 +97,23 @@ final class SignUpViewModel {
         Publishers.CombineLatest(emailIsValid, passValidAndConfirmed)
             .map { $0.0 && $0.1 }
             .eraseToAnyPublisher()
+    }
+}
+
+extension SignUpViewModel: SignUpViewModelProtocol {
+    func viewDidLoad() {
+        view?.setupFields()
+        view?.setupButtons()
+    }
+    
+    func signUpUser(with email: String, and password: String) {
+        authService.createUser(with: email, and: password) { [weak self] result in
+            switch result {
+            case .success(_):
+                self?.view?.checkAuthenticationViaSceneDelegate()
+            case .failure(let error):
+                self?.view?.showSignInErrorAlert(message: error.localizedDescription)
+            }
+        }
     }
 }

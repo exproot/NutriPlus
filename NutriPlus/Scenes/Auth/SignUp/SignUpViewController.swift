@@ -8,8 +8,15 @@
 import UIKit
 import Combine
 
+protocol SignUpViewControllerProtocol: AnyObject {
+    func setupFields()
+    func setupButtons()
+    func showSignInErrorAlert(message: String)
+    func checkAuthenticationViaSceneDelegate()
+}
+
 final class SignUpViewController: UIViewController {
-    lazy var viewModel = SignUpViewModel()
+    lazy var viewModel = SignUpViewModel(authService: AuthService())
     var cancellables: Set<AnyCancellable> = []
     var lockImageCancellable: AnyCancellable?
     
@@ -25,8 +32,8 @@ final class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        setupFields()
-        footerView.footerButton.addTarget(self, action: #selector(signInPressed), for: .touchUpInside)
+        viewModel.view = self
+        viewModel.viewDidLoad()
         
         lockImageCancellable =  viewModel.$confirmImageString
             .sink { [weak self] imageString in
@@ -44,11 +51,6 @@ final class SignUpViewController: UIViewController {
     }
     
     // MARK: - UI Setup
-    private func setupFields() {
-        emailTextField.addTarget(self, action: #selector(emailFieldDidChange), for: .editingChanged)
-        passwordTextField.addTarget(self, action: #selector(passwordFieldDidChange), for: .editingChanged)
-        confirmationTextField.addTarget(self, action: #selector(confirmationFieldDidChange), for: .editingChanged)
-    }
     
     private func setupUI() {
         view.backgroundColor = .systemBackground
@@ -93,6 +95,12 @@ final class SignUpViewController: UIViewController {
     }
     
     // MARK: - Selectors
+    @objc private func signUpButtonTapped() {
+        if let email = emailTextField.text, let password = passwordTextField.text {
+            viewModel.signUpUser(with: email, and: password)
+        }
+    }
+    
     @objc private func emailFieldDidChange() {
         viewModel.email = emailTextField.text ?? ""
     }
@@ -107,5 +115,30 @@ final class SignUpViewController: UIViewController {
     
     @objc private func signInPressed() {
         navigationController?.popToRootViewController(animated: true)
+    }
+}
+
+extension SignUpViewController: SignUpViewControllerProtocol {
+    func checkAuthenticationViaSceneDelegate() {
+        if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
+            sceneDelegate.checkAuthentication()
+        }
+    }
+    
+    func showSignInErrorAlert(message: String) {
+        let alert = UIAlertController(title: "Sign In Failed", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default))
+        self.present(alert, animated: true)
+    }
+    
+    func setupButtons() {
+        signUpButton.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
+        footerView.footerButton.addTarget(self, action: #selector(signInPressed), for: .touchUpInside)
+    }
+    
+    func setupFields() {
+        emailTextField.addTarget(self, action: #selector(emailFieldDidChange), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(passwordFieldDidChange), for: .editingChanged)
+        confirmationTextField.addTarget(self, action: #selector(confirmationFieldDidChange), for: .editingChanged)
     }
 }
