@@ -32,6 +32,8 @@
 		70E834122CC8D7C500FF3CCC /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E834112CC8D7C500FF3CCC /* SignInViewModel.swift */; };
 		70E834142CC8DE0A00FF3CCC /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E834132CC8DE0A00FF3CCC /* MainTabBarController.swift */; };
 		70E834172CC8DE6000FF3CCC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E834162CC8DE6000FF3CCC /* HomeViewController.swift */; };
+		70E8341A2CC8E75400FF3CCC /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E834192CC8E75400FF3CCC /* OnboardingViewController.swift */; };
+		70E8341C2CC8F10700FF3CCC /* UserDefaults+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E8341B2CC8F10700FF3CCC /* UserDefaults+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,8 @@
 		70E834112CC8D7C500FF3CCC /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		70E834132CC8DE0A00FF3CCC /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		70E834162CC8DE6000FF3CCC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		70E834192CC8E75400FF3CCC /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		70E8341B2CC8F10700FF3CCC /* UserDefaults+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +157,7 @@
 		7079C25E2CC6389200E23D59 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				70E834182CC8E74800FF3CCC /* Onboarding */,
 				7079C25B2CC6387F00E23D59 /* Auth */,
 				70E834132CC8DE0A00FF3CCC /* MainTabBarController.swift */,
 				70E834162CC8DE6000FF3CCC /* HomeViewController.swift */,
@@ -165,6 +170,7 @@
 			children = (
 				7079C2662CC639AA00E23D59 /* UITextField+Ext.swift */,
 				7079C2702CC63AF800E23D59 /* UIButton+Ext.swift */,
+				70E8341B2CC8F10700FF3CCC /* UserDefaults+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -207,6 +213,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		70E834182CC8E74800FF3CCC /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				70E834192CC8E75400FF3CCC /* OnboardingViewController.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +309,7 @@
 				7079C2622CC6391300E23D59 /* AuthHeaderView.swift in Sources */,
 				7079C2492CC6336D00E23D59 /* SceneDelegate.swift in Sources */,
 				7079C2692CC63A2400E23D59 /* CustomButton.swift in Sources */,
+				70E8341A2CC8E75400FF3CCC /* OnboardingViewController.swift in Sources */,
 				7079C26B2CC63A5A00E23D59 /* CustomSignInMethodsButton.swift in Sources */,
 				7079C27A2CC6658A00E23D59 /* AuthValidator.swift in Sources */,
 				7079C27C2CC67F3F00E23D59 /* SignUpViewModel.swift in Sources */,
@@ -307,6 +322,7 @@
 				7079C2712CC63AF800E23D59 /* UIButton+Ext.swift in Sources */,
 				7079C26D2CC63ABB00E23D59 /* AuthFooterView.swift in Sources */,
 				70E8340B2CC8CEA900FF3CCC /* AuthService.swift in Sources */,
+				70E8341C2CC8F10700FF3CCC /* UserDefaults+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
