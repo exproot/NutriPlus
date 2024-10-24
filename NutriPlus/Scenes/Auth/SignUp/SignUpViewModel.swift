@@ -109,7 +109,12 @@ extension SignUpViewModel: SignUpViewModelProtocol {
     func signUpUser(with email: String, and password: String) {
         authService.createUser(with: email, and: password) { [weak self] result in
             switch result {
-            case .success(_):
+            case .success(let user):
+                StoreService.shared.saveUserToFirestore(with: user.uid) { error in
+                    if let error = error {
+                        print(error)
+                    }
+                }
                 self?.view?.checkAuthenticationViaSceneDelegate()
             case .failure(let error):
                 self?.view?.showSignInErrorAlert(message: error.localizedDescription)

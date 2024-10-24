@@ -33,10 +33,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func checkAuthentication() {
-        if Auth.auth().currentUser == nil {
-            navigateToController(SignInViewController())
+        if let currentUser = Auth.auth().currentUser {
+            StoreService.shared.checkFirstLogin(for: currentUser.uid) { [weak self] result in
+                guard let result = result else { fatalError() }
+                
+                self?.navigateToController(result ? MainTabBarController() : AgeSelectionViewController(model: AssessmentModel()))
+            }
         } else {
-            navigateToController(MainTabBarController())
+            navigateToController(SignInViewController())
         }
     }
     

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		701A4E1F2CCA9A2400013A72 /* AssessmentTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701A4E1E2CCA9A2400013A72 /* AssessmentTitleLabel.swift */; };
+		701A4E242CCAA31500013A72 /* GoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701A4E232CCAA31500013A72 /* GoalCell.swift */; };
+		701A4E262CCAB99200013A72 /* BaseAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701A4E252CCAB99200013A72 /* BaseAssessmentViewController.swift */; };
+		701A4E292CCAB9BE00013A72 /* AssessmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701A4E282CCAB9BE00013A72 /* AssessmentModel.swift */; };
+		701A4E2C2CCABEA000013A72 /* StoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701A4E2B2CCABEA000013A72 /* StoreService.swift */; };
 		7079C2472CC6336D00E23D59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C2462CC6336D00E23D59 /* AppDelegate.swift */; };
 		7079C2492CC6336D00E23D59 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C2482CC6336D00E23D59 /* SceneDelegate.swift */; };
 		7079C2502CC6336E00E23D59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7079C24F2CC6336E00E23D59 /* Assets.xcassets */; };
@@ -24,6 +29,9 @@
 		7079C2772CC6404D00E23D59 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C2762CC6404D00E23D59 /* ResetPasswordViewController.swift */; };
 		7079C27A2CC6658A00E23D59 /* AuthValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C2792CC6658A00E23D59 /* AuthValidator.swift */; };
 		7079C27C2CC67F3F00E23D59 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C27B2CC67F3F00E23D59 /* SignUpViewModel.swift */; };
+		70B446032CCA79CE0019B407 /* GoalSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B446022CCA79CE0019B407 /* GoalSelectionViewController.swift */; };
+		70B446052CCA7CF20019B407 /* GoalSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B446042CCA7CF20019B407 /* GoalSelectionViewModel.swift */; };
+		70B446092CCA80830019B407 /* ContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B446082CCA80830019B407 /* ContinueButton.swift */; };
 		70E834062CC8CC8C00FF3CCC /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 70E834052CC8CC8C00FF3CCC /* FirebaseFirestore */; };
 		70E834082CC8CD0E00FF3CCC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70E834072CC8CD0E00FF3CCC /* GoogleService-Info.plist */; };
 		70E8340B2CC8CEA900FF3CCC /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E8340A2CC8CEA900FF3CCC /* AuthService.swift */; };
@@ -34,9 +42,23 @@
 		70E834172CC8DE6000FF3CCC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E834162CC8DE6000FF3CCC /* HomeViewController.swift */; };
 		70E8341A2CC8E75400FF3CCC /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E834192CC8E75400FF3CCC /* OnboardingViewController.swift */; };
 		70E8341C2CC8F10700FF3CCC /* UserDefaults+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E8341B2CC8F10700FF3CCC /* UserDefaults+Ext.swift */; };
+		70E8341F2CC905B800FF3CCC /* AgeSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E8341E2CC905B800FF3CCC /* AgeSelectionViewController.swift */; };
+		70E834212CC90DED00FF3CCC /* WeightSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E834202CC90DED00FF3CCC /* WeightSelectionViewController.swift */; };
+		70E834232CC9219F00FF3CCC /* Float+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E834222CC9219F00FF3CCC /* Float+Ext.swift */; };
+		70E834262CC9270A00FF3CCC /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 70E834252CC9270A00FF3CCC /* Lottie */; };
+		70E8342E2CC9300200FF3CCC /* WeightScan.json in Resources */ = {isa = PBXBuildFile; fileRef = 70E8342D2CC9300200FF3CCC /* WeightScan.json */; };
+		70E834302CC934DA00FF3CCC /* FitSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E8342F2CC934DA00FF3CCC /* FitSelectionViewController.swift */; };
+		70E834342CC93C6F00FF3CCC /* FitLevel.json in Resources */ = {isa = PBXBuildFile; fileRef = 70E834332CC93C6F00FF3CCC /* FitLevel.json */; };
+		70E834362CC93F8D00FF3CCC /* GenderSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E834352CC93F8D00FF3CCC /* GenderSelectionViewController.swift */; };
+		70E834392CC9410300FF3CCC /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E834382CC9410300FF3CCC /* GenderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		701A4E1E2CCA9A2400013A72 /* AssessmentTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentTitleLabel.swift; sourceTree = "<group>"; };
+		701A4E232CCAA31500013A72 /* GoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCell.swift; sourceTree = "<group>"; };
+		701A4E252CCAB99200013A72 /* BaseAssessmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAssessmentViewController.swift; sourceTree = "<group>"; };
+		701A4E282CCAB9BE00013A72 /* AssessmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentModel.swift; sourceTree = "<group>"; };
+		701A4E2B2CCABEA000013A72 /* StoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreService.swift; sourceTree = "<group>"; };
 		7079C2432CC6336D00E23D59 /* NutriPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7079C2462CC6336D00E23D59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7079C2482CC6336D00E23D59 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +78,9 @@
 		7079C2762CC6404D00E23D59 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		7079C2792CC6658A00E23D59 /* AuthValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthValidator.swift; sourceTree = "<group>"; };
 		7079C27B2CC67F3F00E23D59 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		70B446022CCA79CE0019B407 /* GoalSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSelectionViewController.swift; sourceTree = "<group>"; };
+		70B446042CCA7CF20019B407 /* GoalSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSelectionViewModel.swift; sourceTree = "<group>"; };
+		70B446082CCA80830019B407 /* ContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButton.swift; sourceTree = "<group>"; };
 		70E834072CC8CD0E00FF3CCC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		70E8340A2CC8CEA900FF3CCC /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		70E834112CC8D7C500FF3CCC /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
@@ -63,6 +88,14 @@
 		70E834162CC8DE6000FF3CCC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		70E834192CC8E75400FF3CCC /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		70E8341B2CC8F10700FF3CCC /* UserDefaults+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Ext.swift"; sourceTree = "<group>"; };
+		70E8341E2CC905B800FF3CCC /* AgeSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeSelectionViewController.swift; sourceTree = "<group>"; };
+		70E834202CC90DED00FF3CCC /* WeightSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightSelectionViewController.swift; sourceTree = "<group>"; };
+		70E834222CC9219F00FF3CCC /* Float+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Float+Ext.swift"; sourceTree = "<group>"; };
+		70E8342D2CC9300200FF3CCC /* WeightScan.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = WeightScan.json; sourceTree = "<group>"; };
+		70E8342F2CC934DA00FF3CCC /* FitSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitSelectionViewController.swift; sourceTree = "<group>"; };
+		70E834332CC93C6F00FF3CCC /* FitLevel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = FitLevel.json; sourceTree = "<group>"; };
+		70E834352CC93F8D00FF3CCC /* GenderSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSelectionViewController.swift; sourceTree = "<group>"; };
+		70E834382CC9410300FF3CCC /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,12 +106,42 @@
 				70E8340E2CC8CEC600FF3CCC /* FirebaseCore in Frameworks */,
 				70E834102CC8CECD00FF3CCC /* FirebaseAuth in Frameworks */,
 				70E834062CC8CC8C00FF3CCC /* FirebaseFirestore in Frameworks */,
+				70E834262CC9270A00FF3CCC /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		701A4E1B2CCA98C900013A72 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				70B446042CCA7CF20019B407 /* GoalSelectionViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		701A4E1C2CCA98FA00013A72 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				701A4E252CCAB99200013A72 /* BaseAssessmentViewController.swift */,
+				70E8341E2CC905B800FF3CCC /* AgeSelectionViewController.swift */,
+				70E834202CC90DED00FF3CCC /* WeightSelectionViewController.swift */,
+				70E8342F2CC934DA00FF3CCC /* FitSelectionViewController.swift */,
+				70E834352CC93F8D00FF3CCC /* GenderSelectionViewController.swift */,
+				70B446022CCA79CE0019B407 /* GoalSelectionViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		701A4E272CCAB9AF00013A72 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				701A4E282CCAB9BE00013A72 /* AssessmentModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		7079C23A2CC6336D00E23D59 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +162,7 @@
 		7079C2452CC6336D00E23D59 /* NutriPlus */ = {
 			isa = PBXGroup;
 			children = (
+				701A4E272CCAB9AF00013A72 /* Models */,
 				70E834092CC8CEA300FF3CCC /* Services */,
 				7079C2782CC6657F00E23D59 /* Utilities */,
 				7079C2652CC6399800E23D59 /* Extensions */,
@@ -111,6 +175,7 @@
 		7079C25A2CC633F100E23D59 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				70E834272CC9276300FF3CCC /* Lottie Files */,
 				70E834072CC8CD0E00FF3CCC /* GoogleService-Info.plist */,
 				7079C2542CC6336E00E23D59 /* Info.plist */,
 				7079C2462CC6336D00E23D59 /* AppDelegate.swift */,
@@ -157,6 +222,7 @@
 		7079C25E2CC6389200E23D59 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				70E8341D2CC9059B00FF3CCC /* Assessment */,
 				70E834182CC8E74800FF3CCC /* Onboarding */,
 				7079C25B2CC6387F00E23D59 /* Auth */,
 				70E834132CC8DE0A00FF3CCC /* MainTabBarController.swift */,
@@ -171,6 +237,7 @@
 				7079C2662CC639AA00E23D59 /* UITextField+Ext.swift */,
 				7079C2702CC63AF800E23D59 /* UIButton+Ext.swift */,
 				70E8341B2CC8F10700FF3CCC /* UserDefaults+Ext.swift */,
+				70E834222CC9219F00FF3CCC /* Float+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -204,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				70E8340A2CC8CEA900FF3CCC /* AuthService.swift */,
+				701A4E2B2CCABEA000013A72 /* StoreService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -221,6 +289,36 @@
 				70E834192CC8E75400FF3CCC /* OnboardingViewController.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		70E8341D2CC9059B00FF3CCC /* Assessment */ = {
+			isa = PBXGroup;
+			children = (
+				70E834372CC940F200FF3CCC /* Views */,
+				701A4E1C2CCA98FA00013A72 /* Controllers */,
+				701A4E1B2CCA98C900013A72 /* ViewModels */,
+			);
+			path = Assessment;
+			sourceTree = "<group>";
+		};
+		70E834272CC9276300FF3CCC /* Lottie Files */ = {
+			isa = PBXGroup;
+			children = (
+				70E8342D2CC9300200FF3CCC /* WeightScan.json */,
+				70E834332CC93C6F00FF3CCC /* FitLevel.json */,
+			);
+			path = "Lottie Files";
+			sourceTree = "<group>";
+		};
+		70E834372CC940F200FF3CCC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				70E834382CC9410300FF3CCC /* GenderView.swift */,
+				70B446082CCA80830019B407 /* ContinueButton.swift */,
+				701A4E1E2CCA9A2400013A72 /* AssessmentTitleLabel.swift */,
+				701A4E232CCAA31500013A72 /* GoalCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,6 +341,7 @@
 				70E834052CC8CC8C00FF3CCC /* FirebaseFirestore */,
 				70E8340D2CC8CEC600FF3CCC /* FirebaseCore */,
 				70E8340F2CC8CECD00FF3CCC /* FirebaseAuth */,
+				70E834252CC9270A00FF3CCC /* Lottie */,
 			);
 			productName = NutriPlus;
 			productReference = 7079C2432CC6336D00E23D59 /* NutriPlus.app */;
@@ -274,6 +373,7 @@
 			mainGroup = 7079C23A2CC6336D00E23D59;
 			packageReferences = (
 				70E834042CC8CC8C00FF3CCC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				70E834242CC9270900FF3CCC /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = 7079C2442CC6336D00E23D59 /* Products */;
 			projectDirPath = "";
@@ -289,8 +389,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70E8342E2CC9300200FF3CCC /* WeightScan.json in Resources */,
 				7079C2502CC6336E00E23D59 /* Assets.xcassets in Resources */,
 				7079C2532CC6336E00E23D59 /* Base in Resources */,
+				70E834342CC93C6F00FF3CCC /* FitLevel.json in Resources */,
 				70E834082CC8CD0E00FF3CCC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,25 +404,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70E834302CC934DA00FF3CCC /* FitSelectionViewController.swift in Sources */,
 				7079C2472CC6336D00E23D59 /* AppDelegate.swift in Sources */,
 				7079C2672CC639AA00E23D59 /* UITextField+Ext.swift in Sources */,
 				70E834172CC8DE6000FF3CCC /* HomeViewController.swift in Sources */,
+				70B446032CCA79CE0019B407 /* GoalSelectionViewController.swift in Sources */,
 				70E834142CC8DE0A00FF3CCC /* MainTabBarController.swift in Sources */,
 				7079C2622CC6391300E23D59 /* AuthHeaderView.swift in Sources */,
 				7079C2492CC6336D00E23D59 /* SceneDelegate.swift in Sources */,
 				7079C2692CC63A2400E23D59 /* CustomButton.swift in Sources */,
+				70B446052CCA7CF20019B407 /* GoalSelectionViewModel.swift in Sources */,
 				70E8341A2CC8E75400FF3CCC /* OnboardingViewController.swift in Sources */,
+				70E834212CC90DED00FF3CCC /* WeightSelectionViewController.swift in Sources */,
+				70B446092CCA80830019B407 /* ContinueButton.swift in Sources */,
+				70E8341F2CC905B800FF3CCC /* AgeSelectionViewController.swift in Sources */,
 				7079C26B2CC63A5A00E23D59 /* CustomSignInMethodsButton.swift in Sources */,
 				7079C27A2CC6658A00E23D59 /* AuthValidator.swift in Sources */,
 				7079C27C2CC67F3F00E23D59 /* SignUpViewModel.swift in Sources */,
 				7079C2742CC63CD000E23D59 /* SignUpViewController.swift in Sources */,
 				70E834122CC8D7C500FF3CCC /* SignInViewModel.swift in Sources */,
+				701A4E2C2CCABEA000013A72 /* StoreService.swift in Sources */,
 				7079C2602CC638C300E23D59 /* SignInViewController.swift in Sources */,
 				7079C26F2CC63ADF00E23D59 /* CustomFooterButton.swift in Sources */,
 				7079C2772CC6404D00E23D59 /* ResetPasswordViewController.swift in Sources */,
+				701A4E242CCAA31500013A72 /* GoalCell.swift in Sources */,
+				701A4E262CCAB99200013A72 /* BaseAssessmentViewController.swift in Sources */,
 				7079C2642CC6398400E23D59 /* CustomTextField.swift in Sources */,
+				70E834362CC93F8D00FF3CCC /* GenderSelectionViewController.swift in Sources */,
+				701A4E1F2CCA9A2400013A72 /* AssessmentTitleLabel.swift in Sources */,
 				7079C2712CC63AF800E23D59 /* UIButton+Ext.swift in Sources */,
+				70E834232CC9219F00FF3CCC /* Float+Ext.swift in Sources */,
+				701A4E292CCAB9BE00013A72 /* AssessmentModel.swift in Sources */,
 				7079C26D2CC63ABB00E23D59 /* AuthFooterView.swift in Sources */,
+				70E834392CC9410300FF3CCC /* GenderView.swift in Sources */,
 				70E8340B2CC8CEA900FF3CCC /* AuthService.swift in Sources */,
 				70E8341C2CC8F10700FF3CCC /* UserDefaults+Ext.swift in Sources */,
 			);
@@ -557,6 +673,14 @@
 				minimumVersion = 11.4.0;
 			};
 		};
+		70E834242CC9270900FF3CCC /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -574,6 +698,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 70E834042CC8CC8C00FF3CCC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAuth;
+		};
+		70E834252CC9270A00FF3CCC /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 70E834242CC9270900FF3CCC /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
