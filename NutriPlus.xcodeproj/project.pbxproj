@@ -29,6 +29,13 @@
 		7079C2772CC6404D00E23D59 /* ResetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C2762CC6404D00E23D59 /* ResetPasswordViewController.swift */; };
 		7079C27A2CC6658A00E23D59 /* AuthValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C2792CC6658A00E23D59 /* AuthValidator.swift */; };
 		7079C27C2CC67F3F00E23D59 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C27B2CC67F3F00E23D59 /* SignUpViewModel.swift */; };
+		708764ED2CDCB6500093C5C9 /* MyMealsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708764EC2CDCB6500093C5C9 /* MyMealsViewController.swift */; };
+		708764F12CDCB7270093C5C9 /* MyMealsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708764F02CDCB7270093C5C9 /* MyMealsViewModel.swift */; };
+		708764F62CDCB7B50093C5C9 /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708764F52CDCB7B50093C5C9 /* CalendarCell.swift */; };
+		708764F82CDCB8020093C5C9 /* MealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708764F72CDCB8020093C5C9 /* MealCell.swift */; };
+		708764FA2CDCB9B40093C5C9 /* MyMealsLayoutSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708764F92CDCB9B40093C5C9 /* MyMealsLayoutSection.swift */; };
+		708764FC2CDCE47C0093C5C9 /* CalendarCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708764FB2CDCE47C0093C5C9 /* CalendarCellViewModel.swift */; };
+		708764FE2CDCE49B0093C5C9 /* MealCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708764FD2CDCE49B0093C5C9 /* MealCellViewModel.swift */; };
 		70B446032CCA79CE0019B407 /* GoalSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B446022CCA79CE0019B407 /* GoalSelectionViewController.swift */; };
 		70B446052CCA7CF20019B407 /* GoalSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B446042CCA7CF20019B407 /* GoalSelectionViewModel.swift */; };
 		70B446092CCA80830019B407 /* ContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B446082CCA80830019B407 /* ContinueButton.swift */; };
@@ -78,6 +85,13 @@
 		7079C2762CC6404D00E23D59 /* ResetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasswordViewController.swift; sourceTree = "<group>"; };
 		7079C2792CC6658A00E23D59 /* AuthValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthValidator.swift; sourceTree = "<group>"; };
 		7079C27B2CC67F3F00E23D59 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		708764EC2CDCB6500093C5C9 /* MyMealsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMealsViewController.swift; sourceTree = "<group>"; };
+		708764F02CDCB7270093C5C9 /* MyMealsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMealsViewModel.swift; sourceTree = "<group>"; };
+		708764F52CDCB7B50093C5C9 /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
+		708764F72CDCB8020093C5C9 /* MealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCell.swift; sourceTree = "<group>"; };
+		708764F92CDCB9B40093C5C9 /* MyMealsLayoutSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMealsLayoutSection.swift; sourceTree = "<group>"; };
+		708764FB2CDCE47C0093C5C9 /* CalendarCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCellViewModel.swift; sourceTree = "<group>"; };
+		708764FD2CDCE49B0093C5C9 /* MealCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCellViewModel.swift; sourceTree = "<group>"; };
 		70B446022CCA79CE0019B407 /* GoalSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSelectionViewController.swift; sourceTree = "<group>"; };
 		70B446042CCA7CF20019B407 /* GoalSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSelectionViewModel.swift; sourceTree = "<group>"; };
 		70B446082CCA80830019B407 /* ContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButton.swift; sourceTree = "<group>"; };
@@ -162,10 +176,10 @@
 		7079C2452CC6336D00E23D59 /* NutriPlus */ = {
 			isa = PBXGroup;
 			children = (
-				701A4E272CCAB9AF00013A72 /* Models */,
-				70E834092CC8CEA300FF3CCC /* Services */,
-				7079C2782CC6657F00E23D59 /* Utilities */,
 				7079C2652CC6399800E23D59 /* Extensions */,
+				7079C2782CC6657F00E23D59 /* Utilities */,
+				70E834092CC8CEA300FF3CCC /* Services */,
+				701A4E272CCAB9AF00013A72 /* Models */,
 				7079C25E2CC6389200E23D59 /* Scenes */,
 				7079C25A2CC633F100E23D59 /* Supporting */,
 			);
@@ -222,11 +236,12 @@
 		7079C25E2CC6389200E23D59 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				708764FF2CDCEDF90093C5C9 /* Home */,
+				708764EB2CDCB6240093C5C9 /* MyMeals */,
 				70E8341D2CC9059B00FF3CCC /* Assessment */,
 				70E834182CC8E74800FF3CCC /* Onboarding */,
 				7079C25B2CC6387F00E23D59 /* Auth */,
 				70E834132CC8DE0A00FF3CCC /* MainTabBarController.swift */,
-				70E834162CC8DE6000FF3CCC /* HomeViewController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -265,6 +280,52 @@
 				7079C2792CC6658A00E23D59 /* AuthValidator.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		708764EB2CDCB6240093C5C9 /* MyMeals */ = {
+			isa = PBXGroup;
+			children = (
+				708764F42CDCB79B0093C5C9 /* Views */,
+				708764F32CDCB7930093C5C9 /* ViewModels */,
+				708764F22CDCB78C0093C5C9 /* Controllers */,
+			);
+			path = MyMeals;
+			sourceTree = "<group>";
+		};
+		708764F22CDCB78C0093C5C9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				708764EC2CDCB6500093C5C9 /* MyMealsViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		708764F32CDCB7930093C5C9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				708764F02CDCB7270093C5C9 /* MyMealsViewModel.swift */,
+				708764FB2CDCE47C0093C5C9 /* CalendarCellViewModel.swift */,
+				708764FD2CDCE49B0093C5C9 /* MealCellViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		708764F42CDCB79B0093C5C9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				708764F52CDCB7B50093C5C9 /* CalendarCell.swift */,
+				708764F72CDCB8020093C5C9 /* MealCell.swift */,
+				708764F92CDCB9B40093C5C9 /* MyMealsLayoutSection.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		708764FF2CDCEDF90093C5C9 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				70E834162CC8DE6000FF3CCC /* HomeViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		70E834092CC8CEA300FF3CCC /* Services */ = {
@@ -404,6 +465,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				708764F82CDCB8020093C5C9 /* MealCell.swift in Sources */,
 				70E834302CC934DA00FF3CCC /* FitSelectionViewController.swift in Sources */,
 				7079C2472CC6336D00E23D59 /* AppDelegate.swift in Sources */,
 				7079C2672CC639AA00E23D59 /* UITextField+Ext.swift in Sources */,
@@ -411,12 +473,14 @@
 				70B446032CCA79CE0019B407 /* GoalSelectionViewController.swift in Sources */,
 				70E834142CC8DE0A00FF3CCC /* MainTabBarController.swift in Sources */,
 				7079C2622CC6391300E23D59 /* AuthHeaderView.swift in Sources */,
+				708764FE2CDCE49B0093C5C9 /* MealCellViewModel.swift in Sources */,
 				7079C2492CC6336D00E23D59 /* SceneDelegate.swift in Sources */,
 				7079C2692CC63A2400E23D59 /* CustomButton.swift in Sources */,
 				70B446052CCA7CF20019B407 /* GoalSelectionViewModel.swift in Sources */,
 				70E8341A2CC8E75400FF3CCC /* OnboardingViewController.swift in Sources */,
 				70E834212CC90DED00FF3CCC /* WeightSelectionViewController.swift in Sources */,
 				70B446092CCA80830019B407 /* ContinueButton.swift in Sources */,
+				708764ED2CDCB6500093C5C9 /* MyMealsViewController.swift in Sources */,
 				70E8341F2CC905B800FF3CCC /* AgeSelectionViewController.swift in Sources */,
 				7079C26B2CC63A5A00E23D59 /* CustomSignInMethodsButton.swift in Sources */,
 				7079C27A2CC6658A00E23D59 /* AuthValidator.swift in Sources */,
@@ -429,15 +493,19 @@
 				7079C2772CC6404D00E23D59 /* ResetPasswordViewController.swift in Sources */,
 				701A4E242CCAA31500013A72 /* GoalCell.swift in Sources */,
 				701A4E262CCAB99200013A72 /* BaseAssessmentViewController.swift in Sources */,
+				708764F12CDCB7270093C5C9 /* MyMealsViewModel.swift in Sources */,
 				7079C2642CC6398400E23D59 /* CustomTextField.swift in Sources */,
 				70E834362CC93F8D00FF3CCC /* GenderSelectionViewController.swift in Sources */,
+				708764FA2CDCB9B40093C5C9 /* MyMealsLayoutSection.swift in Sources */,
 				701A4E1F2CCA9A2400013A72 /* AssessmentTitleLabel.swift in Sources */,
 				7079C2712CC63AF800E23D59 /* UIButton+Ext.swift in Sources */,
 				70E834232CC9219F00FF3CCC /* Float+Ext.swift in Sources */,
 				701A4E292CCAB9BE00013A72 /* AssessmentModel.swift in Sources */,
 				7079C26D2CC63ABB00E23D59 /* AuthFooterView.swift in Sources */,
 				70E834392CC9410300FF3CCC /* GenderView.swift in Sources */,
+				708764FC2CDCE47C0093C5C9 /* CalendarCellViewModel.swift in Sources */,
 				70E8340B2CC8CEA900FF3CCC /* AuthService.swift in Sources */,
+				708764F62CDCB7B50093C5C9 /* CalendarCell.swift in Sources */,
 				70E8341C2CC8F10700FF3CCC /* UserDefaults+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
