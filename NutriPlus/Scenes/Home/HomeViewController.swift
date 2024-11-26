@@ -46,19 +46,11 @@ final class HomeViewController: UIViewController {
     }
     
     @objc private func signOutButtonTapped() {
-        authService.signOut { [weak self] error in
+        authService.signOut { error in
             if let error = error {
                 print(error)
                 return
             }
-            
-            self?.checkAuthViaSceneDelegate()
-        }
-    }
-    
-    func checkAuthViaSceneDelegate() {
-        if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
-            sceneDelegate.checkAuthentication()
         }
     }
 }

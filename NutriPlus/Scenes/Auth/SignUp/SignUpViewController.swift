@@ -12,7 +12,6 @@ protocol SignUpViewControllerProtocol: AnyObject {
     func setupFields()
     func setupButtons()
     func showSignInErrorAlert(message: String)
-    func checkAuthenticationViaSceneDelegate()
 }
 
 final class SignUpViewController: UIViewController {
@@ -119,12 +118,6 @@ final class SignUpViewController: UIViewController {
 }
 
 extension SignUpViewController: SignUpViewControllerProtocol {
-    func checkAuthenticationViaSceneDelegate() {
-        if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
-            sceneDelegate.checkAuthentication()
-        }
-    }
-    
     func showSignInErrorAlert(message: String) {
         let alert = UIAlertController(title: "Sign In Failed", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default))

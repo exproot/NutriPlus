@@ -12,6 +12,7 @@
 		701A4E262CCAB99200013A72 /* BaseAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701A4E252CCAB99200013A72 /* BaseAssessmentViewController.swift */; };
 		701A4E292CCAB9BE00013A72 /* AssessmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701A4E282CCAB9BE00013A72 /* AssessmentModel.swift */; };
 		701A4E2C2CCABEA000013A72 /* StoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701A4E2B2CCABEA000013A72 /* StoreService.swift */; };
+		706E5B8B2CE545CB00CFEAF4 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E5B8A2CE545CB00CFEAF4 /* UIViewController+Ext.swift */; };
 		7079C2472CC6336D00E23D59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C2462CC6336D00E23D59 /* AppDelegate.swift */; };
 		7079C2492CC6336D00E23D59 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C2482CC6336D00E23D59 /* SceneDelegate.swift */; };
 		7079C2502CC6336E00E23D59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7079C24F2CC6336E00E23D59 /* Assets.xcassets */; };
@@ -66,6 +67,7 @@
 		701A4E252CCAB99200013A72 /* BaseAssessmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAssessmentViewController.swift; sourceTree = "<group>"; };
 		701A4E282CCAB9BE00013A72 /* AssessmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentModel.swift; sourceTree = "<group>"; };
 		701A4E2B2CCABEA000013A72 /* StoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreService.swift; sourceTree = "<group>"; };
+		706E5B8A2CE545CB00CFEAF4 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		7079C2432CC6336D00E23D59 /* NutriPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7079C2462CC6336D00E23D59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7079C2482CC6336D00E23D59 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 				7079C2702CC63AF800E23D59 /* UIButton+Ext.swift */,
 				70E8341B2CC8F10700FF3CCC /* UserDefaults+Ext.swift */,
 				70E834222CC9219F00FF3CCC /* Float+Ext.swift */,
+				706E5B8A2CE545CB00CFEAF4 /* UIViewController+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				708764F82CDCB8020093C5C9 /* MealCell.swift in Sources */,
+				706E5B8B2CE545CB00CFEAF4 /* UIViewController+Ext.swift in Sources */,
 				70E834302CC934DA00FF3CCC /* FitSelectionViewController.swift in Sources */,
 				7079C2472CC6336D00E23D59 /* AppDelegate.swift in Sources */,
 				7079C2672CC639AA00E23D59 /* UITextField+Ext.swift in Sources */,

@@ -40,7 +40,7 @@ final class MyMealsViewModel {
     }
     
     func prepareTestMeals(for day: String?) {
-        if day == "07" {
+        if day == "25" {
             testMealItems = [
                 .meal(MealCellViewModel()),
                 .meal(MealCellViewModel()),

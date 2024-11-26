@@ -128,8 +128,6 @@ final class OnboardingViewController: UIViewController {
     @objc private func continueButtonTapped() {
         UserDefaults.standard.set(true, forKey: "openedApp")
         
-        if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
-            sceneDelegate.checkAuthentication()
-        }
+        self.checkAuthViaSceneDelegate()
     }
 }

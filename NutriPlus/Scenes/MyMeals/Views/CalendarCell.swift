@@ -10,20 +10,20 @@ import UIKit
 final class CalendarCell: UICollectionViewCell {
     static let identifier = String(describing: CalendarCell.self)
     
-    override var isSelected: Bool {
-        didSet {
-            switch isSelected {
-            case true:
-                backgroundColor = .systemOrange
-                monthLabel.textColor = .systemBackground
-                dayNumberLabel.textColor = .systemBackground
-            case false:
-                backgroundColor = .lightGray.withAlphaComponent(0.1)
-                monthLabel.textColor = .label
-                dayNumberLabel.textColor = .secondaryLabel
-            }
-        }
-    }
+//    override var isSelected: Bool {
+////        didSet {
+////            switch isSelected {
+////            case true:
+////                backgroundColor = .systemOrange
+////                monthLabel.textColor = .systemBackground
+////                dayNumberLabel.textColor = .systemBackground
+////            case false:
+////                backgroundColor = .lightGray.withAlphaComponent(0.1)
+////                monthLabel.textColor = .label
+////                dayNumberLabel.textColor = .secondaryLabel
+////            }
+////        }
+//    }
     
     // MARK: - UI Components
     lazy var monthLabel: UILabel = {
@@ -62,8 +62,17 @@ final class CalendarCell: UICollectionViewCell {
     
     // MARK: - UI Setup
     private func setupUI() {
-        layer.cornerRadius = 10
-        backgroundColor = .lightGray.withAlphaComponent(0.1)
+        let grayView = UIView(frame: bounds)
+        grayView.backgroundColor = .lightGray.withAlphaComponent(0.1)
+        grayView.layer.cornerRadius = 10
+        self.backgroundView = grayView
+        
+        
+        let orangeView = UIView(frame: bounds)
+        orangeView.backgroundColor = .systemOrange
+        orangeView.layer.cornerRadius = 10
+        self.selectedBackgroundView = orangeView
+        
         
         addSubview(monthLabel)
         addSubview(dayNumberLabel)

@@ -69,9 +69,7 @@ final class GoalSelectionViewController: BaseAssessmentViewController {
         if let currentUser = Auth.auth().currentUser {
             StoreService.shared.setAssessment(for: currentUser.uid)
             
-            if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
-                sceneDelegate.checkAuthentication()
-            }
+            self.checkAuthViaSceneDelegate()
         }
     }
 }

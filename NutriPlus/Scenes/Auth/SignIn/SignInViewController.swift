@@ -10,7 +10,6 @@ import UIKit
 protocol SignInViewControllerProtocol: AnyObject {
     func setupButtons()
     func showSignInErrorAlert(message: String)
-    func checkAuthenticationViaSceneDelegate()
 }
 
 final class SignInViewController: UIViewController {
@@ -111,12 +110,6 @@ final class SignInViewController: UIViewController {
 }
 
 extension SignInViewController: SignInViewControllerProtocol {
-    func checkAuthenticationViaSceneDelegate() {
-        if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
-            sceneDelegate.checkAuthentication()
-        }
-    }
-    
     func showSignInErrorAlert(message: String) {
         let alert = UIAlertController(title: "Sign In Failed", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ok", style: .default))

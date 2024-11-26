@@ -40,7 +40,6 @@ final class StoreService {
             } else {
                 completion(nil)
             }
-            
         }
     }
     

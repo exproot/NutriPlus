@@ -28,7 +28,7 @@ extension SignInViewModel: SignInViewModelProtocol {
         authService.signIn(with: email, and: password) { [weak self] result in
             switch result {
             case .success(_):
-                self?.view?.checkAuthenticationViaSceneDelegate()
+                print("User signed in succesfully.")
             case .failure(let error):
                 self?.view?.showSignInErrorAlert(message: error.localizedDescription)
             }

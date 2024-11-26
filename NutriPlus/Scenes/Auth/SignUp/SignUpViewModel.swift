@@ -115,7 +115,6 @@ extension SignUpViewModel: SignUpViewModelProtocol {
                         print(error)
                     }
                 }
-                self?.view?.checkAuthenticationViaSceneDelegate()
             case .failure(let error):
                 self?.view?.showSignInErrorAlert(message: error.localizedDescription)
             }

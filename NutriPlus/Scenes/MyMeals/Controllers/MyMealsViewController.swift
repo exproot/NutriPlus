@@ -25,8 +25,8 @@ final class MyMealsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
-        setupUI()
         viewModel.viewDidLoad()
+        setupUI()
         configureDataSource()
     }
     
@@ -48,6 +48,7 @@ final class MyMealsViewController: UIViewController {
             case .calendar(let model):
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCell.identifier, for: indexPath) as? CalendarCell else { fatalError() }
                 cell.configure(day: model.day, month: model.month)
+                
                 return cell
             case .meal(let model):
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MealCell.identifier, for: indexPath) as? MealCell else { fatalError() }
@@ -100,9 +101,5 @@ extension MyMealsViewController: UICollectionViewDelegate {
         default:
             return
         }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        viewModel.selectedDateIndex = indexPath.item
     }
 }
