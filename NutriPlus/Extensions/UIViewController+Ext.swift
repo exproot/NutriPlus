@@ -8,10 +8,10 @@
 import UIKit
 
 extension UIViewController {
-    /// Call the Authentication Listener on the SceneDelegate.
-    func checkAuthViaSceneDelegate() {
-        if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
-            sceneDelegate.checkAuthentication()
-        }
+  /// Call the Authentication Listener on the SceneDelegate.
+  func checkAuthViaSceneDelegate() {
+    if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
+      sceneDelegate.checkAuthentication()
     }
+  }
 }

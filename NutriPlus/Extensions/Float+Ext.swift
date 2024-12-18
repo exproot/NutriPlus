@@ -8,11 +8,11 @@
 import Foundation
 
 extension Float {
-    func convertToLbs() -> Float {
-        self * 2.20462
-    }
-    
-    func convertToKg() -> Float {
-        self * 0.453592
-    }
+  func convertToLbs() -> Float {
+    self * 2.20462
+  }
+  
+  func convertToKg() -> Float {
+    self * 0.453592
+  }
 }

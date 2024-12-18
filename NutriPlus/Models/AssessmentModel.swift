@@ -8,9 +8,9 @@
 import Foundation
 
 struct AssessmentModel {
-    var age: Int?
-    var weight: Int?
-    var fitLevel: Int?
-    var gender: Bool?
-    var goal: String?
+  var age: Int?
+  var weight: Int?
+  var fitLevel: Int?
+  var gender: Bool?
+  var goal: String?
 }
