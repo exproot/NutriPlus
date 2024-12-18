@@ -10,21 +10,6 @@ import UIKit
 final class CalendarCell: UICollectionViewCell {
   static let identifier = String(describing: CalendarCell.self)
 
-  //    override var isSelected: Bool {
-  ////        didSet {
-  ////            switch isSelected {
-  ////            case true:
-  ////                backgroundColor = .systemOrange
-  ////                monthLabel.textColor = .systemBackground
-  ////                dayNumberLabel.textColor = .systemBackground
-  ////            case false:
-  ////                backgroundColor = .lightGray.withAlphaComponent(0.1)
-  ////                monthLabel.textColor = .label
-  ////                dayNumberLabel.textColor = .secondaryLabel
-  ////            }
-  ////        }
-  //    }
-
   // MARK: - UI Components
   lazy var monthLabel: UILabel = {
     let lbl = UILabel()

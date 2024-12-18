@@ -67,7 +67,7 @@ final class MyMealsViewController: UIViewController {
   // MARK: - UI Setup
   private func setupUI() {
     title = "My Meals"
-    navigationController?.navigationBar.prefersLargeTitles = true
+    navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus")?.withTintColor(.label, renderingMode: .alwaysOriginal), style: .done, target: self, action: #selector(handleAddButton))
     view.backgroundColor = .systemBackground
     view.addSubview(collectionView)
 
@@ -78,8 +78,24 @@ final class MyMealsViewController: UIViewController {
       collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
     ])
   }
+
+  // MARK: - Selectors
+  @objc private func handleAddButton() {
+    let addMealController = AddNewMealViewController()
+    addMealController.delegate = self
+    hidesBottomBarWhenPushed = true
+    navigationController?.pushViewController(addMealController, animated: true)
+  }
 }
 
+// MARK: - AddNewMealControllerDelegate
+extension MyMealsViewController: AddNewMealControllerDelegate {
+  func addNewMealController(didAddManually meal: String) {
+    hidesBottomBarWhenPushed = false
+  }
+}
+
+// MARK: - UICollectionViewDelegate
 extension MyMealsViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     guard let cell = collectionView.cellForItem(at: indexPath) as? CalendarCell else { return }
