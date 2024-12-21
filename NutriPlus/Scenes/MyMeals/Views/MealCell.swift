@@ -54,7 +54,7 @@ final class MealCell: UICollectionViewCell {
   }
 
   private func configureProgressViews(protein: Float, carbs: Float, fat: Float) {
-    var totalGrams =  protein + carbs + fat
+    let totalGrams =  protein + carbs + fat
 
     proteinView.amountLabel.text = "\(Int(protein))g"
     carbsView.amountLabel.text = "\(Int(carbs))g"
@@ -79,7 +79,7 @@ final class MealCell: UICollectionViewCell {
       iconImageView.topAnchor.constraint(equalTo: self.layoutMarginsGuide.topAnchor, constant: 4),
       iconImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
       iconImageView.widthAnchor.constraint(equalToConstant: 40),
-      iconImageView.heightAnchor.constraint(equalToConstant: 40),
+      iconImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.2),
 
       kcalLabel.centerYAnchor.constraint(equalTo: iconImageView.centerYAnchor),
       kcalLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
@@ -88,9 +88,9 @@ final class MealCell: UICollectionViewCell {
       mealLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 8),
 
       nutrientStackView.topAnchor.constraint(equalTo: iconImageView.bottomAnchor, constant: 4),
-      nutrientStackView.leadingAnchor.constraint(equalTo: iconImageView.leadingAnchor),
-      nutrientStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
-      nutrientStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8)
+      nutrientStackView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.85),
+      nutrientStackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+      nutrientStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
     ])
   }
 }

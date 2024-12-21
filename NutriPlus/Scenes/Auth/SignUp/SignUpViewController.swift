@@ -14,18 +14,16 @@ protocol SignUpViewControllerProtocol: AnyObject {
   func showSignInErrorAlert(message: String)
 }
 
-final class SignUpViewController: UIViewController {
+final class SignUpViewController: KeyboardHandlingViewController {
   lazy var viewModel = SignUpViewModel(authService: AuthService())
   var cancellables: Set<AnyCancellable> = []
   var lockImageCancellable: AnyCancellable?
 
   // MARK: - UI Components
-  private var headerView = AuthHeaderView(title: "Hesap Oluştur", subTitle: "Ücretsiz olarak hesabını oluştur.", frame: .zero)
-  private let emailTextField = CustomTextField(type: .mail, frame: .zero)
-  private let passwordTextField = CustomTextField(type: .password, frame: .zero)
-  private let confirmationTextField = CustomTextField(type: .confirmation, frame: .zero)
-  private let signUpButton = CustomButton(title: "Sign Up", frame: .zero)
-  private let footerView = AuthFooterView(type: .signUp, frame: .zero)
+  private lazy var headerView = AuthHeaderView(title: "Hesap Oluştur", subTitle: "Ücretsiz olarak hesabını oluştur.", frame: .zero)
+  private lazy var signUpButton = CustomButton(title: "Sign Up", frame: .zero)
+  private lazy var authInputView = AuthInputView(type: .signUp)
+  private lazy var footerView = AuthFooterView(type: .signUp, frame: .zero)
 
   // MARK: - View Lifecycle
   override func viewDidLoad() {
@@ -34,9 +32,14 @@ final class SignUpViewController: UIViewController {
     viewModel.view = self
     viewModel.viewDidLoad()
 
+    guard let confirmationField = authInputView.passwordConfirmationTextField else { return }
+    authInputView.emailTextField.delegate = self
+    authInputView.passwordTextField.delegate = self
+    confirmationField.delegate = self
+
     lockImageCancellable =  viewModel.$confirmImageString
-      .sink { [weak self] imageString in
-        self?.confirmationTextField.addIconWithPadding(imageString, padding: 20, isLeftView: true, isConfirmation: true)
+      .sink { imageString in
+        confirmationField.addIconWithPadding(imageString, padding: 20, isLeftView: true, isConfirmation: true)
       }
 
     viewModel.$signUpButtonEnabled
@@ -54,9 +57,7 @@ final class SignUpViewController: UIViewController {
   private func setupUI() {
     view.backgroundColor = .systemBackground
     view.addSubview(headerView)
-    view.addSubview(emailTextField)
-    view.addSubview(passwordTextField)
-    view.addSubview(confirmationTextField)
+    view.addSubview(authInputView)
     view.addSubview(signUpButton)
     view.addSubview(footerView)
 
@@ -64,52 +65,43 @@ final class SignUpViewController: UIViewController {
       headerView.topAnchor.constraint(equalTo: view.topAnchor),
       headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      headerView.heightAnchor.constraint(equalToConstant: 250),
+      headerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.33),
 
-      emailTextField.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 40),
-      emailTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      emailTextField.heightAnchor.constraint(equalToConstant: 50),
-      emailTextField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
+      authInputView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 20),
+      authInputView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      authInputView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
+      authInputView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.37),
 
-      passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 40),
-      passwordTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      passwordTextField.heightAnchor.constraint(equalToConstant: 50),
-      passwordTextField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
-
-      confirmationTextField.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 40),
-      confirmationTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      confirmationTextField.heightAnchor.constraint(equalToConstant: 50),
-      confirmationTextField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
-
-      signUpButton.topAnchor.constraint(equalTo: confirmationTextField.bottomAnchor, constant: 20),
+      signUpButton.topAnchor.constraint(equalTo: authInputView.bottomAnchor, constant: 20),
       signUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      signUpButton.heightAnchor.constraint(equalToConstant: 50),
+      signUpButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.07),
       signUpButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
 
       footerView.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: 20),
       footerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      footerView.heightAnchor.constraint(equalToConstant: 100),
+      footerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.12),
       footerView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9)
     ])
   }
 
   // MARK: - Selectors
   @objc private func signUpButtonTapped() {
-    if let email = emailTextField.text, let password = passwordTextField.text {
+    if let email = authInputView.emailTextField.text, let password = authInputView.passwordTextField.text {
       viewModel.signUpUser(with: email, and: password)
     }
   }
 
   @objc private func emailFieldDidChange() {
-    viewModel.email = emailTextField.text ?? ""
+    viewModel.email = authInputView.emailTextField.text ?? ""
   }
 
   @objc private func passwordFieldDidChange() {
-    viewModel.password = passwordTextField.text ?? ""
+    viewModel.password = authInputView.passwordTextField.text ?? ""
   }
 
   @objc private func confirmationFieldDidChange() {
-    viewModel.confirmPass = confirmationTextField.text ?? ""
+    guard let confirmationField = authInputView.passwordConfirmationTextField else { return }
+    viewModel.confirmPass = confirmationField.text ?? ""
   }
 
   @objc private func signInPressed() {
@@ -130,8 +122,9 @@ extension SignUpViewController: SignUpViewControllerProtocol {
   }
 
   func setupFields() {
-    emailTextField.addTarget(self, action: #selector(emailFieldDidChange), for: .editingChanged)
-    passwordTextField.addTarget(self, action: #selector(passwordFieldDidChange), for: .editingChanged)
-    confirmationTextField.addTarget(self, action: #selector(confirmationFieldDidChange), for: .editingChanged)
+    guard let confirmationField = authInputView.passwordConfirmationTextField else { return }
+    authInputView.emailTextField.addTarget(self, action: #selector(emailFieldDidChange), for: .editingChanged)
+    authInputView.passwordTextField.addTarget(self, action: #selector(passwordFieldDidChange), for: .editingChanged)
+    confirmationField.addTarget(self, action: #selector(confirmationFieldDidChange), for: .editingChanged)
   }
 }

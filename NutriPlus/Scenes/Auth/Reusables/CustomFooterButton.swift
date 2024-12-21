@@ -8,18 +8,21 @@
 import UIKit
 
 final class CustomFooterButton: UIButton {
-  init(title: String, frame: CGRect) {
-    super.init(frame: frame)
-    setupUI(with: title)
+  init() {
+    super.init(frame: .zero)
+    setupUI()
   }
 
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
-  // MARK: - UI Setup
-  private func setupUI(with title: String) {
-    translatesAutoresizingMaskIntoConstraints = false
+
+  func configure(title: String) {
     addUnderlinedTitle(title: title)
+  }
+
+  // MARK: - UI Setup
+  private func setupUI() {
+    translatesAutoresizingMaskIntoConstraints = false
   }
 }

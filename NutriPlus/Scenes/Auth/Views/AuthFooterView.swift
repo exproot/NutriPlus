@@ -7,22 +7,16 @@
 
 import UIKit
 
+enum AuthType {
+  case signIn, signUp
+}
+
 final class AuthFooterView: UIView {
-  enum AuthType {
-    case signIn, signUp
-  }
-  
   // MARK: - UI Components
-  private lazy var footerLabel: UILabel = {
-    let lbl = UILabel()
-    lbl.font = .systemFont(ofSize: 14, weight: .regular)
-    lbl.textColor = .label
-    lbl.translatesAutoresizingMaskIntoConstraints = false
-    return lbl
-  }()
-  
-  var footerButton: CustomFooterButton!
-  
+  private lazy var footerLabel = CustomLabel(text: "", fontSize: 14, fontWeight: .regular, textColor: .label)
+
+  lazy var footerButton = CustomFooterButton()
+
   private lazy var footerStack: UIStackView = {
     let sv = UIStackView()
     sv.axis = .horizontal
@@ -32,47 +26,51 @@ final class AuthFooterView: UIView {
     sv.translatesAutoresizingMaskIntoConstraints = false
     return sv
   }()
-  
-  let forgotPassButton = CustomFooterButton(title: "Forgot Password", frame: .zero)
-  
+
+  var forgotPassButton: CustomFooterButton?
+
   init(type: AuthType, frame: CGRect) {
     super.init(frame: frame)
     setupUI(with: type)
   }
-  
+
   required init?(coder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
+
   // MARK: - UI Setup
   private func setupUI(with type: AuthType) {
     switch type {
     case .signIn:
       footerLabel.text = "Don't have an account?"
-      footerButton = CustomFooterButton(title: "Sign Up.", frame: .zero)
-      addSubview(forgotPassButton)
-      
-      NSLayoutConstraint.activate([
-        forgotPassButton.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 5),
-        forgotPassButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-        forgotPassButton.heightAnchor.constraint(equalToConstant: 50)
-      ])
+      footerButton.configure(title: "Sign Up")
+      forgotPassButton = CustomFooterButton()
+      forgotPassButton?.configure(title: "Forgot Password")
     case .signUp:
       footerLabel.text = "Already have an account?"
-      footerButton = CustomFooterButton(title: "Sign In.", frame: .zero)
+      footerButton.configure(title: "Sign In")
     }
-    
+
     translatesAutoresizingMaskIntoConstraints = false
-    
     footerStack.addArrangedSubview(footerLabel)
     footerStack.addArrangedSubview(footerButton)
     addSubview(footerStack)
-    
-    NSLayoutConstraint.activate([
-      footerStack.topAnchor.constraint(equalTo: self.topAnchor),
-      footerStack.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-      footerStack.heightAnchor.constraint(equalToConstant: 80),
-      
-    ])
+
+    footerStack.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+    footerStack.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
+
+    if let forgotPassButton {
+      addSubview(forgotPassButton)
+
+      NSLayoutConstraint.activate([
+        footerStack.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.7),
+
+        forgotPassButton.topAnchor.constraint(equalTo: footerStack.bottomAnchor),
+        forgotPassButton.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+        forgotPassButton.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+      ])
+    } else {
+      footerStack.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
+    }
   }
 }

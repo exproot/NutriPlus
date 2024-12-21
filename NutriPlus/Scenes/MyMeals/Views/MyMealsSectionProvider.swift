@@ -25,7 +25,7 @@ struct MyMealsSectionProvider {
       let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1)))
       item.contentInsets = .init(top: 10, leading: 15, bottom: 10, trailing: 15)
 
-      let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.32)), subitems: [item])
+      let group = NSCollectionLayoutGroup.vertical(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(0.35)), subitems: [item])
 
       let section = NSCollectionLayoutSection(group: group)
       section.contentInsets.top = 16

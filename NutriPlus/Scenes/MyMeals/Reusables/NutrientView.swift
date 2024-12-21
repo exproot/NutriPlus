@@ -46,10 +46,10 @@ final class NutrientView: UIView {
     addSubview(progressView)
 
     NSLayoutConstraint.activate([
-      imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
+      imageView.topAnchor.constraint(equalTo: self.topAnchor),
       imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
       imageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.1),
-      imageView.heightAnchor.constraint(equalToConstant: 50),
+      imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor),
 
       titleLabel.topAnchor.constraint(equalTo: self.topAnchor),
       titleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 12),

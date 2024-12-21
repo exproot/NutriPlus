@@ -92,7 +92,7 @@ final class WeightSelectionViewController: BaseAssessmentViewController {
     NSLayoutConstraint.activate([
       weightScanAnimationView.topAnchor.constraint(equalTo: weightSlider.bottomAnchor, constant: 40),
       weightScanAnimationView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      weightScanAnimationView.heightAnchor.constraint(equalToConstant: 250),
+      weightScanAnimationView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25),
       weightScanAnimationView.widthAnchor.constraint(equalToConstant: 150)
     ])
   }
@@ -130,8 +130,8 @@ final class WeightSelectionViewController: BaseAssessmentViewController {
       weightLabel.topAnchor.constraint(equalTo: unitSelector.bottomAnchor, constant: 40),
       weightLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       
+      weightSlider.topAnchor.constraint(equalTo: weightLabel.bottomAnchor, constant: 20),
       weightSlider.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      weightSlider.centerYAnchor.constraint(equalTo: view.centerYAnchor),
       weightSlider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
       weightSlider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
       

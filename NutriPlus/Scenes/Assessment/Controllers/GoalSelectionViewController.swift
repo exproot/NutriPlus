@@ -51,8 +51,8 @@ final class GoalSelectionViewController: BaseAssessmentViewController {
       titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       
       tableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
-      tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-      tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+      tableView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
+      tableView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       tableView.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -40),
       
       continueButton.heightAnchor.constraint(equalToConstant: 50),
@@ -92,7 +92,11 @@ extension GoalSelectionViewController: UITableViewDelegate, UITableViewDataSourc
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    65
+    if let screen = view.window?.windowScene?.screen {
+      return (screen.bounds.height - 100) / 12
+    }
+
+    return 65
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

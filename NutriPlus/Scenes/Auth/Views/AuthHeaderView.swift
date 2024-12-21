@@ -96,7 +96,7 @@ final class AuthHeaderView: UIView {
       imageView.topAnchor.constraint(equalTo: topAnchor),
       imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
       imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-      imageView.heightAnchor.constraint(equalToConstant: 250),
+      imageView.bottomAnchor.constraint(equalTo: bottomAnchor),
       
       iconImageView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
       iconImageView.centerYAnchor.constraint(equalTo: self.centerYAnchor),

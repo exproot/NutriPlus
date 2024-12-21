@@ -41,7 +41,7 @@ extension MyMealsViewController {
   func updateMealSection() {
     var snapshot = dataSource.snapshot()
 
-    if let mealsSectionIndex = snapshot.indexOfSection(.meals) {
+    if snapshot.indexOfSection(.meals) != nil {
       snapshot.deleteItems(snapshot.itemIdentifiers(inSection: .meals))
       snapshot.appendItems(viewModel.mealItems, toSection: .meals)
     }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class AddNewMealViewController: UIViewController {
+final class AddNewMealViewController: KeyboardHandlingViewController {
   lazy var viewModel = AddNewMealViewModel()
   weak var delegate: AddNewMealControllerDelegate?
 
@@ -19,7 +19,8 @@ final class AddNewMealViewController: UIViewController {
     let textField = UITextField()
     textField.placeholder = "Enter your meal's name..."
     textField.font = .systemFont(ofSize: 16, weight: .bold)
-    textField.layer.cornerRadius = 12
+    textField.layer.cornerRadius = 10
+    textField.layer.masksToBounds = true
     textField.textAlignment = .center
     textField.backgroundColor = .systemGray5
     textField.translatesAutoresizingMaskIntoConstraints = false
@@ -55,6 +56,7 @@ final class AddNewMealViewController: UIViewController {
     headerView.delegate = self
     collectionView.dataSource = self
     collectionView.delegate = self
+    mealNameTextField.delegate = self
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -102,7 +104,7 @@ extension AddNewMealViewController {
       mealNameTextField.topAnchor.constraint(equalTo: mealTitleLabel.bottomAnchor, constant: 16),
       mealNameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
       mealNameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
-      mealNameTextField.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.05),
+      mealNameTextField.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.07),
 
       mealTypeLabel.topAnchor.constraint(equalTo: mealNameTextField.bottomAnchor, constant: 16),
       mealTypeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),

@@ -50,7 +50,7 @@ final class AgeSelectionViewController: BaseAssessmentViewController {
       agePickerView.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -20),
       agePickerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
       
-      continueButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+      continueButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
       continueButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
       continueButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
       continueButton.heightAnchor.constraint(equalToConstant: 50)

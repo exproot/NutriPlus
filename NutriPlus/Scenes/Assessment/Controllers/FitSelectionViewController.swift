@@ -73,7 +73,7 @@ final class FitSelectionViewController: BaseAssessmentViewController {
     NSLayoutConstraint.activate([
       fitSelectionAnimationView.topAnchor.constraint(equalTo: slider.bottomAnchor, constant: 40),
       fitSelectionAnimationView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      fitSelectionAnimationView.heightAnchor.constraint(equalToConstant: 250),
+      fitSelectionAnimationView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.23),
       fitSelectionAnimationView.widthAnchor.constraint(equalToConstant: 150),
     ])
   }
@@ -120,8 +120,8 @@ final class FitSelectionViewController: BaseAssessmentViewController {
       slider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
       
       continueButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-      continueButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      continueButton.widthAnchor.constraint(equalToConstant: 200),
+      continueButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+      continueButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
       continueButton.heightAnchor.constraint(equalToConstant: 50)
     ])
   }
