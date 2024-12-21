@@ -36,13 +36,14 @@ final class CalendarCell: UICollectionViewCell {
     fatalError("init(coder:) has not been implemented")
   }
 
-  func configure(day: String, month: String) {
-    if let month = Int(month) {
+  func configure(dateString: String) {
+    let yearMonthAndDay = dateString.components(separatedBy: "-")
+    if let month = Int(yearMonthAndDay[1]) {
       monthLabel.text = DateFormatter()
         .shortMonthSymbols[month - 1]
     }
 
-    dayNumberLabel.text = day
+    dayNumberLabel.text = yearMonthAndDay[2]
   }
 
   // MARK: - UI Setup
@@ -57,7 +58,6 @@ final class CalendarCell: UICollectionViewCell {
     orangeView.backgroundColor = .systemOrange
     orangeView.layer.cornerRadius = 10
     self.selectedBackgroundView = orangeView
-
 
     addSubview(monthLabel)
     addSubview(dayNumberLabel)

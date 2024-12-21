@@ -110,7 +110,7 @@ extension SignUpViewModel: SignUpViewModelProtocol {
     authService.createUser(with: email, and: password) { [weak self] result in
       switch result {
       case .success(let user):
-        StoreService.shared.saveUserToFirestore(with: user.uid) { error in
+        FireStoreService.shared.saveUserToFirestore(with: user.uid) { error in
           if let error = error {
             print(error)
           }

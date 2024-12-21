@@ -18,7 +18,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
     // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
     setupWindow(with: scene)
-    UserDefaults.resetDefaults()
 
     if (UserDefaults.standard.value(forKey: "openedApp") as? Bool) == nil {
       navigateToController(OnboardingViewController())
@@ -37,24 +36,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
   func checkAuthentication() {
     handle = Auth.auth().addStateDidChangeListener({ [weak self] auth, user in
       if user != nil {
-        StoreService.shared.checkFirstLogin(for: user!.uid) { result in
+        FireStoreService.shared.checkFirstLogin(for: user!.uid) { result in
           guard let result = result else { fatalError() }
-
+          
           self?.navigateToController(result ? MainTabBarController() : AgeSelectionViewController(model: AssessmentModel()))
         }
       } else {
         self?.navigateToController(SignInViewController())
       }
     })
-    //        if let currentUser = Auth.auth().currentUser {
-    //            StoreService.shared.checkFirstLogin(for: currentUser.uid) { [weak self] result in
-    //                guard let result = result else { fatalError() }
-    //
-    //                self?.navigateToController(result ? MainTabBarController() : AgeSelectionViewController(model: AssessmentModel()))
-    //            }
-    //        } else {
-    //            navigateToController(SignInViewController())
-    //        }
   }
 
   func navigateToController(_ controller: UIViewController) {

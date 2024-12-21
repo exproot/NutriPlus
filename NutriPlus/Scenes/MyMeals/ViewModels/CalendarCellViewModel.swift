@@ -9,15 +9,13 @@ import Foundation
 
 struct CalendarCellViewModel: Hashable {
   var uid = UUID().uuidString
-  let day: String
-  let month: String
+  let dateString: String
 
   func hash(into hasher: inout Hasher) {
     hasher.combine(uid)
   }
 
-  init(with dayAndMonth: (day: String, month: String)) {
-    self.day = dayAndMonth.day
-    self.month = dayAndMonth.month
+  init(dateString: String) {
+    self.dateString = dateString
   }
 }

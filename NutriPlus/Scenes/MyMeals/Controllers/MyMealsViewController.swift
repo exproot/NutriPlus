@@ -8,114 +8,57 @@
 import UIKit
 
 final class MyMealsViewController: UIViewController {
-  private let viewModel = MyMealsViewModel()
-  private var dataSource: UICollectionViewDiffableDataSource<MyMealsViewModel.Section, MyMealsViewModel.Row>!
-
-  // MARK: - UI Components
-  private lazy var collectionView: UICollectionView = {
-    let cv = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
-    cv.backgroundColor = .systemBackground
-    cv.register(CalendarCell.self, forCellWithReuseIdentifier: CalendarCell.identifier)
-    cv.register(MealCell.self, forCellWithReuseIdentifier: MealCell.identifier)
-    cv.translatesAutoresizingMaskIntoConstraints = false
-    return cv
-  }()
+  lazy var viewModel = MyMealsViewModel(mealService: MealService())
+  var dataSource: UICollectionViewDiffableDataSource<Section, AnyHashable>!
+  var collectionView: UICollectionView!
 
   // MARK: - View Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    collectionView.delegate = self
-    viewModel.viewDidLoad()
     setupUI()
+    configureNavigationBar()
+    setupCollectionView()
+    addLongPressGesture()
     configureDataSource()
+    applyInitialSnapshot()
   }
 
-  override func viewDidAppear(_ animated: Bool) {
-    collectionView.selectItem(at: IndexPath(item: viewModel.selectedDateIndex, section: 0), animated: true, scrollPosition: .centeredHorizontally)
-  }
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    guard let selectedIndex = viewModel.selectedIndex else { return }
+    let selectedDate = viewModel.dateItems[selectedIndex].dateString
 
-  private func createLayout() -> UICollectionViewLayout {
-    UICollectionViewCompositionalLayout { [weak self] (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
-      guard let sectionIdentifier = self?.dataSource.snapshot().sectionIdentifiers[sectionIndex] else { return nil }
+    viewModel.fetchMeals(for: selectedDate) { [weak self] in
+      print("here")
+      let indexPath = IndexPath(item: selectedIndex, section: 0)
 
-      return MyMealsLayoutSection.createLayoutSection(for: sectionIdentifier)
+      self?.updateMealSection()
+      self?.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
     }
-  }
-
-  private func configureDataSource() {
-    dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView) { (collectionView, indexPath, item) -> UICollectionViewCell? in
-      switch item {
-      case .calendar(let model):
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCell.identifier, for: indexPath) as? CalendarCell else { fatalError() }
-        cell.configure(day: model.day, month: model.month)
-
-        return cell
-      case .meal(let model):
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MealCell.identifier, for: indexPath) as? MealCell else { fatalError() }
-        cell.configure(with: model.text)
-        return cell
-      }
-    }
-
-    var snapshot = NSDiffableDataSourceSnapshot<MyMealsViewModel.Section, MyMealsViewModel.Row>()
-    snapshot.appendSections([.main, .meals])
-    snapshot.appendItems(viewModel.testCalendarItems, toSection: .main)
-
-    dataSource.apply(snapshot, animatingDifferences: false)
-  }
-
-  // MARK: - UI Setup
-  private func setupUI() {
-    title = "My Meals"
-    navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus")?.withTintColor(.label, renderingMode: .alwaysOriginal), style: .done, target: self, action: #selector(handleAddButton))
-    view.backgroundColor = .systemBackground
-    view.addSubview(collectionView)
-
-    NSLayoutConstraint.activate([
-      collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 12),
-      collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-      collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-    ])
-  }
-
-  // MARK: - Selectors
-  @objc private func handleAddButton() {
-    let addMealController = AddNewMealViewController()
-    addMealController.delegate = self
-    hidesBottomBarWhenPushed = true
-    navigationController?.pushViewController(addMealController, animated: true)
   }
 }
 
 // MARK: - AddNewMealControllerDelegate
 extension MyMealsViewController: AddNewMealControllerDelegate {
-  func addNewMealController(didAddManually meal: String) {
+  func addNewMealController(didAddManually meal: MealCellViewModel) {
+    guard let selectedDateIndex = viewModel.selectedIndex else { return }
+    let date = viewModel.dateItems[selectedDateIndex].dateString
+
     hidesBottomBarWhenPushed = false
+    viewModel.addMeal(meal: meal, date: date) { [weak self] in
+      self?.updateMealSection()
+    }
   }
 }
 
-// MARK: - UICollectionViewDelegate
-extension MyMealsViewController: UICollectionViewDelegate {
-  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    guard let cell = collectionView.cellForItem(at: indexPath) as? CalendarCell else { return }
+// MARK: - UI Setup
+extension MyMealsViewController {
+  private func configureNavigationBar() {
+    title = "My Meals"
+    navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus")?.withTintColor(.label, renderingMode: .alwaysOriginal), style: .done, target: self, action: #selector(handleAddButton))
+  }
 
-    switch indexPath.section {
-    case 0:
-      viewModel.selectedDateIndex = indexPath.item
-      viewModel.prepareTestMeals(for: cell.dayNumberLabel.text)
-
-      var snapshot = NSDiffableDataSourceSnapshot<MyMealsViewModel.Section, MyMealsViewModel.Row>()
-      snapshot.appendSections([.main, .meals])
-      snapshot.appendItems(viewModel.testCalendarItems, toSection: .main)
-      snapshot.appendItems(viewModel.testMealItems, toSection: .meals)
-
-      dataSource.apply(snapshot, animatingDifferences: true)
-    case 1:
-      // TODO: - Handle meal tapping.
-      return
-    default:
-      return
-    }
+  private func setupUI() {
+    view.backgroundColor = .systemBackground
   }
 }

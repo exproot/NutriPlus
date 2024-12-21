@@ -67,7 +67,7 @@ final class GoalSelectionViewController: BaseAssessmentViewController {
     // TODO: - Implement
     print(assessmentModel)
     if let currentUser = Auth.auth().currentUser {
-      StoreService.shared.setAssessment(for: currentUser.uid)
+      FireStoreService.shared.setAssessment(for: currentUser.uid)
       
       self.checkAuthViaSceneDelegate()
     }

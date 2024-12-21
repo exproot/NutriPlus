@@ -7,53 +7,33 @@
 
 import UIKit
 
-protocol AddNewMealControllerDelegate: AnyObject {
-  func addNewMealController(didAddManually meal: String)
-}
-
 final class AddNewMealViewController: UIViewController {
+  lazy var viewModel = AddNewMealViewModel()
   weak var delegate: AddNewMealControllerDelegate?
-  private let mealTypes = ["Breakfast", "Dinner", "Snack"]
 
   // MARK: - UI Components
   private lazy var headerView = AddNewMealHeaderView()
-  private lazy var mealTitleLabel = CustomLabel(text: "Meal Name", fontSize: 24, fontWeight: .bold, textColor: .label)
+  private lazy var mealTitleLabel = CustomLabel(text: "Meal Name", fontSize: 18, fontWeight: .bold, textColor: .label)
 
-  private lazy var mealNameTextField: UITextField = {
+  lazy var mealNameTextField: UITextField = {
     let textField = UITextField()
-    textField.placeholder = "Enter your meal name..."
+    textField.placeholder = "Enter your meal's name..."
     textField.font = .systemFont(ofSize: 16, weight: .bold)
-    textField.layer.cornerRadius = 16
+    textField.layer.cornerRadius = 12
     textField.textAlignment = .center
     textField.backgroundColor = .systemGray5
     textField.translatesAutoresizingMaskIntoConstraints = false
     return textField
   }()
 
-  private lazy var mealTypeLabel = CustomLabel(text: "Meal Type", fontSize: 18, fontWeight: .bold, textColor: .label)
-
-  private lazy var collectionView: UICollectionView = {
-    let layout = UICollectionViewFlowLayout()
-    layout.scrollDirection = .horizontal
-    layout.itemSize = CGSize(width: 120, height: 50)
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-    collectionView.register(MealTypeCell.self, forCellWithReuseIdentifier: MealTypeCell.reuseID)
+  lazy var mealTypeLabel = CustomLabel(text: "Meal Type", fontSize: 18, fontWeight: .bold, textColor: .label)
+  lazy var collectionView: UICollectionView = {
+    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: .createMealTypeLayout())
     collectionView.translatesAutoresizingMaskIntoConstraints = false
+    collectionView.register(MealTypeCell.self, forCellWithReuseIdentifier: MealTypeCell.reuseID)
     return collectionView
   }()
-
-  private lazy var proteinSlider = MacroSliderView(title: "Total Protein", imageString: "protein", sliderMinValue: 10, sliderMaxValue: 30, sliderColor: .systemGreen)
-  private lazy var carbsSlider = MacroSliderView(title: "Total Carbs", imageString: "carbs", sliderMinValue: 10, sliderMaxValue: 30, sliderColor: .systemYellow)
-  private lazy var fatsSlider = MacroSliderView(title: "Total Fat", imageString: "fats", sliderMinValue: 10, sliderMaxValue: 30, sliderColor: .systemRed)
-
-  private lazy var sliderStackView: UIStackView = {
-    let stackView = UIStackView(arrangedSubviews: [proteinSlider, carbsSlider, fatsSlider])
-    stackView.axis = .vertical
-    stackView.spacing = 5
-    stackView.distribution = .equalSpacing
-    stackView.translatesAutoresizingMaskIntoConstraints = false
-    return stackView
-  }()
+  var sliderStackView = AddNewMealStackView()
 
   private lazy var continueButton: UIButton = {
     var config = UIButton.Configuration.filled()
@@ -86,12 +66,6 @@ final class AddNewMealViewController: UIViewController {
     super.viewWillDisappear(animated)
     navigationController?.navigationBar.isHidden = false
   }
-
-  // MARK: - Selectors
-  @objc private func handleContinueButton() {
-    delegate?.addNewMealController(didAddManually: "")
-    navigationController?.popViewController(animated: true)
-  }
 }
 
 // MARK: - AddNewMealHeaderDelegate
@@ -103,23 +77,7 @@ extension AddNewMealViewController: AddNewMealHeaderDelegate {
   }
 }
 
-// MARK: - UICollectionViewDataSource
-extension AddNewMealViewController: UICollectionViewDataSource {
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    mealTypes.count
-  }
-}
-
-// MARK: - UICollectionViewDelegate
-extension AddNewMealViewController: UICollectionViewDelegate {
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MealTypeCell.reuseID, for: indexPath) as? MealTypeCell else { return UICollectionViewCell() }
-    cell.configure(title: mealTypes[indexPath.item])
-    return cell
-  }
-}
-
-// MARK: - Layouts
+// MARK: - SetupUI
 extension AddNewMealViewController {
   private func setupUI() {
     navigationItem.hidesBackButton = true
@@ -136,28 +94,28 @@ extension AddNewMealViewController {
       headerView.topAnchor.constraint(equalTo: view.topAnchor),
       headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
       headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      headerView.heightAnchor.constraint(equalToConstant: 170),
+      headerView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.23),
 
       mealTitleLabel.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 20),
       mealTitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
 
-      mealNameTextField.topAnchor.constraint(equalTo: mealTitleLabel.bottomAnchor, constant: 20),
+      mealNameTextField.topAnchor.constraint(equalTo: mealTitleLabel.bottomAnchor, constant: 16),
       mealNameTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
       mealNameTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
-      mealNameTextField.heightAnchor.constraint(equalToConstant: 60),
+      mealNameTextField.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.05),
 
-      mealTypeLabel.topAnchor.constraint(equalTo: mealNameTextField.bottomAnchor, constant: 20),
+      mealTypeLabel.topAnchor.constraint(equalTo: mealNameTextField.bottomAnchor, constant: 16),
       mealTypeLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
 
       collectionView.topAnchor.constraint(equalTo: mealTypeLabel.bottomAnchor, constant: 10),
-      collectionView.leadingAnchor.constraint(equalTo: mealNameTextField.leadingAnchor, constant: 8),
-      collectionView.trailingAnchor.constraint(equalTo: mealNameTextField.trailingAnchor, constant: -8),
-      collectionView.heightAnchor.constraint(equalToConstant: 80),
+      collectionView.leadingAnchor.constraint(equalTo: mealNameTextField.leadingAnchor),
+      collectionView.trailingAnchor.constraint(equalTo: mealNameTextField.trailingAnchor),
+      collectionView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.08),
 
-      sliderStackView.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 30),
+      sliderStackView.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 20),
       sliderStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 12),
       sliderStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -12),
-      sliderStackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.28),
+      sliderStackView.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -30),
 
       continueButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
       continueButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),

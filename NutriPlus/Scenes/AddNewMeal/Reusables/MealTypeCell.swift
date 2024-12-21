@@ -13,7 +13,6 @@ final class MealTypeCell: UICollectionViewCell {
   // MARK: - UI Components
   private lazy var  titleLabel: UILabel = {
     let lbl = UILabel()
-    lbl.text = "Breakfast"
     lbl.font = .systemFont(ofSize: 16, weight: .semibold)
     lbl.translatesAutoresizingMaskIntoConstraints = false
     return lbl

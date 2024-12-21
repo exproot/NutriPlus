@@ -8,6 +8,13 @@
 import UIKit
 
 final class MacroSliderView: UIView {
+  enum SliderType {
+    case nutrient
+    case calorie
+  }
+
+  var sliderType: SliderType
+
   private lazy var imageView: UIImageView = {
     let customImageView = UIImageView()
     customImageView.contentMode = .scaleAspectFit
@@ -16,11 +23,12 @@ final class MacroSliderView: UIView {
     return customImageView
   }()
 
-  private lazy var gramLabel = CustomLabel(text: "0g", fontSize: 16, fontWeight: .regular, textColor: .secondaryLabel)
+  private lazy var valueLabel = CustomLabel(text: "", fontSize: 16, fontWeight: .regular, textColor: .secondaryLabel)
   private lazy var titleLabel = CustomLabel(text: "", fontSize: 16, fontWeight: .bold, textColor: .label)
-  private var slider: CustomSlider?
+  var slider: CustomSlider?
 
   init(title: String, sliderColor: UIColor) {
+    self.sliderType = .nutrient
     super.init(frame: .zero)
     setupUI(
       title: title,
@@ -31,7 +39,8 @@ final class MacroSliderView: UIView {
     )
   }
 
-  init(title: String, imageString: String, sliderMinValue: Float, sliderMaxValue: Float, sliderColor: UIColor) {
+  init(title: String, imageString: String, sliderMinValue: Float, sliderMaxValue: Float, sliderColor: UIColor, sliderType: SliderType) {
+    self.sliderType = sliderType
     super.init(frame: .zero)
     setupUI(title: title, imageString: imageString, sliderMinValue: sliderMinValue, sliderMaxValue: sliderMaxValue, sliderColor: sliderColor)
   }
@@ -49,17 +58,24 @@ final class MacroSliderView: UIView {
       let imageString = imageString,
       let slider = slider
     {
+      switch sliderType {
+      case .nutrient:
+        valueLabel.text = "0g"
+      case .calorie:
+        valueLabel.text = "0kcal"
+      }
+
       imageView.image = UIImage(named: imageString)
       slider.tintColor = sliderColor
 
       addSubview(imageView)
-      addSubview(gramLabel)
+      addSubview(valueLabel)
       addSubview(slider)
       addSubview(titleLabel)
 
       NSLayoutConstraint.activate([
-        gramLabel.topAnchor.constraint(equalTo: self.topAnchor),
-        gramLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+        valueLabel.topAnchor.constraint(equalTo: self.topAnchor),
+        valueLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
 
         imageView.topAnchor.constraint(equalTo: self.topAnchor),
         imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
@@ -81,6 +97,11 @@ final class MacroSliderView: UIView {
 
   // MARK: - Selectors
   @objc private func handleValueChange(_ sender: UISlider) {
-    gramLabel.text = "\(Int(sender.value))g"
+    switch sliderType {
+    case .nutrient:
+      valueLabel.text = "\(Int(sender.value))g"
+    case .calorie:
+      valueLabel.text = "\(Int(sender.value))kcal"
+    }
   }
 }
