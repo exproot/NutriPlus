@@ -11,14 +11,16 @@ final class CameraViewModel {
   // MARK: - Properties
   let cameraService: CameraService
   let photoPickerService: PhotoPickerService
+  let geminiService: GeminiService
 
   // MARK: - Published Properties
   @Published var takePhotoButtonEnabled = true
 
   // MARK: - Lifecycle
-  init(cameraService: CameraService, photoPickerService: PhotoPickerService) {
+  init(cameraService: CameraService, photoPickerService: PhotoPickerService, geminiService: GeminiService) {
     self.cameraService = cameraService
     self.photoPickerService = photoPickerService
+    self.geminiService = geminiService
   }
 
   // MARK: - CameraService Methods
@@ -32,5 +34,12 @@ final class CameraViewModel {
 
   func stopCameraSession() {
     cameraService.stop()
+  }
+
+  // MARK: - GeminiService Methods
+  func fetchMealFromGemini(with imageData: Data?) {
+    guard let imageData = imageData else { return }
+
+    geminiService.getResponse(for: imageData)
   }
 }

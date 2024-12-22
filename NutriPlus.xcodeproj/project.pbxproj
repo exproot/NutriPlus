@@ -36,6 +36,12 @@
 		7056B52D2D184A28001844D7 /* PhotoPickerServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7056B52C2D184A28001844D7 /* PhotoPickerServiceDelegate.swift */; };
 		7056B52F2D184A3E001844D7 /* PhotoPickerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7056B52E2D184A3E001844D7 /* PhotoPickerService.swift */; };
 		7056B5312D184C89001844D7 /* CameraViewController+PhotoPickerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7056B5302D184C89001844D7 /* CameraViewController+PhotoPickerService.swift */; };
+		7056B5372D185D97001844D7 /* GoogleGenerativeAI in Frameworks */ = {isa = PBXBuildFile; productRef = 7056B5362D185D97001844D7 /* GoogleGenerativeAI */; };
+		7056B53A2D186553001844D7 /* GeminiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7056B5392D186553001844D7 /* GeminiService.swift */; };
+		7056B53D2D186579001844D7 /* GeminiServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7056B53C2D186579001844D7 /* GeminiServiceDelegate.swift */; };
+		7056B53F2D1865D9001844D7 /* AIInstructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7056B53E2D1865D9001844D7 /* AIInstructions.swift */; };
+		7056B5412D186B9B001844D7 /* CameraViewController+GeminiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7056B5402D186B9B001844D7 /* CameraViewController+GeminiService.swift */; };
+		7056B5452D187158001844D7 /* BarScanner.json in Resources */ = {isa = PBXBuildFile; fileRef = 7056B5442D187158001844D7 /* BarScanner.json */; };
 		706E5B8B2CE545CB00CFEAF4 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E5B8A2CE545CB00CFEAF4 /* UIViewController+Ext.swift */; };
 		7079C2472CC6336D00E23D59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C2462CC6336D00E23D59 /* AppDelegate.swift */; };
 		7079C2492CC6336D00E23D59 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C2482CC6336D00E23D59 /* SceneDelegate.swift */; };
@@ -131,6 +137,12 @@
 		7056B52C2D184A28001844D7 /* PhotoPickerServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerServiceDelegate.swift; sourceTree = "<group>"; };
 		7056B52E2D184A3E001844D7 /* PhotoPickerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerService.swift; sourceTree = "<group>"; };
 		7056B5302D184C89001844D7 /* CameraViewController+PhotoPickerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraViewController+PhotoPickerService.swift"; sourceTree = "<group>"; };
+		7056B5342D185A3F001844D7 /* Secrets.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Secrets.xcconfig; sourceTree = "<group>"; };
+		7056B5392D186553001844D7 /* GeminiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeminiService.swift; sourceTree = "<group>"; };
+		7056B53C2D186579001844D7 /* GeminiServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeminiServiceDelegate.swift; sourceTree = "<group>"; };
+		7056B53E2D1865D9001844D7 /* AIInstructions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIInstructions.swift; sourceTree = "<group>"; };
+		7056B5402D186B9B001844D7 /* CameraViewController+GeminiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraViewController+GeminiService.swift"; sourceTree = "<group>"; };
+		7056B5442D187158001844D7 /* BarScanner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BarScanner.json; sourceTree = "<group>"; };
 		706E5B8A2CE545CB00CFEAF4 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		7079C2432CC6336D00E23D59 /* NutriPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7079C2462CC6336D00E23D59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -199,6 +211,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7056B5372D185D97001844D7 /* GoogleGenerativeAI in Frameworks */,
 				70E8340E2CC8CEC600FF3CCC /* FirebaseCore in Frameworks */,
 				70E834102CC8CECD00FF3CCC /* FirebaseAuth in Frameworks */,
 				70E834062CC8CC8C00FF3CCC /* FirebaseFirestore in Frameworks */,
@@ -291,6 +304,7 @@
 				7056B51F2D183E36001844D7 /* CameraViewController+Selectors.swift */,
 				7056B5212D183E63001844D7 /* CameraViewController+CameraService.swift */,
 				7056B5302D184C89001844D7 /* CameraViewController+PhotoPickerService.swift */,
+				7056B5402D186B9B001844D7 /* CameraViewController+GeminiService.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -329,6 +343,16 @@
 				7056B52E2D184A3E001844D7 /* PhotoPickerService.swift */,
 			);
 			path = PhotoPickerService;
+			sourceTree = "<group>";
+		};
+		7056B5382D186549001844D7 /* GeminiService */ = {
+			isa = PBXGroup;
+			children = (
+				7056B5392D186553001844D7 /* GeminiService.swift */,
+				7056B53C2D186579001844D7 /* GeminiServiceDelegate.swift */,
+				7056B53E2D1865D9001844D7 /* AIInstructions.swift */,
+			);
+			path = GeminiService;
 			sourceTree = "<group>";
 		};
 		7079C23A2CC6336D00E23D59 = {
@@ -371,6 +395,7 @@
 				7079C2482CC6336D00E23D59 /* SceneDelegate.swift */,
 				7079C24F2CC6336E00E23D59 /* Assets.xcassets */,
 				7079C2512CC6336E00E23D59 /* LaunchScreen.storyboard */,
+				7056B5342D185A3F001844D7 /* Secrets.xcconfig */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -571,6 +596,7 @@
 		70E834092CC8CEA300FF3CCC /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				7056B5382D186549001844D7 /* GeminiService */,
 				7056B5292D184955001844D7 /* PhotoPickerService */,
 				7056B5042D183732001844D7 /* CameraService */,
 				70E8340A2CC8CEA900FF3CCC /* AuthService.swift */,
@@ -608,6 +634,7 @@
 		70E834272CC9276300FF3CCC /* Lottie Files */ = {
 			isa = PBXGroup;
 			children = (
+				7056B5442D187158001844D7 /* BarScanner.json */,
 				70E8342D2CC9300200FF3CCC /* WeightScan.json */,
 				70E834332CC93C6F00FF3CCC /* FitLevel.json */,
 			);
@@ -646,6 +673,7 @@
 				70E8340D2CC8CEC600FF3CCC /* FirebaseCore */,
 				70E8340F2CC8CECD00FF3CCC /* FirebaseAuth */,
 				70E834252CC9270A00FF3CCC /* Lottie */,
+				7056B5362D185D97001844D7 /* GoogleGenerativeAI */,
 			);
 			productName = NutriPlus;
 			productReference = 7079C2432CC6336D00E23D59 /* NutriPlus.app */;
@@ -678,6 +706,7 @@
 			packageReferences = (
 				70E834042CC8CC8C00FF3CCC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				70E834242CC9270900FF3CCC /* XCRemoteSwiftPackageReference "lottie-ios" */,
+				7056B5352D185D97001844D7 /* XCRemoteSwiftPackageReference "generative-ai-swift" */,
 			);
 			productRefGroup = 7079C2442CC6336D00E23D59 /* Products */;
 			projectDirPath = "";
@@ -693,6 +722,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7056B5452D187158001844D7 /* BarScanner.json in Resources */,
 				70E8342E2CC9300200FF3CCC /* WeightScan.json in Resources */,
 				7079C2502CC6336E00E23D59 /* Assets.xcassets in Resources */,
 				7079C2532CC6336E00E23D59 /* Base in Resources */,
@@ -713,6 +743,7 @@
 				708764F82CDCB8020093C5C9 /* MealCell.swift in Sources */,
 				700745192D12E32C00AA5248 /* CustomLabel.swift in Sources */,
 				706E5B8B2CE545CB00CFEAF4 /* UIViewController+Ext.swift in Sources */,
+				7056B5412D186B9B001844D7 /* CameraViewController+GeminiService.swift in Sources */,
 				7056B5162D183A6B001844D7 /* CameraViewModel.swift in Sources */,
 				70D11C492D14CCAA00EFB5B2 /* MyMealsViewController+DataSource.swift in Sources */,
 				70E834302CC934DA00FF3CCC /* FitSelectionViewController.swift in Sources */,
@@ -724,6 +755,7 @@
 				7056B5132D183A28001844D7 /* CameraViewController.swift in Sources */,
 				708DDC972D1613E700F1DBFF /* MealService.swift in Sources */,
 				70B446032CCA79CE0019B407 /* GoalSelectionViewController.swift in Sources */,
+				7056B53A2D186553001844D7 /* GeminiService.swift in Sources */,
 				7056B5262D183F1C001844D7 /* PhotoPreviewView.swift in Sources */,
 				70E834142CC8DE0A00FF3CCC /* MainTabBarController.swift in Sources */,
 				7079C2622CC6391300E23D59 /* AuthHeaderView.swift in Sources */,
@@ -751,6 +783,7 @@
 				70E834122CC8D7C500FF3CCC /* SignInViewModel.swift in Sources */,
 				7056B51C2D183C0C001844D7 /* CameraAnimation.swift in Sources */,
 				701A4E2C2CCABEA000013A72 /* FireStoreService.swift in Sources */,
+				7056B53F2D1865D9001844D7 /* AIInstructions.swift in Sources */,
 				7079C2602CC638C300E23D59 /* SignInViewController.swift in Sources */,
 				7079C26F2CC63ADF00E23D59 /* CustomFooterButton.swift in Sources */,
 				7056B51A2D183BB0001844D7 /* CameraButton.swift in Sources */,
@@ -758,6 +791,7 @@
 				7056B50E2D18380A001844D7 /* CameraSessionManager.swift in Sources */,
 				701A4E242CCAA31500013A72 /* GoalCell.swift in Sources */,
 				708AD94E2D1705E400CD2EB7 /* NutrientView.swift in Sources */,
+				7056B53D2D186579001844D7 /* GeminiServiceDelegate.swift in Sources */,
 				7056B5282D184473001844D7 /* CameraImageView.swift in Sources */,
 				7056B5202D183E36001844D7 /* CameraViewController+Selectors.swift in Sources */,
 				701A4E262CCAB99200013A72 /* BaseAssessmentViewController.swift in Sources */,
@@ -810,6 +844,7 @@
 /* Begin XCBuildConfiguration section */
 		7079C2552CC6336E00E23D59 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7056B5342D185A3F001844D7 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -873,6 +908,7 @@
 		};
 		7079C2562CC6336E00E23D59 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7056B5342D185A3F001844D7 /* Secrets.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -1021,6 +1057,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7056B5352D185D97001844D7 /* XCRemoteSwiftPackageReference "generative-ai-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google-gemini/generative-ai-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.5.6;
+			};
+		};
 		70E834042CC8CC8C00FF3CCC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1040,6 +1084,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7056B5362D185D97001844D7 /* GoogleGenerativeAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7056B5352D185D97001844D7 /* XCRemoteSwiftPackageReference "generative-ai-swift" */;
+			productName = GoogleGenerativeAI;
+		};
 		70E834052CC8CC8C00FF3CCC /* FirebaseFirestore */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 70E834042CC8CC8C00FF3CCC /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

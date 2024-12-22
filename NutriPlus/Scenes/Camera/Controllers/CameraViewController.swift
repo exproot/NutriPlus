@@ -11,7 +11,8 @@ import Combine
 final class CameraViewController: UIViewController {
   lazy var viewModel = CameraViewModel(
     cameraService: CameraService(cameraSession: CameraSessionManager()),
-    photoPickerService: PhotoPickerService()
+    photoPickerService: PhotoPickerService(),
+    geminiService: GeminiService()
   )
   weak var delegate: CameraViewControllerDelegate?
   private var cancellables: Set<AnyCancellable> = []
@@ -26,6 +27,7 @@ final class CameraViewController: UIViewController {
   private var photoPreviewView: PhotoPreviewView?
   private lazy var cancelButton = CameraButton(imageString: "multiply", pointSize: 20)
   private lazy var galleryButton = CameraButton(imageString: "photo", pointSize: 20)
+  lazy var barScannerAnimation = CameraAnimation(name: "BarScanner", loopMode: .loop)
   private lazy var platePlaceholderImageView = CameraImageView(imageNamed: "Plate-Placeholder")
   private lazy var takePhotoButton = CameraButton(imageString: "button.programmable", pointSize: 50)
 
@@ -34,6 +36,7 @@ final class CameraViewController: UIViewController {
     super.viewDidLoad()
     viewModel.cameraService.delegate = self
     viewModel.photoPickerService.delegate = self
+    viewModel.geminiService.delegate = self
     setupUI()
 
     viewModel.$takePhotoButtonEnabled
@@ -61,7 +64,7 @@ final class CameraViewController: UIViewController {
 
     if let photoPreviewView {
       photoPreviewView.imageView.image = image
-      view.insertSubview(photoPreviewView, belowSubview: platePlaceholderImageView)
+      view.insertSubview(photoPreviewView, belowSubview: barScannerAnimation)
     }
   }
 
@@ -74,6 +77,7 @@ final class CameraViewController: UIViewController {
     view.addSubview(galleryButton)
     view.addSubview(platePlaceholderImageView)
     view.addSubview(takePhotoButton)
+    view.addSubview(barScannerAnimation)
 
     NSLayoutConstraint.activate([
       captureCoverView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
@@ -86,6 +90,9 @@ final class CameraViewController: UIViewController {
 
       galleryButton.topAnchor.constraint(equalTo: captureCoverView.topAnchor, constant: 12),
       galleryButton.trailingAnchor.constraint(equalTo: captureCoverView.trailingAnchor, constant: -12),
+
+      barScannerAnimation.centerXAnchor.constraint(equalTo: captureCoverView.centerXAnchor),
+      barScannerAnimation.centerYAnchor.constraint(equalTo: captureCoverView.centerYAnchor),
 
       platePlaceholderImageView.centerYAnchor.constraint(equalTo: captureCoverView.centerYAnchor),
       platePlaceholderImageView.centerXAnchor.constraint(equalTo: captureCoverView.centerXAnchor),

@@ -10,6 +10,7 @@ import Foundation
 struct Meal: Codable {
   let name, detail: String
   let calories: Int
+  let type: String
   let nutrients: Nutrients
 }
 

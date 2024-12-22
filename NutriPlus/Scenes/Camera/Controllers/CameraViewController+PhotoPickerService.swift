@@ -10,10 +10,11 @@ import UIKit
 // MARK: - PhotoPickerServiceDelegate
 extension CameraViewController: PhotoPickerServiceDelegate {
   func photoPickerService(_ photoPickerService: PhotoPickerService, didSelectImage image: UIImage?) {
-    guard let image = image else { return }
+    guard let image = image, let data = image.jpegData(compressionQuality: 0.1) else { return }
 
     setupImagePreviewView(with: image)
     viewModel.takePhotoButtonEnabled = true
+    viewModel.fetchMealFromGemini(with: data)
   }
   
   func photoPickerService(_ photoPickerService: PhotoPickerService, didFailWithError error: any Error) {
@@ -27,5 +28,6 @@ extension CameraViewController: PhotoPickerServiceDelegate {
   
   func photoPickerServiceDidCancel(_ photoPickerService: PhotoPickerService) {
     viewModel.takePhotoButtonEnabled = true
+    barScannerAnimation.isHidden = false
   }
 }
