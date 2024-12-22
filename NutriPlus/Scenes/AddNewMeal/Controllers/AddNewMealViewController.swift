@@ -70,11 +70,20 @@ final class AddNewMealViewController: KeyboardHandlingViewController {
   }
 }
 
+// MARK: - CameraViewControllerDelegate
+extension AddNewMealViewController: CameraViewControllerDelegate {
+  func didCancelCapturing(_ controller: CameraViewController) {
+    headerView.segmentedControl.selectedSegmentIndex = 0
+  }
+}
+
 // MARK: - AddNewMealHeaderDelegate
 extension AddNewMealViewController: AddNewMealHeaderDelegate {
   func addNewMealHeaderView(_ view: AddNewMealHeaderView, didSwitchSegment segmentIndex: Int) {
     if segmentIndex != 0 {
-      // AI Scan seçildi
+      let camController = CameraViewController()
+      camController.delegate = self
+      navigationController?.pushViewController(camController, animated: true)
     }
   }
 }
