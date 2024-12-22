@@ -11,9 +11,8 @@ import Lottie
 final class FitSelectionViewController: BaseAssessmentViewController {
   // MARK: - UI Components
   private let questionLabel = AssessmentTitleLabel(title: "How would you rate your fitness level?")
-  lazy var fitnessLevelLabel = CustomLabel(text: "", fontSize: 80, fontWeight: .bold, textColor: .black)
-  lazy var fitnessDescriptionLabel = CustomLabel(text: "", fontSize: 20, fontWeight: .regular, textColor: .black)
-
+  lazy var fitnessLevelLabel = CustomLabel(text: "3", fontSize: 80, fontWeight: .bold, textColor: .black)
+  lazy var fitnessDescriptionLabel = CustomLabel(text: "Somewhat Athletic", fontSize: 20, fontWeight: .regular, textColor: .black)
   
   let slider: UISlider = {
     let slider = UISlider()
