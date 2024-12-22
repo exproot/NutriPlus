@@ -21,6 +21,7 @@ final class AssessmentTitleLabel: UILabel {
   // MARK: - UI Setup
   private func setupUI() {
     self.font = UIFont.systemFont(ofSize: 28, weight: .bold)
+    self.textColor = .black
     self.textAlignment = .center
     self.numberOfLines = 0
     self.translatesAutoresizingMaskIntoConstraints = false

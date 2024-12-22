@@ -26,6 +26,17 @@ struct MealCellViewModel: Hashable {
     self.fat = fat
   }
 
+  init(id: String = UUID().uuidString, meal: Meal) {
+    self.id = id
+    self.name = meal.name
+    self.detail = meal.detail
+    self.type = meal.type
+    self.calories = meal.calories
+    self.protein = meal.nutrients.protein
+    self.carbs = meal.nutrients.carbs
+    self.fat = meal.nutrients.fats
+  }
+
   func hash(into hasher: inout Hasher) {
     hasher.combine(id)
   }

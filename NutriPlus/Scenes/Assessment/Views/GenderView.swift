@@ -21,17 +21,12 @@ final class GenderView: UIView {
     iv.clipsToBounds = true
     iv.layer.cornerRadius = 15
     iv.layer.borderWidth = 1.5
-    iv.layer.borderColor = UIColor.label.withAlphaComponent(0.4).cgColor
+    iv.layer.borderColor = UIColor.black.withAlphaComponent(0.4).cgColor
     iv.translatesAutoresizingMaskIntoConstraints = false
     return iv
   }()
 
-  private lazy var  genderLabel: UILabel = {
-    let lbl = UILabel()
-    lbl.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-    lbl.translatesAutoresizingMaskIntoConstraints = false
-    return lbl
-  }()
+  private lazy var  genderLabel = CustomLabel(text: "", fontSize: 20, fontWeight: .bold, textColor: .black)
 
   private lazy var selectionIndicator: UIImageView = {
     let iv = UIImageView()
@@ -53,7 +48,7 @@ final class GenderView: UIView {
   private func updateSelectionState() {
     let imageName = isSelectedOption ? "dot.square" : "square"
     selectionIndicator.image = UIImage(systemName: imageName)
-    imageView.layer.borderColor = isSelectedOption ? UIColor.systemOrange.withAlphaComponent(0.4).cgColor : UIColor.label.withAlphaComponent(0.4).cgColor
+    imageView.layer.borderColor = isSelectedOption ? UIColor.systemOrange.withAlphaComponent(0.4).cgColor : UIColor.black.withAlphaComponent(0.4).cgColor
   }
 
   // MARK: - UI Setup

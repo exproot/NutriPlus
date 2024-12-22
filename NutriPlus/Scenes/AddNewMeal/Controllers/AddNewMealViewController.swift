@@ -72,6 +72,11 @@ final class AddNewMealViewController: KeyboardHandlingViewController {
 
 // MARK: - CameraViewControllerDelegate
 extension AddNewMealViewController: CameraViewControllerDelegate {
+  func didScanMealWithAI(_ controller: CameraViewController, meal: Meal) {
+    delegate?.addNewMealController(didAddWithAI: meal)
+    navigationController?.popViewController(animated: true)
+  }
+  
   func didCancelCapturing(_ controller: CameraViewController) {
     headerView.segmentedControl.selectedSegmentIndex = 0
   }

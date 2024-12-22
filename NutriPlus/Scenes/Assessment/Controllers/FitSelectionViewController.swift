@@ -11,24 +11,9 @@ import Lottie
 final class FitSelectionViewController: BaseAssessmentViewController {
   // MARK: - UI Components
   private let questionLabel = AssessmentTitleLabel(title: "How would you rate your fitness level?")
-  
-  let fitnessLevelLabel: UILabel = {
-    let label = UILabel()
-    label.text = "3" // Default value
-    label.font = UIFont.systemFont(ofSize: 80, weight: .bold)
-    label.textAlignment = .center
-    label.translatesAutoresizingMaskIntoConstraints = false
-    return label
-  }()
-  
-  let fitnessDescriptionLabel: UILabel = {
-    let label = UILabel()
-    label.text = "Somewhat Athletic"
-    label.font = UIFont.systemFont(ofSize: 20, weight: .regular)
-    label.textAlignment = .center
-    label.translatesAutoresizingMaskIntoConstraints = false
-    return label
-  }()
+  lazy var fitnessLevelLabel = CustomLabel(text: "", fontSize: 80, fontWeight: .bold, textColor: .black)
+  lazy var fitnessDescriptionLabel = CustomLabel(text: "", fontSize: 20, fontWeight: .regular, textColor: .black)
+
   
   let slider: UISlider = {
     let slider = UISlider()
@@ -96,8 +81,9 @@ final class FitSelectionViewController: BaseAssessmentViewController {
   }
   
   private func setupUI() {
+    fitnessLevelLabel.textAlignment = .center
+    fitnessDescriptionLabel.textAlignment = .center
     view.backgroundColor = .white
-    
     view.addSubview(questionLabel)
     view.addSubview(fitnessLevelLabel)
     view.addSubview(fitnessDescriptionLabel)

@@ -35,7 +35,7 @@ final class AgeSelectionViewController: BaseAssessmentViewController {
   
   // MARK: - UI Setup
   private func setupUI() {
-    view.backgroundColor = .systemBackground
+    view.backgroundColor = .white
     view.addSubview(questionLabel)
     view.addSubview(agePickerView)
     view.addSubview(continueButton)

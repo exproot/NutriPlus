@@ -9,4 +9,5 @@ import Foundation
 
 protocol AddNewMealControllerDelegate: AnyObject {
   func addNewMealController(didAddManually meal: MealCellViewModel)
+  func addNewMealController(didAddWithAI meal: Meal)
 }

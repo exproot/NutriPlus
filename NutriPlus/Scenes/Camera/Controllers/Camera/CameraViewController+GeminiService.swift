@@ -17,7 +17,7 @@ extension CameraViewController: GeminiServiceDelegate {
       DispatchQueue.main.async { [weak self] in
         self?.barScannerAnimation.stop()
         self?.barScannerAnimation.isHidden = true
-        print(meal)
+        self?.presentScanResultController(with: meal)
       }
     } catch {
       print(error)

@@ -24,7 +24,7 @@ final class CameraViewController: UIViewController {
     customView.layer.cornerRadius = 20
     return customView
   }()
-  private var photoPreviewView: PhotoPreviewView?
+  var photoPreviewView: PhotoPreviewView?
   private lazy var cancelButton = CameraButton(imageString: "multiply", pointSize: 20)
   private lazy var galleryButton = CameraButton(imageString: "photo", pointSize: 20)
   lazy var barScannerAnimation = CameraAnimation(name: "BarScanner", loopMode: .loop)
@@ -59,6 +59,18 @@ final class CameraViewController: UIViewController {
   }
 
   // MARK: - UI Setup
+  func presentScanResultController(with meal: Meal) {
+    let scanResultVC = ScanResultViewController(meal: meal)
+    scanResultVC.delegate = self
+    scanResultVC.isModalInPresentation = true
+
+    if let sheet = scanResultVC.sheetPresentationController {
+      sheet.detents = [.medium()]
+    }
+
+    navigationController?.present(scanResultVC, animated: true)
+  }
+
   func setupImagePreviewView(with image: UIImage?) {
     photoPreviewView = PhotoPreviewView(frame: captureCoverView.frame)
 

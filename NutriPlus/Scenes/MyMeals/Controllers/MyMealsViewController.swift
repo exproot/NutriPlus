@@ -40,6 +40,17 @@ final class MyMealsViewController: UIViewController {
 
 // MARK: - AddNewMealControllerDelegate
 extension MyMealsViewController: AddNewMealControllerDelegate {
+  func addNewMealController(didAddWithAI meal: Meal) {
+    guard let selectedDateIndex = viewModel.selectedIndex else { return }
+    let date = viewModel.dateItems[selectedDateIndex].dateString
+    let mealCellViewModel = MealCellViewModel(meal: meal)
+
+    hidesBottomBarWhenPushed = false
+    viewModel.addMeal(meal: mealCellViewModel, date: date) { [weak self] in
+      self?.updateMealSection()
+    }
+  }
+  
   func addNewMealController(didAddManually meal: MealCellViewModel) {
     guard let selectedDateIndex = viewModel.selectedIndex else { return }
     let date = viewModel.dateItems[selectedDateIndex].dateString

@@ -9,4 +9,5 @@ import Foundation
 
 protocol CameraViewControllerDelegate: AnyObject {
   func didCancelCapturing(_ controller: CameraViewController)
+  func didScanMealWithAI(_ controller: CameraViewController, meal: Meal)
 }

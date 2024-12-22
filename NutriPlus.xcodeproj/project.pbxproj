@@ -42,6 +42,11 @@
 		7056B53F2D1865D9001844D7 /* AIInstructions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7056B53E2D1865D9001844D7 /* AIInstructions.swift */; };
 		7056B5412D186B9B001844D7 /* CameraViewController+GeminiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7056B5402D186B9B001844D7 /* CameraViewController+GeminiService.swift */; };
 		7056B5452D187158001844D7 /* BarScanner.json in Resources */ = {isa = PBXBuildFile; fileRef = 7056B5442D187158001844D7 /* BarScanner.json */; };
+		7056B5482D187360001844D7 /* ScanResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7056B5472D187360001844D7 /* ScanResultViewController.swift */; };
+		7056B54C2D187524001844D7 /* ScanResultControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7056B54B2D187524001844D7 /* ScanResultControllerDelegate.swift */; };
+		7056B54E2D187550001844D7 /* ScanResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7056B54D2D187550001844D7 /* ScanResultViewModel.swift */; };
+		7056B5502D1875D7001844D7 /* ScanResultStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7056B54F2D1875D7001844D7 /* ScanResultStackView.swift */; };
+		7056B5522D187CF3001844D7 /* CameraViewController+ScanResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7056B5512D187CF3001844D7 /* CameraViewController+ScanResult.swift */; };
 		706E5B8B2CE545CB00CFEAF4 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E5B8A2CE545CB00CFEAF4 /* UIViewController+Ext.swift */; };
 		7079C2472CC6336D00E23D59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C2462CC6336D00E23D59 /* AppDelegate.swift */; };
 		7079C2492CC6336D00E23D59 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C2482CC6336D00E23D59 /* SceneDelegate.swift */; };
@@ -143,6 +148,11 @@
 		7056B53E2D1865D9001844D7 /* AIInstructions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIInstructions.swift; sourceTree = "<group>"; };
 		7056B5402D186B9B001844D7 /* CameraViewController+GeminiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraViewController+GeminiService.swift"; sourceTree = "<group>"; };
 		7056B5442D187158001844D7 /* BarScanner.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BarScanner.json; sourceTree = "<group>"; };
+		7056B5472D187360001844D7 /* ScanResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultViewController.swift; sourceTree = "<group>"; };
+		7056B54B2D187524001844D7 /* ScanResultControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultControllerDelegate.swift; sourceTree = "<group>"; };
+		7056B54D2D187550001844D7 /* ScanResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultViewModel.swift; sourceTree = "<group>"; };
+		7056B54F2D1875D7001844D7 /* ScanResultStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultStackView.swift; sourceTree = "<group>"; };
+		7056B5512D187CF3001844D7 /* CameraViewController+ScanResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraViewController+ScanResult.swift"; sourceTree = "<group>"; };
 		706E5B8A2CE545CB00CFEAF4 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		7079C2432CC6336D00E23D59 /* NutriPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7079C2462CC6336D00E23D59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -299,12 +309,8 @@
 		7056B50F2D183A0D001844D7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				7056B5122D183A28001844D7 /* CameraViewController.swift */,
-				7056B51D2D183DCB001844D7 /* CameraViewControllerDelegate.swift */,
-				7056B51F2D183E36001844D7 /* CameraViewController+Selectors.swift */,
-				7056B5212D183E63001844D7 /* CameraViewController+CameraService.swift */,
-				7056B5302D184C89001844D7 /* CameraViewController+PhotoPickerService.swift */,
-				7056B5402D186B9B001844D7 /* CameraViewController+GeminiService.swift */,
+				7056B5492D1874F3001844D7 /* ScanResult */,
+				7056B54A2D18750E001844D7 /* Camera */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -313,6 +319,7 @@
 			isa = PBXGroup;
 			children = (
 				7056B5152D183A6B001844D7 /* CameraViewModel.swift */,
+				7056B54D2D187550001844D7 /* ScanResultViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -321,6 +328,7 @@
 			isa = PBXGroup;
 			children = (
 				7056B5252D183F1C001844D7 /* PhotoPreviewView.swift */,
+				7056B54F2D1875D7001844D7 /* ScanResultStackView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -353,6 +361,29 @@
 				7056B53E2D1865D9001844D7 /* AIInstructions.swift */,
 			);
 			path = GeminiService;
+			sourceTree = "<group>";
+		};
+		7056B5492D1874F3001844D7 /* ScanResult */ = {
+			isa = PBXGroup;
+			children = (
+				7056B5472D187360001844D7 /* ScanResultViewController.swift */,
+				7056B54B2D187524001844D7 /* ScanResultControllerDelegate.swift */,
+			);
+			path = ScanResult;
+			sourceTree = "<group>";
+		};
+		7056B54A2D18750E001844D7 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				7056B5122D183A28001844D7 /* CameraViewController.swift */,
+				7056B51D2D183DCB001844D7 /* CameraViewControllerDelegate.swift */,
+				7056B51F2D183E36001844D7 /* CameraViewController+Selectors.swift */,
+				7056B5212D183E63001844D7 /* CameraViewController+CameraService.swift */,
+				7056B5302D184C89001844D7 /* CameraViewController+PhotoPickerService.swift */,
+				7056B5402D186B9B001844D7 /* CameraViewController+GeminiService.swift */,
+				7056B5512D187CF3001844D7 /* CameraViewController+ScanResult.swift */,
+			);
+			path = Camera;
 			sourceTree = "<group>";
 		};
 		7079C23A2CC6336D00E23D59 = {
@@ -745,6 +776,7 @@
 				706E5B8B2CE545CB00CFEAF4 /* UIViewController+Ext.swift in Sources */,
 				7056B5412D186B9B001844D7 /* CameraViewController+GeminiService.swift in Sources */,
 				7056B5162D183A6B001844D7 /* CameraViewModel.swift in Sources */,
+				7056B5522D187CF3001844D7 /* CameraViewController+ScanResult.swift in Sources */,
 				70D11C492D14CCAA00EFB5B2 /* MyMealsViewController+DataSource.swift in Sources */,
 				70E834302CC934DA00FF3CCC /* FitSelectionViewController.swift in Sources */,
 				70BD07CB2D136716005D126D /* Meal.swift in Sources */,
@@ -790,22 +822,26 @@
 				7079C2772CC6404D00E23D59 /* ResetPasswordViewController.swift in Sources */,
 				7056B50E2D18380A001844D7 /* CameraSessionManager.swift in Sources */,
 				701A4E242CCAA31500013A72 /* GoalCell.swift in Sources */,
+				7056B5482D187360001844D7 /* ScanResultViewController.swift in Sources */,
 				708AD94E2D1705E400CD2EB7 /* NutrientView.swift in Sources */,
 				7056B53D2D186579001844D7 /* GeminiServiceDelegate.swift in Sources */,
 				7056B5282D184473001844D7 /* CameraImageView.swift in Sources */,
 				7056B5202D183E36001844D7 /* CameraViewController+Selectors.swift in Sources */,
+				7056B5502D1875D7001844D7 /* ScanResultStackView.swift in Sources */,
 				701A4E262CCAB99200013A72 /* BaseAssessmentViewController.swift in Sources */,
 				7007451B2D12E3D600AA5248 /* MacroSliderView.swift in Sources */,
 				708764F12CDCB7270093C5C9 /* MyMealsViewModel.swift in Sources */,
 				7056B5062D18373A001844D7 /* CameraService.swift in Sources */,
 				7079C2642CC6398400E23D59 /* CustomTextField.swift in Sources */,
 				70E834362CC93F8D00FF3CCC /* GenderSelectionViewController.swift in Sources */,
+				7056B54C2D187524001844D7 /* ScanResultControllerDelegate.swift in Sources */,
 				7007451D2D12E41300AA5248 /* CustomSlider.swift in Sources */,
 				7056B5082D18379D001844D7 /* CameraPermissionsManager.swift in Sources */,
 				7056B5312D184C89001844D7 /* CameraViewController+PhotoPickerService.swift in Sources */,
 				701A4E1F2CCA9A2400013A72 /* AssessmentTitleLabel.swift in Sources */,
 				7056B50C2D1837ED001844D7 /* CameraSessionProtocol.swift in Sources */,
 				7079C2712CC63AF800E23D59 /* UIButton+Ext.swift in Sources */,
+				7056B54E2D187550001844D7 /* ScanResultViewModel.swift in Sources */,
 				7056B50A2D1837C1001844D7 /* CameraServiceDelegate.swift in Sources */,
 				70E834232CC9219F00FF3CCC /* Float+Ext.swift in Sources */,
 				708AD9502D1727ED00CD2EB7 /* AddNewMealController+Selectors.swift in Sources */,
