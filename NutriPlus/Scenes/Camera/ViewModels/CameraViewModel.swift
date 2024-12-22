@@ -10,16 +10,18 @@ import Foundation
 final class CameraViewModel {
   // MARK: - Properties
   let cameraService: CameraService
+  let photoPickerService: PhotoPickerService
 
   // MARK: - Published Properties
   @Published var takePhotoButtonEnabled = true
 
   // MARK: - Lifecycle
-  init(cameraService: CameraService) {
+  init(cameraService: CameraService, photoPickerService: PhotoPickerService) {
     self.cameraService = cameraService
+    self.photoPickerService = photoPickerService
   }
 
-  // MARK: - Methods
+  // MARK: - CameraService Methods
   func capturePhoto() {
     cameraService.capturePhoto()
   }

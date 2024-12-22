@@ -32,6 +32,10 @@
 		7056B5222D183E63001844D7 /* CameraViewController+CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7056B5212D183E63001844D7 /* CameraViewController+CameraService.swift */; };
 		7056B5262D183F1C001844D7 /* PhotoPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7056B5252D183F1C001844D7 /* PhotoPreviewView.swift */; };
 		7056B5282D184473001844D7 /* CameraImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7056B5272D184473001844D7 /* CameraImageView.swift */; };
+		7056B52B2D18496C001844D7 /* PhotoPickerPermissionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7056B52A2D18496C001844D7 /* PhotoPickerPermissionsManager.swift */; };
+		7056B52D2D184A28001844D7 /* PhotoPickerServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7056B52C2D184A28001844D7 /* PhotoPickerServiceDelegate.swift */; };
+		7056B52F2D184A3E001844D7 /* PhotoPickerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7056B52E2D184A3E001844D7 /* PhotoPickerService.swift */; };
+		7056B5312D184C89001844D7 /* CameraViewController+PhotoPickerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7056B5302D184C89001844D7 /* CameraViewController+PhotoPickerService.swift */; };
 		706E5B8B2CE545CB00CFEAF4 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706E5B8A2CE545CB00CFEAF4 /* UIViewController+Ext.swift */; };
 		7079C2472CC6336D00E23D59 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C2462CC6336D00E23D59 /* AppDelegate.swift */; };
 		7079C2492CC6336D00E23D59 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7079C2482CC6336D00E23D59 /* SceneDelegate.swift */; };
@@ -123,6 +127,10 @@
 		7056B5212D183E63001844D7 /* CameraViewController+CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraViewController+CameraService.swift"; sourceTree = "<group>"; };
 		7056B5252D183F1C001844D7 /* PhotoPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreviewView.swift; sourceTree = "<group>"; };
 		7056B5272D184473001844D7 /* CameraImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraImageView.swift; sourceTree = "<group>"; };
+		7056B52A2D18496C001844D7 /* PhotoPickerPermissionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerPermissionsManager.swift; sourceTree = "<group>"; };
+		7056B52C2D184A28001844D7 /* PhotoPickerServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerServiceDelegate.swift; sourceTree = "<group>"; };
+		7056B52E2D184A3E001844D7 /* PhotoPickerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerService.swift; sourceTree = "<group>"; };
+		7056B5302D184C89001844D7 /* CameraViewController+PhotoPickerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraViewController+PhotoPickerService.swift"; sourceTree = "<group>"; };
 		706E5B8A2CE545CB00CFEAF4 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		7079C2432CC6336D00E23D59 /* NutriPlus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NutriPlus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7079C2462CC6336D00E23D59 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -282,6 +290,7 @@
 				7056B51D2D183DCB001844D7 /* CameraViewControllerDelegate.swift */,
 				7056B51F2D183E36001844D7 /* CameraViewController+Selectors.swift */,
 				7056B5212D183E63001844D7 /* CameraViewController+CameraService.swift */,
+				7056B5302D184C89001844D7 /* CameraViewController+PhotoPickerService.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -310,6 +319,16 @@
 				7056B5272D184473001844D7 /* CameraImageView.swift */,
 			);
 			path = Reusables;
+			sourceTree = "<group>";
+		};
+		7056B5292D184955001844D7 /* PhotoPickerService */ = {
+			isa = PBXGroup;
+			children = (
+				7056B52A2D18496C001844D7 /* PhotoPickerPermissionsManager.swift */,
+				7056B52C2D184A28001844D7 /* PhotoPickerServiceDelegate.swift */,
+				7056B52E2D184A3E001844D7 /* PhotoPickerService.swift */,
+			);
+			path = PhotoPickerService;
 			sourceTree = "<group>";
 		};
 		7079C23A2CC6336D00E23D59 = {
@@ -552,6 +571,7 @@
 		70E834092CC8CEA300FF3CCC /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				7056B5292D184955001844D7 /* PhotoPickerService */,
 				7056B5042D183732001844D7 /* CameraService */,
 				70E8340A2CC8CEA900FF3CCC /* AuthService.swift */,
 				701A4E2B2CCABEA000013A72 /* FireStoreService.swift */,
@@ -725,6 +745,8 @@
 				7079C26B2CC63A5A00E23D59 /* CustomSignInMethodsButton.swift in Sources */,
 				7079C27A2CC6658A00E23D59 /* AuthValidator.swift in Sources */,
 				7079C27C2CC67F3F00E23D59 /* SignUpViewModel.swift in Sources */,
+				7056B52B2D18496C001844D7 /* PhotoPickerPermissionsManager.swift in Sources */,
+				7056B52F2D184A3E001844D7 /* PhotoPickerService.swift in Sources */,
 				7079C2742CC63CD000E23D59 /* SignUpViewController.swift in Sources */,
 				70E834122CC8D7C500FF3CCC /* SignInViewModel.swift in Sources */,
 				7056B51C2D183C0C001844D7 /* CameraAnimation.swift in Sources */,
@@ -746,6 +768,7 @@
 				70E834362CC93F8D00FF3CCC /* GenderSelectionViewController.swift in Sources */,
 				7007451D2D12E41300AA5248 /* CustomSlider.swift in Sources */,
 				7056B5082D18379D001844D7 /* CameraPermissionsManager.swift in Sources */,
+				7056B5312D184C89001844D7 /* CameraViewController+PhotoPickerService.swift in Sources */,
 				701A4E1F2CCA9A2400013A72 /* AssessmentTitleLabel.swift in Sources */,
 				7056B50C2D1837ED001844D7 /* CameraSessionProtocol.swift in Sources */,
 				7079C2712CC63AF800E23D59 /* UIButton+Ext.swift in Sources */,
@@ -762,6 +785,7 @@
 				708DDC892D15CEE200F1DBFF /* AddNewMealStackView.swift in Sources */,
 				7056B51E2D183DCB001844D7 /* CameraViewControllerDelegate.swift in Sources */,
 				700745212D12E56700AA5248 /* AddNewMealHeaderView.swift in Sources */,
+				7056B52D2D184A28001844D7 /* PhotoPickerServiceDelegate.swift in Sources */,
 				70E8340B2CC8CEA900FF3CCC /* AuthService.swift in Sources */,
 				708764F62CDCB7B50093C5C9 /* CalendarCell.swift in Sources */,
 				700745162D12E2DC00AA5248 /* AddNewMealViewController.swift in Sources */,
@@ -914,6 +938,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NutriPlus/Supporting/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "The application needs the camera permission in order to take pictures.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "The application needs the photo library access permission to save images.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -948,6 +973,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NutriPlus/Supporting/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "The application needs the camera permission in order to take pictures.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "The application needs the photo library access permission to save images.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";

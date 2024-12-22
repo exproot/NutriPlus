@@ -16,7 +16,7 @@ extension CameraViewController {
 
   @objc func handleGalleryButton(_ sender: UIButton) {
     viewModel.takePhotoButtonEnabled = false
-//    viewModel.showGallery(on: self)
+    viewModel.photoPickerService.present(on: self)
   }
 
   @objc func handleCaptureImage() {

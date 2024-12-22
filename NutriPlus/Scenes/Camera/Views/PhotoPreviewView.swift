@@ -12,8 +12,8 @@ final class PhotoPreviewView: UIView {
   lazy var imageView: UIImageView = {
     let imageView = UIImageView()
     imageView.contentMode = .scaleAspectFill
-    imageView.clipsToBounds = true
     imageView.layer.cornerRadius = 20
+    imageView.clipsToBounds = true
     imageView.translatesAutoresizingMaskIntoConstraints = false
     return imageView
   }()
@@ -30,8 +30,7 @@ final class PhotoPreviewView: UIView {
 
   // MARK: - UI Setup
   private func setupUI() {
-    backgroundColor = .systemBackground
-
+    backgroundColor = .black
     addSubview(imageView)
 
     NSLayoutConstraint.activate([

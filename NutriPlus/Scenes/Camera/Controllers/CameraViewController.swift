@@ -9,7 +9,10 @@ import UIKit
 import Combine
 
 final class CameraViewController: UIViewController {
-  lazy var viewModel = CameraViewModel(cameraService: CameraService(cameraSession: CameraSessionManager()))
+  lazy var viewModel = CameraViewModel(
+    cameraService: CameraService(cameraSession: CameraSessionManager()),
+    photoPickerService: PhotoPickerService()
+  )
   weak var delegate: CameraViewControllerDelegate?
   private var cancellables: Set<AnyCancellable> = []
 
@@ -30,6 +33,7 @@ final class CameraViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     viewModel.cameraService.delegate = self
+    viewModel.photoPickerService.delegate = self
     setupUI()
 
     viewModel.$takePhotoButtonEnabled
@@ -52,6 +56,15 @@ final class CameraViewController: UIViewController {
   }
 
   // MARK: - UI Setup
+  func setupImagePreviewView(with image: UIImage?) {
+    photoPreviewView = PhotoPreviewView(frame: captureCoverView.frame)
+
+    if let photoPreviewView {
+      photoPreviewView.imageView.image = image
+      view.insertSubview(photoPreviewView, belowSubview: platePlaceholderImageView)
+    }
+  }
+
   private func setupUI() {
     view.backgroundColor = .black
     navigationItem.hidesBackButton = true
