@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - GeminiServiceDelegate
-extension CameraViewController: GeminiServiceDelegate {
+extension CameraViewController: GeminiImageDelegate {
   func geminiService(didGenerateResponse data: Data?) {
     guard let data = data else { return }
 

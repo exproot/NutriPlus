@@ -44,11 +44,11 @@ extension KeyboardHandlingViewController: UITextFieldDelegate {
 
 // MARK: - Selectors
 extension KeyboardHandlingViewController {
-  @objc private func keyboardWillHide(notification: NSNotification) {
+  @objc func keyboardWillHide(notification: NSNotification) {
     view.frame.origin.y = 0
   }
 
-  @objc private func keyboardWillShow(notification: NSNotification) {
+  @objc func keyboardWillShow(notification: NSNotification) {
     guard
       let keyboardFrame = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
       let activeTextField = activeTextField
@@ -60,7 +60,7 @@ extension KeyboardHandlingViewController {
     let bottomOfTextField = activeTextField.convert(activeTextField.bounds, to: view).maxY
 
     if bottomOfTextField > keyboardTop {
-      let offset = bottomOfTextField - keyboardTop + 20
+      let offset = bottomOfTextField - keyboardTop + 35
       view.frame.origin.y = -offset
     }
   }

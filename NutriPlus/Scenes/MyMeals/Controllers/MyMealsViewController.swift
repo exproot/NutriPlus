@@ -29,7 +29,6 @@ final class MyMealsViewController: UIViewController {
     let selectedDate = viewModel.dateItems[selectedIndex].dateString
 
     viewModel.fetchMeals(for: selectedDate) { [weak self] in
-      print("here")
       let indexPath = IndexPath(item: selectedIndex, section: 0)
 
       self?.updateMealSection()
@@ -45,7 +44,6 @@ extension MyMealsViewController: AddNewMealControllerDelegate {
     let date = viewModel.dateItems[selectedDateIndex].dateString
     let mealCellViewModel = MealCellViewModel(meal: meal)
 
-    hidesBottomBarWhenPushed = false
     viewModel.addMeal(meal: mealCellViewModel, date: date) { [weak self] in
       self?.updateMealSection()
     }
@@ -55,7 +53,6 @@ extension MyMealsViewController: AddNewMealControllerDelegate {
     guard let selectedDateIndex = viewModel.selectedIndex else { return }
     let date = viewModel.dateItems[selectedDateIndex].dateString
 
-    hidesBottomBarWhenPushed = false
     viewModel.addMeal(meal: meal, date: date) { [weak self] in
       self?.updateMealSection()
     }
@@ -64,6 +61,11 @@ extension MyMealsViewController: AddNewMealControllerDelegate {
 
 // MARK: - UI Setup
 extension MyMealsViewController {
+  func pushChatController(with message: String) {
+    let chatController = ChatViewController(with: message)
+    navigationController?.pushViewController(chatController, animated: true)
+  }
+
   private func configureNavigationBar() {
     title = "My Meals"
     navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus")?.withTintColor(.label, renderingMode: .alwaysOriginal), style: .done, target: self, action: #selector(handleAddButton))

@@ -16,7 +16,6 @@ extension MyMealsViewController {
     }
     let addMealController = AddNewMealViewController()
     addMealController.delegate = self
-    hidesBottomBarWhenPushed = true
     navigationController?.pushViewController(addMealController, animated: true)
   }
 

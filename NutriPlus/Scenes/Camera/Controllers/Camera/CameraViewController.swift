@@ -36,7 +36,7 @@ final class CameraViewController: UIViewController {
     super.viewDidLoad()
     viewModel.cameraService.delegate = self
     viewModel.photoPickerService.delegate = self
-    viewModel.geminiService.delegate = self
+    viewModel.geminiService.imageScanDelegate = self
     setupUI()
 
     viewModel.$takePhotoButtonEnabled

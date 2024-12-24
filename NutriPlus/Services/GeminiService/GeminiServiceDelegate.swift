@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol GeminiServiceDelegate: AnyObject{
+protocol GeminiImageDelegate: AnyObject{
   func geminiService(didGenerateResponse data: Data?)
   func geminiService(didFailWithError error: Error)
   func geminiServiceDidStartGeneratingResponse(_ geminiService: GeminiService)

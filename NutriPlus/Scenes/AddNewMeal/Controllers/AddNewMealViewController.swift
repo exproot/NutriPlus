@@ -62,11 +62,13 @@ final class AddNewMealViewController: KeyboardHandlingViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     navigationController?.navigationBar.isHidden = true
+    tabBarController?.tabBar.isHidden = true
   }
 
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     navigationController?.navigationBar.isHidden = false
+    tabBarController?.tabBar.isHidden = false
   }
 }
 

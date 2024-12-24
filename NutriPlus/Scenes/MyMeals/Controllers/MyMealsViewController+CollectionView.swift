@@ -51,6 +51,11 @@ extension MyMealsViewController {
     let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
     actionSheet.addAction(cancelAction)
 
+    let detailsAction = UIAlertAction(title: "Get Details", style: .default) { [weak self] _ in
+      self?.pushChatController(with: meal.name)
+    }
+    actionSheet.addAction(detailsAction)
+
     if selectedDate == currentDate {
       let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
         self?.viewModel.deleteMeal(mealId: meal.id, dateString: selectedDate) {

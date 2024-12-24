@@ -84,7 +84,15 @@
 		70B446032CCA79CE0019B407 /* GoalSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B446022CCA79CE0019B407 /* GoalSelectionViewController.swift */; };
 		70B446052CCA7CF20019B407 /* GoalSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B446042CCA7CF20019B407 /* GoalSelectionViewModel.swift */; };
 		70B446092CCA80830019B407 /* ContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B446082CCA80830019B407 /* ContinueButton.swift */; };
+		70B44A662D194D55007A03FE /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B44A652D194D55007A03FE /* ChatViewController.swift */; };
+		70B44A682D194DF1007A03FE /* ChatViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B44A672D194DF1007A03FE /* ChatViewController+TableView.swift */; };
+		70B44A6A2D194E59007A03FE /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B44A692D194E59007A03FE /* ChatViewModel.swift */; };
+		70B44A6C2D194F02007A03FE /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B44A6B2D194F02007A03FE /* Message.swift */; };
+		70B44A6F2D194F56007A03FE /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B44A6E2D194F56007A03FE /* MessageCell.swift */; };
+		70B44A712D19906B007A03FE /* ChatNavigationTitleStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B44A702D19906B007A03FE /* ChatNavigationTitleStackView.swift */; };
 		70BD07CB2D136716005D126D /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BD07CA2D136716005D126D /* Meal.swift */; };
+		70C123E22D1B3C0400955A7C /* ChatViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C123E12D1B3C0400955A7C /* ChatViewController+DataSource.swift */; };
+		70C123E42D1B3CCD00955A7C /* ChatViewController+Selectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C123E32D1B3CCD00955A7C /* ChatViewController+Selectors.swift */; };
 		70D11C432D14772300EFB5B2 /* MyMealsSectionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D11C422D14772300EFB5B2 /* MyMealsSectionProvider.swift */; };
 		70D11C472D14C8C300EFB5B2 /* MyMealsViewController+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D11C462D14C8C300EFB5B2 /* MyMealsViewController+CollectionView.swift */; };
 		70D11C492D14CCAA00EFB5B2 /* MyMealsViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D11C482D14CCAA00EFB5B2 /* MyMealsViewController+DataSource.swift */; };
@@ -192,7 +200,15 @@
 		70B446022CCA79CE0019B407 /* GoalSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSelectionViewController.swift; sourceTree = "<group>"; };
 		70B446042CCA7CF20019B407 /* GoalSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSelectionViewModel.swift; sourceTree = "<group>"; };
 		70B446082CCA80830019B407 /* ContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButton.swift; sourceTree = "<group>"; };
+		70B44A652D194D55007A03FE /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		70B44A672D194DF1007A03FE /* ChatViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatViewController+TableView.swift"; sourceTree = "<group>"; };
+		70B44A692D194E59007A03FE /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
+		70B44A6B2D194F02007A03FE /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		70B44A6E2D194F56007A03FE /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		70B44A702D19906B007A03FE /* ChatNavigationTitleStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatNavigationTitleStackView.swift; sourceTree = "<group>"; };
 		70BD07CA2D136716005D126D /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		70C123E12D1B3C0400955A7C /* ChatViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatViewController+DataSource.swift"; sourceTree = "<group>"; };
+		70C123E32D1B3CCD00955A7C /* ChatViewController+Selectors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChatViewController+Selectors.swift"; sourceTree = "<group>"; };
 		70D11C422D14772300EFB5B2 /* MyMealsSectionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMealsSectionProvider.swift; sourceTree = "<group>"; };
 		70D11C462D14C8C300EFB5B2 /* MyMealsViewController+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyMealsViewController+CollectionView.swift"; sourceTree = "<group>"; };
 		70D11C482D14CCAA00EFB5B2 /* MyMealsViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyMealsViewController+DataSource.swift"; sourceTree = "<group>"; };
@@ -279,6 +295,7 @@
 			children = (
 				701A4E282CCAB9BE00013A72 /* AssessmentModel.swift */,
 				70BD07CA2D136716005D126D /* Meal.swift */,
+				70B44A6B2D194F02007A03FE /* Message.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -466,6 +483,7 @@
 			isa = PBXGroup;
 			children = (
 				70D29C892D174E280045161C /* Base */,
+				70B44A642D194D46007A03FE /* Chat */,
 				7056B5032D183719001844D7 /* Camera */,
 				700745142D12E1FC00AA5248 /* AddNewMeal */,
 				708764EB2CDCB6240093C5C9 /* MyMeals */,
@@ -602,6 +620,28 @@
 				708DDC8E2D15F42700F1DBFF /* AddNewMealViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		70B44A642D194D46007A03FE /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				70B44A6D2D194F40007A03FE /* Reusables */,
+				70B44A692D194E59007A03FE /* ChatViewModel.swift */,
+				70B44A652D194D55007A03FE /* ChatViewController.swift */,
+				70B44A672D194DF1007A03FE /* ChatViewController+TableView.swift */,
+				70C123E12D1B3C0400955A7C /* ChatViewController+DataSource.swift */,
+				70C123E32D1B3CCD00955A7C /* ChatViewController+Selectors.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		70B44A6D2D194F40007A03FE /* Reusables */ = {
+			isa = PBXGroup;
+			children = (
+				70B44A6E2D194F56007A03FE /* MessageCell.swift */,
+				70B44A702D19906B007A03FE /* ChatNavigationTitleStackView.swift */,
+			);
+			path = Reusables;
 			sourceTree = "<group>";
 		};
 		70D29C892D174E280045161C /* Base */ = {
@@ -777,6 +817,7 @@
 				7056B5412D186B9B001844D7 /* CameraViewController+GeminiService.swift in Sources */,
 				7056B5162D183A6B001844D7 /* CameraViewModel.swift in Sources */,
 				7056B5522D187CF3001844D7 /* CameraViewController+ScanResult.swift in Sources */,
+				70C123E22D1B3C0400955A7C /* ChatViewController+DataSource.swift in Sources */,
 				70D11C492D14CCAA00EFB5B2 /* MyMealsViewController+DataSource.swift in Sources */,
 				70E834302CC934DA00FF3CCC /* FitSelectionViewController.swift in Sources */,
 				70BD07CB2D136716005D126D /* Meal.swift in Sources */,
@@ -787,6 +828,7 @@
 				7056B5132D183A28001844D7 /* CameraViewController.swift in Sources */,
 				708DDC972D1613E700F1DBFF /* MealService.swift in Sources */,
 				70B446032CCA79CE0019B407 /* GoalSelectionViewController.swift in Sources */,
+				70B44A6F2D194F56007A03FE /* MessageCell.swift in Sources */,
 				7056B53A2D186553001844D7 /* GeminiService.swift in Sources */,
 				7056B5262D183F1C001844D7 /* PhotoPreviewView.swift in Sources */,
 				70E834142CC8DE0A00FF3CCC /* MainTabBarController.swift in Sources */,
@@ -809,16 +851,20 @@
 				7079C26B2CC63A5A00E23D59 /* CustomSignInMethodsButton.swift in Sources */,
 				7079C27A2CC6658A00E23D59 /* AuthValidator.swift in Sources */,
 				7079C27C2CC67F3F00E23D59 /* SignUpViewModel.swift in Sources */,
+				70B44A712D19906B007A03FE /* ChatNavigationTitleStackView.swift in Sources */,
 				7056B52B2D18496C001844D7 /* PhotoPickerPermissionsManager.swift in Sources */,
 				7056B52F2D184A3E001844D7 /* PhotoPickerService.swift in Sources */,
 				7079C2742CC63CD000E23D59 /* SignUpViewController.swift in Sources */,
 				70E834122CC8D7C500FF3CCC /* SignInViewModel.swift in Sources */,
 				7056B51C2D183C0C001844D7 /* CameraAnimation.swift in Sources */,
+				70B44A6C2D194F02007A03FE /* Message.swift in Sources */,
 				701A4E2C2CCABEA000013A72 /* FireStoreService.swift in Sources */,
 				7056B53F2D1865D9001844D7 /* AIInstructions.swift in Sources */,
 				7079C2602CC638C300E23D59 /* SignInViewController.swift in Sources */,
+				70B44A682D194DF1007A03FE /* ChatViewController+TableView.swift in Sources */,
 				7079C26F2CC63ADF00E23D59 /* CustomFooterButton.swift in Sources */,
 				7056B51A2D183BB0001844D7 /* CameraButton.swift in Sources */,
+				70C123E42D1B3CCD00955A7C /* ChatViewController+Selectors.swift in Sources */,
 				7079C2772CC6404D00E23D59 /* ResetPasswordViewController.swift in Sources */,
 				7056B50E2D18380A001844D7 /* CameraSessionManager.swift in Sources */,
 				701A4E242CCAA31500013A72 /* GoalCell.swift in Sources */,
@@ -830,11 +876,13 @@
 				7056B5502D1875D7001844D7 /* ScanResultStackView.swift in Sources */,
 				701A4E262CCAB99200013A72 /* BaseAssessmentViewController.swift in Sources */,
 				7007451B2D12E3D600AA5248 /* MacroSliderView.swift in Sources */,
+				70B44A662D194D55007A03FE /* ChatViewController.swift in Sources */,
 				708764F12CDCB7270093C5C9 /* MyMealsViewModel.swift in Sources */,
 				7056B5062D18373A001844D7 /* CameraService.swift in Sources */,
 				7079C2642CC6398400E23D59 /* CustomTextField.swift in Sources */,
 				70E834362CC93F8D00FF3CCC /* GenderSelectionViewController.swift in Sources */,
 				7056B54C2D187524001844D7 /* ScanResultControllerDelegate.swift in Sources */,
+				70B44A6A2D194E59007A03FE /* ChatViewModel.swift in Sources */,
 				7007451D2D12E41300AA5248 /* CustomSlider.swift in Sources */,
 				7056B5082D18379D001844D7 /* CameraPermissionsManager.swift in Sources */,
 				7056B5312D184C89001844D7 /* CameraViewController+PhotoPickerService.swift in Sources */,
