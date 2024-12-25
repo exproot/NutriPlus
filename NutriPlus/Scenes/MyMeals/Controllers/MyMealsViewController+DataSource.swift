@@ -22,7 +22,8 @@ extension MyMealsViewController {
   }
 
   func configureDataSource() {
-    dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { collectionView, indexPath, itemIdentifier -> UICollectionViewCell? in
+    dataSource = UICollectionViewDiffableDataSource(collectionView: collectionView, cellProvider: { [weak self] collectionView, indexPath, itemIdentifier -> UICollectionViewCell? in
+      guard let self = self else { return nil }
       switch itemIdentifier {
       case let dateViewModel as CalendarCellViewModel:
         guard let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCell.identifier, for: indexPath) as? CalendarCell else { fatalError("couldn't dequeue calendar cell") }
@@ -31,6 +32,7 @@ extension MyMealsViewController {
       case let mealViewModel as MealCellViewModel:
         guard let cell  = collectionView.dequeueReusableCell(withReuseIdentifier: MealCell.identifier, for: indexPath) as? MealCell else { fatalError("couldn't dequeue meal cell") }
         cell.configure(with: mealViewModel)
+        cell.delegate = self
         return cell
       default:
         return nil

@@ -7,25 +7,37 @@
 
 import UIKit
 
+protocol MealCellDelegate: AnyObject {
+  func didTapOnDelete(for meal: MealCellViewModel?)
+  func didTapOnInfo(for meal: MealCellViewModel?)
+}
+
 final class MealCell: UICollectionViewCell {
+  weak var delegate: MealCellDelegate?
   static let identifier = "MealCell"
+  var meal: MealCellViewModel?
 
   // MARK: - UI Components
-  private lazy var iconImageView: UIImageView = {
-    let iv = UIImageView()
-    iv.contentMode = .scaleAspectFit
-    iv.translatesAutoresizingMaskIntoConstraints = false
-    return iv
+  lazy var optionsButton: UIButton = {
+    var config = UIButton.Configuration.plain()
+    config.cornerStyle = .medium
+    config.image = UIImage(systemName: "ellipsis.circle")
+    config.baseForegroundColor = .systemGray2
+
+    let customButton = UIButton()
+    customButton.configuration = config
+    customButton.translatesAutoresizingMaskIntoConstraints = false
+    return customButton
   }()
 
   private lazy var mealLabel =  CustomLabel(text: "", fontSize: 20, fontWeight: .bold, textColor: .label)
-  private lazy var kcalLabel = CustomLabel(text: "", fontSize: 16, fontWeight: .regular, textColor: .systemGray)
   private lazy var proteinView = NutrientView(title: "Protein", value: 0, color: .systemGreen, imageString: "protein")
   private lazy var carbsView = NutrientView(title: "Carbs", value: 0, color: .systemYellow, imageString: "carbs")
   private lazy var fatsView = NutrientView(title: "Fat", value: 0, color: .systemRed, imageString: "fats")
+  private lazy var calorieView = NutrientView(title: "Calorie", value: 0, color: .systemOrange, imageString: "calorie")
 
   private lazy var nutrientStackView: UIStackView = {
-    let sv = UIStackView(arrangedSubviews: [proteinView, carbsView, fatsView])
+    let sv = UIStackView(arrangedSubviews: [proteinView, carbsView, fatsView, calorieView])
     sv.axis = .vertical
     sv.alignment = .center
     sv.distribution = .equalSpacing
@@ -43,54 +55,71 @@ final class MealCell: UICollectionViewCell {
   }
 
   func configure(with model: MealCellViewModel) {
-    iconImageView.image = UIImage(named: model.type.lowercased())
+    self.meal = model
     mealLabel.text = model.name
-    kcalLabel.text = "\(model.calories)kcal"
     configureProgressViews(
       protein: Float(model.protein),
       carbs: Float(model.carbs),
-      fat: Float(model.fat)
+      fat: Float(model.fat),
+      calories: model.calories
     )
   }
 
-  private func configureProgressViews(protein: Float, carbs: Float, fat: Float) {
+  private func configureProgressViews(protein: Float, carbs: Float, fat: Float, calories: Int) {
     let totalGrams =  protein + carbs + fat
 
     proteinView.amountLabel.text = "\(Int(protein))g"
     carbsView.amountLabel.text = "\(Int(carbs))g"
     fatsView.amountLabel.text = "\(Int(fat))g"
+    calorieView.amountLabel.text = "\(calories)kcal"
 
     proteinView.progressView.setProgress(protein / totalGrams, animated: false)
     carbsView.progressView.setProgress(carbs / totalGrams, animated: false)
     fatsView.progressView.setProgress(fat / totalGrams, animated: false)
+    calorieView.progressView.setProgress(Float(calories), animated: false)
+  }
+
+  // MARK: - Selectors
+  @objc private func optionsButtonTapped() {
+    let infoAction = UIAction(title: "Get Info on Nutri AI", image: UIImage(systemName: "info.circle.fill")) { [weak self] _ in
+      self?.delegate?.didTapOnInfo(for: self?.meal)
+    }
+
+    let deleteAction = UIAction(title: "Delete Meal", image: UIImage(systemName: "trash")?.withTintColor(.systemRed, renderingMode: .alwaysOriginal)) { [weak self] _ in
+      self?.delegate?.didTapOnDelete(for: self?.meal)
+    }
+
+    let menu = UIMenu(title: "Options", children: [infoAction, deleteAction])
+    optionsButton.menu = menu
+    optionsButton.showsMenuAsPrimaryAction = true
   }
 
   // MARK: - UI Setup
   private func setupUI() {
-    layer.cornerRadius = 10
+    layer.cornerRadius = 16
     backgroundColor = .lightGray.withAlphaComponent(0.1)
+    mealLabel.numberOfLines = 2
 
-    addSubview(iconImageView)
-    addSubview(mealLabel)
-    addSubview(kcalLabel)
-    addSubview(nutrientStackView)
+    contentView.addSubview(mealLabel)
+    contentView.addSubview(optionsButton)
+    contentView.addSubview(nutrientStackView)
 
     NSLayoutConstraint.activate([
-      iconImageView.topAnchor.constraint(equalTo: self.layoutMarginsGuide.topAnchor, constant: 4),
-      iconImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
-      iconImageView.widthAnchor.constraint(equalToConstant: 40),
-      iconImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.2),
+      mealLabel.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor, constant: 8),
+      mealLabel.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor, constant: 8),
+      mealLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.8),
 
-      kcalLabel.centerYAnchor.constraint(equalTo: iconImageView.centerYAnchor),
-      kcalLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
+      nutrientStackView.topAnchor.constraint(equalTo: mealLabel.bottomAnchor, constant: 8),
+      nutrientStackView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.85),
+      nutrientStackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+      nutrientStackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
 
-      mealLabel.centerYAnchor.constraint(equalTo: iconImageView.centerYAnchor),
-      mealLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 8),
-
-      nutrientStackView.topAnchor.constraint(equalTo: iconImageView.bottomAnchor, constant: 4),
-      nutrientStackView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.85),
-      nutrientStackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-      nutrientStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+      optionsButton.centerYAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor, constant: 16),
+      optionsButton.leadingAnchor.constraint(equalTo: mealLabel.trailingAnchor, constant: 4),
+      optionsButton.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.15),
+      optionsButton.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.15)
     ])
+
+    optionsButton.addTarget(self, action: #selector(optionsButtonTapped), for: .touchUpInside)
   }
 }

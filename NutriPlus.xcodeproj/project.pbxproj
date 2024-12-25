@@ -81,6 +81,7 @@
 		708DDC932D15F63200F1DBFF /* UIStackView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708DDC922D15F63200F1DBFF /* UIStackView+Ext.swift */; };
 		708DDC972D1613E700F1DBFF /* MealService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708DDC962D1613E700F1DBFF /* MealService.swift */; };
 		708DDC992D16327700F1DBFF /* MyMealsViewController+Selectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708DDC982D16327700F1DBFF /* MyMealsViewController+Selectors.swift */; };
+		70AE61762D1C466D00FF9017 /* MyMealsController+MealCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AE61752D1C466D00FF9017 /* MyMealsController+MealCellDelegate.swift */; };
 		70B446032CCA79CE0019B407 /* GoalSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B446022CCA79CE0019B407 /* GoalSelectionViewController.swift */; };
 		70B446052CCA7CF20019B407 /* GoalSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B446042CCA7CF20019B407 /* GoalSelectionViewModel.swift */; };
 		70B446092CCA80830019B407 /* ContinueButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B446082CCA80830019B407 /* ContinueButton.swift */; };
@@ -197,6 +198,7 @@
 		708DDC922D15F63200F1DBFF /* UIStackView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Ext.swift"; sourceTree = "<group>"; };
 		708DDC962D1613E700F1DBFF /* MealService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealService.swift; sourceTree = "<group>"; };
 		708DDC982D16327700F1DBFF /* MyMealsViewController+Selectors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyMealsViewController+Selectors.swift"; sourceTree = "<group>"; };
+		70AE61752D1C466D00FF9017 /* MyMealsController+MealCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyMealsController+MealCellDelegate.swift"; sourceTree = "<group>"; };
 		70B446022CCA79CE0019B407 /* GoalSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSelectionViewController.swift; sourceTree = "<group>"; };
 		70B446042CCA7CF20019B407 /* GoalSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalSelectionViewModel.swift; sourceTree = "<group>"; };
 		70B446082CCA80830019B407 /* ContinueButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButton.swift; sourceTree = "<group>"; };
@@ -554,6 +556,7 @@
 				70D11C462D14C8C300EFB5B2 /* MyMealsViewController+CollectionView.swift */,
 				70D11C482D14CCAA00EFB5B2 /* MyMealsViewController+DataSource.swift */,
 				708DDC982D16327700F1DBFF /* MyMealsViewController+Selectors.swift */,
+				70AE61752D1C466D00FF9017 /* MyMealsController+MealCellDelegate.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -817,6 +820,7 @@
 				7056B5412D186B9B001844D7 /* CameraViewController+GeminiService.swift in Sources */,
 				7056B5162D183A6B001844D7 /* CameraViewModel.swift in Sources */,
 				7056B5522D187CF3001844D7 /* CameraViewController+ScanResult.swift in Sources */,
+				70AE61762D1C466D00FF9017 /* MyMealsController+MealCellDelegate.swift in Sources */,
 				70C123E22D1B3C0400955A7C /* ChatViewController+DataSource.swift in Sources */,
 				70D11C492D14CCAA00EFB5B2 /* MyMealsViewController+DataSource.swift in Sources */,
 				70E834302CC934DA00FF3CCC /* FitSelectionViewController.swift in Sources */,

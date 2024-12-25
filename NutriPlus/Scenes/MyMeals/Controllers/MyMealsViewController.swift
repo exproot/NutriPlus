@@ -18,7 +18,6 @@ final class MyMealsViewController: UIViewController {
     setupUI()
     configureNavigationBar()
     setupCollectionView()
-    addLongPressGesture()
     configureDataSource()
     applyInitialSnapshot()
   }

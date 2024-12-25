@@ -18,7 +18,7 @@ extension ChatViewController {
   override func keyboardWillShow(notification: NSNotification) {
     guard let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
     let keyboardHeight = keyboardFrame.height
-    
+
     inputContainerBottomConstraint.constant = -keyboardHeight
     view.layoutIfNeeded()
     scrollToBottom()

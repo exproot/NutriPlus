@@ -18,15 +18,4 @@ extension MyMealsViewController {
     addMealController.delegate = self
     navigationController?.pushViewController(addMealController, animated: true)
   }
-
-  @objc func handleLongPress(_ gesture: UILongPressGestureRecognizer) {
-    let location = gesture.location(in: collectionView)
-    guard let indexPath = collectionView.indexPathForItem(at: location) else { return }
-
-    if indexPath.section == 1 {
-      if gesture.state == .began {
-        showActionSheet(for: indexPath)
-      }
-    }
-  }
 }

@@ -35,40 +35,6 @@ extension MyMealsViewController: UICollectionViewDelegate {
   }
 }
 
-extension MyMealsViewController {
-  func addLongPressGesture() {
-    let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
-    collectionView.addGestureRecognizer(longPressGesture)
-  }
-
-  func showActionSheet(for indexPath: IndexPath) {
-    guard let selectedDateIndex = viewModel.selectedIndex else { return }
-    let meal = viewModel.mealItems[indexPath.item]
-    let selectedDate = viewModel.dateItems[selectedDateIndex].dateString
-    let currentDate = Date().toFormattedString()
-
-    let actionSheet = UIAlertController(title: "Options", message: "Choose an option", preferredStyle: .actionSheet)
-    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-    actionSheet.addAction(cancelAction)
-
-    let detailsAction = UIAlertAction(title: "Get Details", style: .default) { [weak self] _ in
-      self?.pushChatController(with: meal.name)
-    }
-    actionSheet.addAction(detailsAction)
-
-    if selectedDate == currentDate {
-      let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
-        self?.viewModel.deleteMeal(mealId: meal.id, dateString: selectedDate) {
-          self?.updateMealSection()
-        }
-      }
-      actionSheet.addAction(deleteAction)
-    }
-
-    present(actionSheet, animated: true)
-  }
-}
-
 // MARK: - CollectionView Layout
 extension MyMealsViewController {
   func setupCollectionView() {
