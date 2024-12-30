@@ -12,50 +12,22 @@ final class AddNewMealViewController: KeyboardHandlingViewController {
   weak var delegate: AddNewMealControllerDelegate?
 
   // MARK: - UI Components
-  private lazy var headerView = AddNewMealHeaderView()
+  lazy var headerView = AddNewMealHeaderView()
   private lazy var mealTitleLabel = CustomLabel(text: "Meal Name", fontSize: 18, fontWeight: .bold, textColor: .label)
-
-  lazy var mealNameTextField: UITextField = {
-    let textField = UITextField()
-    textField.placeholder = "Enter your meal's name..."
-    textField.font = .systemFont(ofSize: 16, weight: .bold)
-    textField.layer.cornerRadius = 10
-    textField.layer.masksToBounds = true
-    textField.textAlignment = .center
-    textField.backgroundColor = .systemGray5
-    textField.translatesAutoresizingMaskIntoConstraints = false
-    return textField
-  }()
-
+  lazy var mealNameTextField = CustomTextField(placeholder: "Enter your meal's name...", fontSize: 16, fontWeight: .bold, cornerRadius: 10)
   lazy var mealTypeLabel = CustomLabel(text: "Meal Type", fontSize: 18, fontWeight: .bold, textColor: .label)
-  lazy var collectionView: UICollectionView = {
-    let collectionView = UICollectionView(frame: .zero, collectionViewLayout: .createMealTypeLayout())
-    collectionView.translatesAutoresizingMaskIntoConstraints = false
-    collectionView.register(MealTypeCell.self, forCellWithReuseIdentifier: MealTypeCell.reuseID)
-    return collectionView
-  }()
-  var sliderStackView = AddNewMealStackView()
-
-  private lazy var continueButton: UIButton = {
-    var config = UIButton.Configuration.filled()
-    config.title = "Continue"
-    config.baseForegroundColor = .systemBackground
-    config.baseBackgroundColor = .label
-    config.cornerStyle = .medium
-
-    let btn = UIButton()
-    btn.configuration = config
-    btn.translatesAutoresizingMaskIntoConstraints = false
-    return btn
-  }()
+  var collectionView: UICollectionView!
+  lazy var sliderStackView = AddNewMealStackView()
+  lazy var continueButton = CustomButton(title: "Continue", backgroundColor: .label, foregroundColor: .systemBackground)
 
   // MARK: - Controller Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
+    setupCollectionView()
     setupUI()
-    headerView.delegate = self
-    collectionView.dataSource = self
-    collectionView.delegate = self
+    setupConstraints()
+    setupActions()
+
     mealNameTextField.delegate = self
   }
 
@@ -72,29 +44,6 @@ final class AddNewMealViewController: KeyboardHandlingViewController {
   }
 }
 
-// MARK: - CameraViewControllerDelegate
-extension AddNewMealViewController: CameraViewControllerDelegate {
-  func didScanMealWithAI(_ controller: CameraViewController, meal: Meal) {
-    delegate?.addNewMealController(didAddWithAI: meal)
-    navigationController?.popViewController(animated: true)
-  }
-  
-  func didCancelCapturing(_ controller: CameraViewController) {
-    headerView.segmentedControl.selectedSegmentIndex = 0
-  }
-}
-
-// MARK: - AddNewMealHeaderDelegate
-extension AddNewMealViewController: AddNewMealHeaderDelegate {
-  func addNewMealHeaderView(_ view: AddNewMealHeaderView, didSwitchSegment segmentIndex: Int) {
-    if segmentIndex != 0 {
-      let camController = CameraViewController()
-      camController.delegate = self
-      navigationController?.pushViewController(camController, animated: true)
-    }
-  }
-}
-
 // MARK: - SetupUI
 extension AddNewMealViewController {
   private func setupUI() {
@@ -107,7 +56,9 @@ extension AddNewMealViewController {
     view.addSubview(collectionView)
     view.addSubview(sliderStackView)
     view.addSubview(continueButton)
+  }
 
+  private func setupConstraints() {
     NSLayoutConstraint.activate([
       headerView.topAnchor.constraint(equalTo: view.topAnchor),
       headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -140,7 +91,5 @@ extension AddNewMealViewController {
       continueButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
       continueButton.heightAnchor.constraint(equalToConstant: 50)
     ])
-
-    continueButton.addTarget(self, action: #selector(handleContinueButton), for: .touchUpInside)
   }
 }

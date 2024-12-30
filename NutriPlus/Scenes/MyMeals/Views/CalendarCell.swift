@@ -11,22 +11,10 @@ final class CalendarCell: UICollectionViewCell {
   static let identifier = String(describing: CalendarCell.self)
 
   // MARK: - UI Components
-  lazy var monthLabel: UILabel = {
-    let lbl = UILabel()
-    lbl.font = .systemFont(ofSize: 22, weight: .bold)
-    lbl.textColor = .label
-    lbl.translatesAutoresizingMaskIntoConstraints = false
-    return lbl
-  }()
+  lazy var monthLabel = CustomLabel(text: "", fontSize: 22, fontWeight: .bold, textColor: .label)
+  lazy var dayNumberLabel = CustomLabel(text: "", fontSize: 20, fontWeight: .bold, textColor: .secondaryLabel)
 
-  lazy var dayNumberLabel: UILabel = {
-    let lbl = UILabel()
-    lbl.font = .systemFont(ofSize: 20, weight: .bold)
-    lbl.textColor = .secondaryLabel
-    lbl.translatesAutoresizingMaskIntoConstraints = false
-    return lbl
-  }()
-
+  // MARK: - Lifecycle
   override init(frame: CGRect) {
     super.init(frame: frame)
     setupUI()
@@ -36,6 +24,7 @@ final class CalendarCell: UICollectionViewCell {
     fatalError("init(coder:) has not been implemented")
   }
 
+  // MARK: - Methods
   func configure(dateString: String) {
     let yearMonthAndDay = dateString.components(separatedBy: "-")
     if let month = Int(yearMonthAndDay[1]) {

@@ -13,24 +13,13 @@ protocol MealCellDelegate: AnyObject {
 }
 
 final class MealCell: UICollectionViewCell {
-  weak var delegate: MealCellDelegate?
   static let identifier = "MealCell"
+  weak var delegate: MealCellDelegate?
   var meal: MealCellViewModel?
 
   // MARK: - UI Components
-  lazy var optionsButton: UIButton = {
-    var config = UIButton.Configuration.plain()
-    config.cornerStyle = .medium
-    config.image = UIImage(systemName: "ellipsis.circle")
-    config.baseForegroundColor = .systemGray2
-
-    let customButton = UIButton()
-    customButton.configuration = config
-    customButton.translatesAutoresizingMaskIntoConstraints = false
-    return customButton
-  }()
-
-  private lazy var mealLabel =  CustomLabel(text: "", fontSize: 20, fontWeight: .bold, textColor: .label)
+  lazy var optionsButton = CustomButton(imageString: "ellipsis.circle", foregroundColor: .systemGray2)
+  private lazy var mealLabel =  CustomLabel(text: "", fontSize: 20, fontWeight: .bold, textColor: .label, numberOfLines: 2)
   private lazy var proteinView = NutrientView(title: "Protein", value: 0, color: .systemGreen, imageString: "protein")
   private lazy var carbsView = NutrientView(title: "Carbs", value: 0, color: .systemYellow, imageString: "carbs")
   private lazy var fatsView = NutrientView(title: "Fat", value: 0, color: .systemRed, imageString: "fats")
@@ -98,8 +87,7 @@ final class MealCell: UICollectionViewCell {
   private func setupUI() {
     layer.cornerRadius = 16
     backgroundColor = .lightGray.withAlphaComponent(0.1)
-    mealLabel.numberOfLines = 2
-
+    
     contentView.addSubview(mealLabel)
     contentView.addSubview(optionsButton)
     contentView.addSubview(nutrientStackView)

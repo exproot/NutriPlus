@@ -11,61 +11,17 @@ final class OnboardingViewController: UIViewController {
   // MARK: - UI Components
   private var gradientLayer: CAGradientLayer?
   
-  private lazy var backgroundImageView: UIImageView = {
-    let iv = UIImageView()
-    iv.contentMode = .scaleAspectFit
-    iv.clipsToBounds = true
-    iv.image = UIImage(named: "onboard")
-    iv.translatesAutoresizingMaskIntoConstraints = false
-    return iv
-  }()
-  
-  private lazy var iconImageView: UIImageView = {
-    let iv = UIImageView()
-    iv.contentMode = .scaleAspectFill
-    iv.clipsToBounds = true
-    iv.image = UIImage(systemName: "leaf.fill")
-    iv.tintColor = .white
-    iv.translatesAutoresizingMaskIntoConstraints = false
-    return iv
-  }()
-  
-  private lazy var titleLabel: UILabel = {
-    let lbl = UILabel()
-    lbl.font = .systemFont(ofSize: 32, weight: .bold)
-    lbl.textColor = .white
-    lbl.text = "Welcome To \n NutriPlus"
-    lbl.numberOfLines = 2
-    lbl.textAlignment = .center
-    lbl.translatesAutoresizingMaskIntoConstraints = false
-    return lbl
-  }()
-  
-  private lazy var subTitleLabel: UILabel = {
-    let lbl = UILabel()
-    lbl.font = .systemFont(ofSize: 16, weight: .regular)
-    lbl.textColor = .white
-    lbl.text = "Your personal nutrition AI assistant 🤖"
-    lbl.translatesAutoresizingMaskIntoConstraints = false
-    return lbl
-  }()
-  
-  private lazy var continueButton: UIButton = {
-    var config = UIButton.Configuration.filled()
-    config.title = "Get Started"
-    config.cornerStyle = .capsule
-    config.buttonSize = .large
-    config.baseBackgroundColor = .systemOrange
-    
-    let btn = UIButton(configuration: config)
-    btn.translatesAutoresizingMaskIntoConstraints = false
-    return btn
-  }()
+  private lazy var backgroundImageView = CustomImageView(isSystemImage: false, imageString: "onboard", contentMode: .scaleAspectFit)
+  private lazy var iconImageView = CustomImageView(isSystemImage: true, imageString: "leaf.fill", contentMode: .scaleAspectFill)
+  private lazy var titleLabel = CustomLabel(text: "Welcome To \n NutriPlus", fontSize: 32, fontWeight: .bold, textColor: .white, alignment: .center, numberOfLines: 2)
+  private lazy var subTitleLabel = CustomLabel(text: "Your personal nutrition AI assistant 🤖", fontSize: 16, fontWeight: .regular, textColor: .white)
+  private lazy var continueButton = CustomButton(title: "Get Started", backgroundColor: .systemOrange, cornerStyle: .capsule)
   
   // MARK: - View Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
     setupUI()
+    iconImageView.tintColor = .white
     continueButton.addTarget(self, action: #selector(continueButtonTapped), for: .touchUpInside)
   }
   
@@ -84,7 +40,6 @@ final class OnboardingViewController: UIViewController {
     gradientLayer.endPoint = CGPoint(x: 0, y: 1)
     gradientLayer.frame = view.bounds
     
-    // Update the gradient when layout changes
     gradientLayer.frame = backgroundImageView.bounds
     backgroundImageView.layer.insertSublayer(gradientLayer, at: 0)
     

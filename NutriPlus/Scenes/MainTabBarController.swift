@@ -21,7 +21,7 @@ final class MainTabBarController: UITabBarController {
 
   private func createTabBar() {
     view.backgroundColor = .systemBackground
-    let homeVC = UINavigationController(rootViewController: HomeViewController(authService: AuthService()))
+    let homeVC = UINavigationController(rootViewController: HomeViewController())
     let myMealsVC = UINavigationController(rootViewController: MyMealsViewController())
 
     homeVC.tabBarItem.title = "Home"

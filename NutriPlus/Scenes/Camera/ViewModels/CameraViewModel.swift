@@ -14,7 +14,7 @@ final class CameraViewModel {
   let geminiService: GeminiService
 
   // MARK: - Published Properties
-  @Published var takePhotoButtonEnabled = true
+  @Published var takePhotoButtonIsEnabled = true
 
   // MARK: - Lifecycle
   init(cameraService: CameraService, photoPickerService: PhotoPickerService, geminiService: GeminiService) {

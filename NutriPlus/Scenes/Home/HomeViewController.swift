@@ -7,9 +7,28 @@
 
 import UIKit
 
-final class HomeViewController: UIViewController {
+final class HomeViewModel {
   let authService: AuthService
-  
+
+  init(authService: AuthService) {
+    self.authService = authService
+  }
+
+  func signOut(completion: @escaping (Error?) -> Void) {
+    authService.signOut { error in
+      if let error {
+        completion(error)
+        return
+      }
+
+      completion(nil)
+    }
+  }
+}
+
+final class HomeViewController: UIViewController {
+  lazy var viewModel = HomeViewModel(authService: AuthService())
+
   private lazy var signOutButton: UIButton = {
     var config = UIButton.Configuration.plain()
     config.title = "Sign Out"
@@ -19,19 +38,13 @@ final class HomeViewController: UIViewController {
     return btn
   }()
   
-  init(authService: AuthService) {
-    self.authService = authService
-    super.init(nibName: nil, bundle: nil)
-  }
-  
-  required init?(coder: NSCoder) {
-    fatalError("init(coder:) has not been implemented")
-  }
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     setupUI()
     signOutButton.addTarget(self, action: #selector(signOutButtonTapped), for: .touchUpInside)
+
+//    navigationController?.pushViewController(BMIViewController(viewModel: BMIViewModel(assessmentService: AssessmentService(uid: AuthUtils.shared.getCurrentUserUid()))), animated: true)
+    navigationController?.pushViewController(BMRViewController(), animated: true)
   }
   
   // MARK: - UI Setup
@@ -46,10 +59,9 @@ final class HomeViewController: UIViewController {
   }
   
   @objc private func signOutButtonTapped() {
-    authService.signOut { error in
-      if let error = error {
-        print(error)
-        return
+    viewModel.signOut { [weak self] error in
+      if let error {
+        self?.showAlert(title: "Sign Out Failed", message: error.localizedDescription)
       }
     }
   }

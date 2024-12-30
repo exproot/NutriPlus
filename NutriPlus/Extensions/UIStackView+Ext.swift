@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIStackView {
-  func extractSliderValues() -> [Int] {
+  func extractMacroSliderValues() -> [Int] {
     arrangedSubviews
       .compactMap { $0 as? MacroSliderView }
       .compactMap { $0.slider?.value}

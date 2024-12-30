@@ -108,13 +108,8 @@ final class CameraSessionManager: CameraSessionProtocol {
       print("Unable to add photo output to the session.")
       return
     }
+
     session.addOutput(photoOutput)
-
-    guard let connection = photoOutput.connection(with: .video) else {
-      print("No active video connection for photo output.")
-      return
-    }
-
     print("Photo output added successfully with a video connection.")
   }
 

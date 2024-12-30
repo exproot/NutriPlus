@@ -18,18 +18,18 @@ final class CameraViewController: UIViewController {
   private var cancellables: Set<AnyCancellable> = []
 
   // MARK: - UI Components
-  private lazy var captureCoverView: UIView = {
+  lazy var captureCoverView: UIView = {
     let customView = UIView()
     customView.translatesAutoresizingMaskIntoConstraints = false
     customView.layer.cornerRadius = 20
     return customView
   }()
   var photoPreviewView: PhotoPreviewView?
-  private lazy var cancelButton = CameraButton(imageString: "multiply", pointSize: 20)
-  private lazy var galleryButton = CameraButton(imageString: "photo", pointSize: 20)
-  lazy var barScannerAnimation = CameraAnimation(name: "BarScanner", loopMode: .loop)
-  private lazy var platePlaceholderImageView = CameraImageView(imageNamed: "Plate-Placeholder")
-  private lazy var takePhotoButton = CameraButton(imageString: "button.programmable", pointSize: 50)
+  lazy var cancelButton = CustomButton(imageString: "multiply", pointSize: 20)
+  lazy var galleryButton = CustomButton(imageString: "photo", pointSize: 20)
+  lazy var barScannerAnimation = CustomAnimation(name: "BarScanner", loopMode: .loop)
+  lazy var platePlaceholderImageView = CustomImageView(isSystemImage: false, imageString: "Plate-Placeholder", contentMode: .scaleAspectFill)
+  lazy var takePhotoButton = CustomButton(imageString: "button.programmable", pointSize: 50)
 
   // MARK: - Controller Lifecycle
   override func viewDidLoad() {
@@ -38,18 +38,9 @@ final class CameraViewController: UIViewController {
     viewModel.photoPickerService.delegate = self
     viewModel.geminiService.imageScanDelegate = self
     setupUI()
-
-    viewModel.$takePhotoButtonEnabled
-      .assign(to: \.isEnabled, on: takePhotoButton)
-      .store(in: &cancellables)
-
-    viewModel.$takePhotoButtonEnabled
-      .assign(to: \.isEnabled, on: galleryButton)
-      .store(in: &cancellables)
-
-    viewModel.$takePhotoButtonEnabled
-      .assign(to: \.isEnabled, on: cancelButton)
-      .store(in: &cancellables)
+    setupConstraints()
+    setupActions()
+    setupBindings()
   }
 
   override func viewDidAppear(_ animated: Bool) {
@@ -58,28 +49,25 @@ final class CameraViewController: UIViewController {
     viewModel.cameraService.setupPreviewLayer(for: captureCoverView)
   }
 
-  // MARK: - UI Setup
-  func presentScanResultController(with meal: Meal) {
-    let scanResultVC = ScanResultViewController(meal: meal)
-    scanResultVC.delegate = self
-    scanResultVC.isModalInPresentation = true
-
-    if let sheet = scanResultVC.sheetPresentationController {
-      sheet.detents = [.medium()]
-    }
-
-    navigationController?.present(scanResultVC, animated: true)
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    tabBarController?.tabBar.isHidden = true
   }
 
-  func setupImagePreviewView(with image: UIImage?) {
-    photoPreviewView = PhotoPreviewView(frame: captureCoverView.frame)
-
-    if let photoPreviewView {
-      photoPreviewView.imageView.image = image
-      view.insertSubview(photoPreviewView, belowSubview: barScannerAnimation)
-    }
+  private func setupBindings() {
+    viewModel.$takePhotoButtonIsEnabled
+      .receive(on: DispatchQueue.main)
+      .sink { [weak self] state in
+        self?.takePhotoButton.isEnabled = state
+        self?.galleryButton.isEnabled = state
+        self?.cancelButton.isEnabled = state
+      }
+      .store(in: &cancellables)
   }
+}
 
+// MARK: - UI Setup
+extension CameraViewController {
   private func setupUI() {
     view.backgroundColor = .black
     navigationItem.hidesBackButton = true
@@ -90,7 +78,9 @@ final class CameraViewController: UIViewController {
     view.addSubview(platePlaceholderImageView)
     view.addSubview(takePhotoButton)
     view.addSubview(barScannerAnimation)
+  }
 
+  private func setupConstraints() {
     NSLayoutConstraint.activate([
       captureCoverView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
       captureCoverView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -80),
@@ -114,9 +104,5 @@ final class CameraViewController: UIViewController {
       takePhotoButton.bottomAnchor.constraint(equalTo: captureCoverView.bottomAnchor, constant: -20),
       takePhotoButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor)
     ])
-
-    cancelButton.addTarget(self, action: #selector(handleCancelButton(_ :)), for: .touchUpInside)
-    galleryButton.addTarget(self, action: #selector(handleGalleryButton(_ :)), for: .touchUpInside)
-    takePhotoButton.addTarget(self, action: #selector(handleCaptureImage), for: .touchUpInside)
   }
 }

@@ -36,7 +36,7 @@ final class GenderView: UIView {
     return iv
   }()
 
-  init(image: UIImage, gender: String) {
+  init(image: UIImage?, gender: String) {
     super.init(frame: .zero)
     setupView(image: image, gender: gender)
   }
@@ -48,11 +48,10 @@ final class GenderView: UIView {
   private func updateSelectionState() {
     let imageName = isSelectedOption ? "dot.square" : "square"
     selectionIndicator.image = UIImage(systemName: imageName)
-    imageView.layer.borderColor = isSelectedOption ? UIColor.systemOrange.withAlphaComponent(0.4).cgColor : UIColor.black.withAlphaComponent(0.4).cgColor
   }
 
   // MARK: - UI Setup
-  private func setupView(image: UIImage, gender: String) {
+  private func setupView(image: UIImage?, gender: String) {
     translatesAutoresizingMaskIntoConstraints = false
     imageView.image = image
     genderLabel.text = gender

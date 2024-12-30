@@ -9,9 +9,9 @@ import UIKit
 
 final class AuthInputView: UIView {
   lazy var emailTitle = CustomLabel(text: "Email Adress", fontSize: 14, fontWeight: .semibold, textColor: .label)
-  lazy var emailTextField = CustomTextField(type: .mail, frame: .zero)
+  lazy var emailTextField = CustomTextField(type: .mail)
   lazy var passwordTitle = CustomLabel(text: "Password", fontSize: 14, fontWeight: .semibold, textColor: .label)
-  lazy var passwordTextField = CustomTextField(type: .password, frame: .zero)
+  lazy var passwordTextField = CustomTextField(type: .password)
 
   var passwordConfirmationTitle: CustomLabel?
   var passwordConfirmationTextField: CustomTextField?
@@ -27,7 +27,7 @@ final class AuthInputView: UIView {
   init(type: AuthType) {
     if type == .signUp {
       passwordConfirmationTitle = CustomLabel(text: "Confirm Password", fontSize: 14, fontWeight: .semibold, textColor: .label)
-      passwordConfirmationTextField = CustomTextField(type: .confirmation, frame: .zero)
+      passwordConfirmationTextField = CustomTextField(type: .confirmation)
     }
     super.init(frame: .zero)
     setupUI()

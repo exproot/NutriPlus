@@ -8,7 +8,7 @@
 import UIKit
 
 final class MyMealsViewController: UIViewController {
-  lazy var viewModel = MyMealsViewModel(mealService: MealService())
+  lazy var viewModel = MyMealsViewModel(mealService: MealService(uid: AuthUtils.shared.getCurrentUserUid()))
   var dataSource: UICollectionViewDiffableDataSource<Section, AnyHashable>!
   var collectionView: UICollectionView!
 
@@ -32,28 +32,6 @@ final class MyMealsViewController: UIViewController {
 
       self?.updateMealSection()
       self?.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
-    }
-  }
-}
-
-// MARK: - AddNewMealControllerDelegate
-extension MyMealsViewController: AddNewMealControllerDelegate {
-  func addNewMealController(didAddWithAI meal: Meal) {
-    guard let selectedDateIndex = viewModel.selectedIndex else { return }
-    let date = viewModel.dateItems[selectedDateIndex].dateString
-    let mealCellViewModel = MealCellViewModel(meal: meal)
-
-    viewModel.addMeal(meal: mealCellViewModel, date: date) { [weak self] in
-      self?.updateMealSection()
-    }
-  }
-  
-  func addNewMealController(didAddManually meal: MealCellViewModel) {
-    guard let selectedDateIndex = viewModel.selectedIndex else { return }
-    let date = viewModel.dateItems[selectedDateIndex].dateString
-
-    viewModel.addMeal(meal: meal, date: date) { [weak self] in
-      self?.updateMealSection()
     }
   }
 }

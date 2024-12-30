@@ -6,10 +6,9 @@
 //
 
 import Foundation
-import FirebaseAuth
 
 final class MyMealsViewModel {
-  private let mealService: MealServiceProtocol
+  private let mealService: MealService
   var selectedIndex: Int? = nil
   var dateItems: [CalendarCellViewModel] = []
   var mealItems: [MealCellViewModel] = []
@@ -21,7 +20,7 @@ final class MyMealsViewModel {
     return formatter
   }()
 
-  init(mealService: MealServiceProtocol) {
+  init(mealService: MealService) {
     self.mealService = mealService
     generateDates()
   }
@@ -58,43 +57,39 @@ final class MyMealsViewModel {
   }
 
   func fetchMeals(for date: String, completion: @escaping () -> Void) {
-    guard let uid = Auth.auth().currentUser?.uid else {
-      print("User is not logged in.")
-      return
-    }
-
-    mealService.fetchMeals(dateString: date, uid: uid) { [weak self] meals in
-      self?.mealItems = meals
-      completion()
+    mealService.fetchMeals(dateString: date) { [weak self] result in
+      switch result {
+      case .success(let meals):
+        self?.mealItems = meals
+        completion()
+      case .failure(let error):
+        print(error)
+      }
     }
   }
 
   func addMeal(meal: MealCellViewModel, date: String, completion: @escaping () -> Void) {
-    guard let uid = Auth.auth().currentUser?.uid else {
-      print("User is not logged in.")
-      return
-    }
-
-    mealService.addMeal(meal: meal, dateString: date, uid: uid) { [weak self] success in
-      if success {
-        self?.fetchMeals(for: date) {
+    mealService.addMeal(meal: meal, dateString: date) { [weak self] result in
+      switch result {
+      case .success:
+        self?.fetchMeals(for: date, completion: {
           completion()
-        }
+        })
+      case .failure(let error):
+        print(error)
       }
     }
   }
 
   func deleteMeal(mealId: String, dateString: String, completion: @escaping () -> Void) {
-    guard let uid = Auth.auth().currentUser?.uid else {
-      print("User is not logged in.")
-      return
-    }
-
-    mealService.deleteMeal(mealId: mealId, dateString: dateString, uid: uid) { [weak self] success in
-      if success {
-        self?.fetchMeals(for: dateString) {
+    mealService.deleteMeal(mealId: mealId, dateString: dateString) { [weak self] result in
+      switch result {
+      case .success:
+        self?.fetchMeals(for: dateString, completion: {
           completion()
-        }
+        })
+      case .failure(let error):
+        print(error)
       }
     }
   }
