@@ -9,6 +9,25 @@ import UIKit
 
 final class CustomButton: UIButton {
   
+  /// Filled button with only an image.
+  /// - Parameters:
+  ///   - isSystemImage: Describing if button's image is system image or not.
+  ///   - imageString: Image string describing button's image.
+  ///   - backgroundColor: Button's base background color.
+  ///   - foregroundColor: Button's base foreground color.
+  ///   - cornerStyle: Button's corner style defaults to medium.
+  init(isSystemImage: Bool, imageString: String, backgroundColor: UIColor, foregroundColor: UIColor, cornerStyle: UIButton.Configuration.CornerStyle = .medium) {
+    super.init(frame: .zero)
+    translatesAutoresizingMaskIntoConstraints = false
+
+    var config = UIButton.Configuration.filled()
+    config.image = isSystemImage ? UIImage(systemName: imageString) : UIImage(named: imageString)
+    config.baseBackgroundColor = backgroundColor
+    config.baseForegroundColor = foregroundColor
+    config.cornerStyle = cornerStyle
+    self.configuration = config
+  }
+
   /// Filled button with a title.
   /// - Parameters:
   ///   - title: Button's title.

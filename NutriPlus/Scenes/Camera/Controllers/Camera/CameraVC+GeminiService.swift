@@ -22,6 +22,7 @@ extension CameraViewController: GeminiImageDelegate {
     } catch {
       DispatchQueue.main.async { [weak self] in
         guard let self = self else { return }
+        self.removeImagePreview()
         self.viewModel.startCameraSession()
         self.barScannerAnimation.stop()
         self.barScannerAnimation.isHidden = false

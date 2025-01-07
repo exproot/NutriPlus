@@ -8,8 +8,6 @@
 import UIKit
 
 final class BMRCircularProgressView: UIView {
-  private var progress: CGFloat = 0.0
-
   // MARK: - UI Components
   private let progressLayer = CAShapeLayer()
   private let trackLayer = CAShapeLayer()
@@ -44,25 +42,10 @@ final class BMRCircularProgressView: UIView {
 
   // MARK: - Methods
   func setProgress(_ value: CGFloat, color: UIColor) {
-    progress = value
-    progressLayer.strokeColor = color.cgColor
-
-    configureAnimation()
+    progressLayer.strokeEnd = value
   }
 
   // MARK: - UI Setup
-  private func configureAnimation() {
-    let animation = CABasicAnimation(keyPath: "strokeEnd")
-    animation.fromValue = 0
-    animation.toValue = progress
-    animation.duration = 0.7
-    animation.fillMode = .forwards
-    animation.isRemovedOnCompletion = false
-
-    progressLayer.removeAnimation(forKey: "progressAnimation")
-    progressLayer.add(animation, forKey: "progressAnimation")
-  }
-
   private func setupProgressCircle() {
     progressLayer.strokeColor = UIColor.systemOrange.cgColor
     progressLayer.lineWidth = 16

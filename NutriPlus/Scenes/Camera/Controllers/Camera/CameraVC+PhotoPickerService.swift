@@ -41,4 +41,10 @@ extension CameraViewController {
       view.insertSubview(photoPreviewView, belowSubview: barScannerAnimation)
     }
   }
+
+  func removeImagePreview() {
+    if let photoPreviewView {
+      photoPreviewView.removeFromSuperview()
+    }
+  }
 }

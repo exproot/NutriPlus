@@ -8,7 +8,7 @@
 import Foundation
 
 final class MyMealsViewModel {
-  private let mealService: MealService
+  private let mealService: MealServiceProtocol
   var selectedIndex: Int? = nil
   var dateItems: [CalendarCellViewModel] = []
   var mealItems: [MealCellViewModel] = []
@@ -20,7 +20,7 @@ final class MyMealsViewModel {
     return formatter
   }()
 
-  init(mealService: MealService) {
+  init(mealService: MealServiceProtocol) {
     self.mealService = mealService
     generateDates()
   }

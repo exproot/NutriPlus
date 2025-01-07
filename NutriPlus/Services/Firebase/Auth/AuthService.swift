@@ -15,6 +15,10 @@ enum AuthServiceError: Error {
 }
 
 final class AuthService: AuthServiceProtocol {
+  func getCurrentUser() -> User? {
+    Auth.auth().currentUser
+  }
+
   func signOut(completion: @escaping (Error?) -> Void) {
     do {
       try Auth.auth().signOut()

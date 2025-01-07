@@ -13,11 +13,11 @@ final class BMIViewController: UIViewController {
   private var cancellables: Set<AnyCancellable> = []
 
   // MARK: - UI Components
-  private lazy var titleLabel = CustomLabel(text: "Your BMI is", fontSize: 32, fontWeight: .bold, textColor: .label)
-  private lazy var gradientView = BMIGradientView()
-  private lazy var bmiLabel = CustomLabel(text: "", fontSize: 32, fontWeight: .bold, textColor: .white)
-  private lazy var categoryLabel = CustomLabel(text: "", fontSize: 18, fontWeight: .light, textColor: .label)
-  private lazy var helpLabel = CustomLabel(text: "We Can Help", fontSize: 32, fontWeight: .bold, textColor: .label)
+  private lazy var titleLabel = CustomLabel(text: "Your BMI is", fontSize: 32, fontWeight: .bold, textColor: .label, alignment: .center, numberOfLines: 0)
+  private lazy var gradientView = CustomGradientBarView()
+  private lazy var bmiLabel = CustomLabel(text: "", fontSize: 32, fontWeight: .bold, textColor: .white, alignment: .center, numberOfLines: 0)
+  private lazy var categoryLabel = CustomLabel(text: "", fontSize: 18, fontWeight: .light, textColor: .label, alignment: .center, numberOfLines: 0)
+  private lazy var helpLabel = CustomLabel(text: "We Can Help", fontSize: 32, fontWeight: .bold, textColor: .label, alignment: .center, numberOfLines: 0)
   private lazy var bmiStackView = BMIStackView()
 
   // MARK: - Controller Lifecycle
@@ -53,14 +53,6 @@ final class BMIViewController: UIViewController {
     view.addSubview(gradientView)
   }
 
-  private func configureLabels() {
-    [titleLabel, bmiLabel, categoryLabel, helpLabel].forEach {
-      $0.numberOfLines = 0
-      $0.textAlignment = .center
-      view.addSubview($0)
-    }
-  }
-
   private func setupConstraints() {
     NSLayoutConstraint.activate([
       titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -91,7 +83,10 @@ final class BMIViewController: UIViewController {
   private func setupUI() {
     view.backgroundColor = .systemBackground
     configureGradientView()
-    configureLabels()
+    view.addSubview(titleLabel)
+    view.addSubview(bmiLabel)
+    view.addSubview(categoryLabel)
+    view.addSubview(helpLabel)
     view.addSubview(bmiStackView)
     setupConstraints()
   }

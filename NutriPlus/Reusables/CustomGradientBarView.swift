@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class BMIGradientView: UIView {
+final class CustomGradientBarView: UIView {
   private let gradientLayer = CAGradientLayer()
 
   override init(frame: CGRect) {

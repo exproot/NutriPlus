@@ -35,9 +35,8 @@ final class BMRViewModel {
 
     let activityLevel = ActivityLevel(rawValue: fitLevel) ?? .sedentary
     let goal = Goal(rawValue: goalRaw) ?? .maintain
-    let tdee = TargetCalorieCalculator.calculateTDEE(bmr: bmrValue, activityLevel: activityLevel)
 
-    targetCalories = TargetCalorieCalculator.calculateTargetCalories(tdee: tdee, goal: goal)
+    targetCalories = TargetCalorieCalculator.calculateTargetCalories(bmr: bmrValue, activityLevel: activityLevel, goal: goal)
     goalText = TargetCalorieCalculator.goalMessage(for: goal, targetCalories: targetCalories)
     targetCaloriesText = targetCalories.formatted
   }

@@ -8,6 +8,14 @@
 import UIKit
 
 final class CustomImageView: UIImageView {
+  init(image: UIImage?, contentMode: ContentMode) {
+    super.init(frame: .zero)
+    self.image = image
+    self.contentMode = contentMode
+    clipsToBounds = true
+    translatesAutoresizingMaskIntoConstraints = false
+  }
+
   init(imageString: String, contentMode: ContentMode, imageTintColor: UIColor) {
     super.init(image: UIImage(named: imageString)?.withTintColor(imageTintColor, renderingMode: .alwaysOriginal))
     clipsToBounds = true

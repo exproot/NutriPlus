@@ -8,11 +8,9 @@
 import Foundation
 
 enum TargetCalorieCalculator {
-  static func calculateTDEE(bmr: Double, activityLevel: ActivityLevel) -> Double {
-    return bmr * activityLevel.multiplier
-  }
+  static func calculateTargetCalories(bmr: Double, activityLevel: ActivityLevel, goal: Goal) -> Double {
+    let tdee = bmr * activityLevel.multiplier
 
-  static func calculateTargetCalories(tdee: Double, goal: Goal) -> Double {
     switch goal {
     case .bulk:
       return tdee + 500

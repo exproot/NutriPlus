@@ -7,8 +7,11 @@
 
 import UIKit
 
-enum BMICategory {
-  case underweight, normal, overweight, obese
+enum BMICategory: String {
+  case underweight = "Underweight"
+  case normal = "Normal"
+  case overweight = "Overweight"
+  case obese = "Obese"
 
   var description: String {
     switch self {

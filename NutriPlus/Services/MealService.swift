@@ -7,7 +7,13 @@
 
 import FirebaseFirestore
 
-final class MealService {
+protocol MealServiceProtocol {
+  func fetchMeals(dateString: String, completion: @escaping (Result<[MealCellViewModel], Error>) -> Void)
+  func addMeal(meal: MealCellViewModel, dateString: String, completion: @escaping (Result<Bool, Error>) -> Void)
+  func deleteMeal(mealId: String, dateString: String, completion: @escaping (Result<Bool, Error>) -> Void)
+}
+
+final class MealService: MealServiceProtocol {
   private let databaseService: DatabaseServiceProtocol
   private let userRef: DocumentReference
 
