@@ -1,5 +1,5 @@
 //
-//  AddNewMealController+CollectionView.swift
+//  AddMealManuallyVC+CollectionView.swift
 //  NutriPlus
 //
 //  Created by Ertan Yağmur on 20.12.2024.
@@ -8,14 +8,14 @@
 import UIKit
 
 // MARK: - UICollectionViewDataSource
-extension AddNewMealViewController: UICollectionViewDataSource {
+extension AddMealManuallyViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     viewModel.mealTypes.count
   }
 }
 
 // MARK: - UICollectionViewDelegate
-extension AddNewMealViewController: UICollectionViewDelegate {
+extension AddMealManuallyViewController: UICollectionViewDelegate {
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MealTypeCell.reuseID, for: indexPath) as? MealTypeCell else { return UICollectionViewCell() }
     cell.configure(title: viewModel.mealTypes[indexPath.item])
@@ -27,7 +27,7 @@ extension AddNewMealViewController: UICollectionViewDelegate {
   }
 }
 
-extension AddNewMealViewController {
+extension AddMealManuallyViewController {
   func setupCollectionView() {
     collectionView = UICollectionView(frame: .zero, collectionViewLayout: .createMealTypeLayout())
     collectionView.register(MealTypeCell.self, forCellWithReuseIdentifier: MealTypeCell.reuseID)

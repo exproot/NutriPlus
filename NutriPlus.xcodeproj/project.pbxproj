@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		700745162D12E2DC00AA5248 /* AddNewMealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700745152D12E2DC00AA5248 /* AddNewMealViewController.swift */; };
+		700745162D12E2DC00AA5248 /* AddMealManuallyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700745152D12E2DC00AA5248 /* AddMealManuallyViewController.swift */; };
 		700745192D12E32C00AA5248 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700745182D12E32C00AA5248 /* CustomLabel.swift */; };
 		7007451B2D12E3D600AA5248 /* MacroSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7007451A2D12E3D600AA5248 /* MacroSliderView.swift */; };
 		7007451D2D12E41300AA5248 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7007451C2D12E41300AA5248 /* CustomSlider.swift */; };
 		7007451F2D12E47D00AA5248 /* MealTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7007451E2D12E47D00AA5248 /* MealTypeCell.swift */; };
-		700745212D12E56700AA5248 /* AddNewMealHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700745202D12E56700AA5248 /* AddNewMealHeaderView.swift */; };
+		701097392D2DC0770052A904 /* MyMealsVC+CameraDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701097382D2DC0770052A904 /* MyMealsVC+CameraDelegate.swift */; };
+		7010973B2D2DC7C50052A904 /* CustomModalHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7010973A2D2DC7C50052A904 /* CustomModalHeaderView.swift */; };
 		701A4E242CCAA31500013A72 /* GoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701A4E232CCAA31500013A72 /* GoalCell.swift */; };
 		701A4E262CCAB99200013A72 /* BaseAssessmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701A4E252CCAB99200013A72 /* BaseAssessmentViewController.swift */; };
 		701A4E292CCAB9BE00013A72 /* AssessmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701A4E282CCAB9BE00013A72 /* AssessmentModel.swift */; };
@@ -34,8 +35,7 @@
 		7036BC8D2D26084900DA067A /* HomeVC+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7036BC8C2D26084900DA067A /* HomeVC+DataSource.swift */; };
 		704F1AB72D22A82D00F457F5 /* SignInVC+Selectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704F1AB62D22A82D00F457F5 /* SignInVC+Selectors.swift */; };
 		704F1ABB2D22A94A00F457F5 /* SignUpVC+Selectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704F1ABA2D22A94A00F457F5 /* SignUpVC+Selectors.swift */; };
-		704F1ABD2D22BCEB00F457F5 /* MyMealsVC+AddNewMealDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704F1ABC2D22BCEB00F457F5 /* MyMealsVC+AddNewMealDelegate.swift */; };
-		704F1ABF2D22C0D100F457F5 /* AddNewMealVC+CameraVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704F1ABE2D22C0D100F457F5 /* AddNewMealVC+CameraVCDelegate.swift */; };
+		704F1ABD2D22BCEB00F457F5 /* MyMealsVC+AddMealManually.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704F1ABC2D22BCEB00F457F5 /* MyMealsVC+AddMealManually.swift */; };
 		704F1AC32D22CD7F00F457F5 /* ScanResultVC+Selectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704F1AC22D22CD7E00F457F5 /* ScanResultVC+Selectors.swift */; };
 		704F1AC82D22DEB700F457F5 /* BMICategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704F1AC72D22DEB700F457F5 /* BMICategory.swift */; };
 		704F1ACD2D22F07E00F457F5 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704F1ACC2D22F07E00F457F5 /* ProfileHeaderView.swift */; };
@@ -92,12 +92,12 @@
 		708764FC2CDCE47C0093C5C9 /* CalendarCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708764FB2CDCE47C0093C5C9 /* CalendarCellViewModel.swift */; };
 		708764FE2CDCE49B0093C5C9 /* MealCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708764FD2CDCE49B0093C5C9 /* MealCellViewModel.swift */; };
 		708AD94E2D1705E400CD2EB7 /* NutrientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708AD94D2D1705E400CD2EB7 /* NutrientView.swift */; };
-		708AD9502D1727ED00CD2EB7 /* AddNewMealVC+Selectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708AD94F2D1727ED00CD2EB7 /* AddNewMealVC+Selectors.swift */; };
+		708AD9502D1727ED00CD2EB7 /* AddMealManuallyVC+Selectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708AD94F2D1727ED00CD2EB7 /* AddMealManuallyVC+Selectors.swift */; };
 		708AD9522D1729C800CD2EB7 /* UICollectionViewLayout+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708AD9512D1729C800CD2EB7 /* UICollectionViewLayout+Ext.swift */; };
-		708DDC872D15CBD700F1DBFF /* AddNewMealVC+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708DDC862D15CBD600F1DBFF /* AddNewMealVC+CollectionView.swift */; };
+		708DDC872D15CBD700F1DBFF /* AddMealManuallyVC+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708DDC862D15CBD600F1DBFF /* AddMealManuallyVC+CollectionView.swift */; };
 		708DDC892D15CEE200F1DBFF /* AddNewMealStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708DDC882D15CEE200F1DBFF /* AddNewMealStackView.swift */; };
-		708DDC8F2D15F42700F1DBFF /* AddNewMealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708DDC8E2D15F42700F1DBFF /* AddNewMealViewModel.swift */; };
-		708DDC912D15F45400F1DBFF /* AddNewMealControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708DDC902D15F45400F1DBFF /* AddNewMealControllerDelegate.swift */; };
+		708DDC8F2D15F42700F1DBFF /* AddMealManuallyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708DDC8E2D15F42700F1DBFF /* AddMealManuallyViewModel.swift */; };
+		708DDC912D15F45400F1DBFF /* AddMealManuallyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708DDC902D15F45400F1DBFF /* AddMealManuallyDelegate.swift */; };
 		708DDC932D15F63200F1DBFF /* UIStackView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708DDC922D15F63200F1DBFF /* UIStackView+Ext.swift */; };
 		708DDC972D1613E700F1DBFF /* MealService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708DDC962D1613E700F1DBFF /* MealService.swift */; };
 		708DDC992D16327700F1DBFF /* MyMealsVC+Selectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 708DDC982D16327700F1DBFF /* MyMealsVC+Selectors.swift */; };
@@ -187,12 +187,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		700745152D12E2DC00AA5248 /* AddNewMealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewMealViewController.swift; sourceTree = "<group>"; };
+		700745152D12E2DC00AA5248 /* AddMealManuallyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMealManuallyViewController.swift; sourceTree = "<group>"; };
 		700745182D12E32C00AA5248 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		7007451A2D12E3D600AA5248 /* MacroSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacroSliderView.swift; sourceTree = "<group>"; };
 		7007451C2D12E41300AA5248 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		7007451E2D12E47D00AA5248 /* MealTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTypeCell.swift; sourceTree = "<group>"; };
-		700745202D12E56700AA5248 /* AddNewMealHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewMealHeaderView.swift; sourceTree = "<group>"; };
+		701097382D2DC0770052A904 /* MyMealsVC+CameraDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyMealsVC+CameraDelegate.swift"; sourceTree = "<group>"; };
+		7010973A2D2DC7C50052A904 /* CustomModalHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModalHeaderView.swift; sourceTree = "<group>"; };
 		701A4E232CCAA31500013A72 /* GoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCell.swift; sourceTree = "<group>"; };
 		701A4E252CCAB99200013A72 /* BaseAssessmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAssessmentViewController.swift; sourceTree = "<group>"; };
 		701A4E282CCAB9BE00013A72 /* AssessmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssessmentModel.swift; sourceTree = "<group>"; };
@@ -214,8 +215,7 @@
 		7036BC8C2D26084900DA067A /* HomeVC+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+DataSource.swift"; sourceTree = "<group>"; };
 		704F1AB62D22A82D00F457F5 /* SignInVC+Selectors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignInVC+Selectors.swift"; sourceTree = "<group>"; };
 		704F1ABA2D22A94A00F457F5 /* SignUpVC+Selectors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpVC+Selectors.swift"; sourceTree = "<group>"; };
-		704F1ABC2D22BCEB00F457F5 /* MyMealsVC+AddNewMealDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyMealsVC+AddNewMealDelegate.swift"; sourceTree = "<group>"; };
-		704F1ABE2D22C0D100F457F5 /* AddNewMealVC+CameraVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddNewMealVC+CameraVCDelegate.swift"; sourceTree = "<group>"; };
+		704F1ABC2D22BCEB00F457F5 /* MyMealsVC+AddMealManually.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyMealsVC+AddMealManually.swift"; sourceTree = "<group>"; };
 		704F1AC22D22CD7E00F457F5 /* ScanResultVC+Selectors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScanResultVC+Selectors.swift"; sourceTree = "<group>"; };
 		704F1AC72D22DEB700F457F5 /* BMICategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMICategory.swift; sourceTree = "<group>"; };
 		704F1ACC2D22F07E00F457F5 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
@@ -274,12 +274,12 @@
 		708764FB2CDCE47C0093C5C9 /* CalendarCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCellViewModel.swift; sourceTree = "<group>"; };
 		708764FD2CDCE49B0093C5C9 /* MealCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealCellViewModel.swift; sourceTree = "<group>"; };
 		708AD94D2D1705E400CD2EB7 /* NutrientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutrientView.swift; sourceTree = "<group>"; };
-		708AD94F2D1727ED00CD2EB7 /* AddNewMealVC+Selectors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddNewMealVC+Selectors.swift"; sourceTree = "<group>"; };
+		708AD94F2D1727ED00CD2EB7 /* AddMealManuallyVC+Selectors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddMealManuallyVC+Selectors.swift"; sourceTree = "<group>"; };
 		708AD9512D1729C800CD2EB7 /* UICollectionViewLayout+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewLayout+Ext.swift"; sourceTree = "<group>"; };
-		708DDC862D15CBD600F1DBFF /* AddNewMealVC+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddNewMealVC+CollectionView.swift"; sourceTree = "<group>"; };
+		708DDC862D15CBD600F1DBFF /* AddMealManuallyVC+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddMealManuallyVC+CollectionView.swift"; sourceTree = "<group>"; };
 		708DDC882D15CEE200F1DBFF /* AddNewMealStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewMealStackView.swift; sourceTree = "<group>"; };
-		708DDC8E2D15F42700F1DBFF /* AddNewMealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewMealViewModel.swift; sourceTree = "<group>"; };
-		708DDC902D15F45400F1DBFF /* AddNewMealControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewMealControllerDelegate.swift; sourceTree = "<group>"; };
+		708DDC8E2D15F42700F1DBFF /* AddMealManuallyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMealManuallyViewModel.swift; sourceTree = "<group>"; };
+		708DDC902D15F45400F1DBFF /* AddMealManuallyDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMealManuallyDelegate.swift; sourceTree = "<group>"; };
 		708DDC922D15F63200F1DBFF /* UIStackView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Ext.swift"; sourceTree = "<group>"; };
 		708DDC962D1613E700F1DBFF /* MealService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealService.swift; sourceTree = "<group>"; };
 		708DDC982D16327700F1DBFF /* MyMealsVC+Selectors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyMealsVC+Selectors.swift"; sourceTree = "<group>"; };
@@ -380,14 +380,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		700745142D12E1FC00AA5248 /* AddNewMeal */ = {
+		700745142D12E1FC00AA5248 /* AddMealManually */ = {
 			isa = PBXGroup;
 			children = (
 				708DDC8C2D15F3D800F1DBFF /* Views */,
 				708DDC8D2D15F3FA00F1DBFF /* ViewModels */,
 				708DDC8A2D15F3BA00F1DBFF /* Controllers */,
 			);
-			path = AddNewMeal;
+			path = AddMealManually;
 			sourceTree = "<group>";
 		};
 		701A4E1B2CCA98C900013A72 /* ViewModels */ = {
@@ -721,7 +721,7 @@
 				70D29C892D174E280045161C /* Base */,
 				70B44A642D194D46007A03FE /* Chat */,
 				7056B5032D183719001844D7 /* Camera */,
-				700745142D12E1FC00AA5248 /* AddNewMeal */,
+				700745142D12E1FC00AA5248 /* AddMealManually */,
 				708764EB2CDCB6240093C5C9 /* MyMeals */,
 				70E513452D2C5173005EA699 /* CalorieStats */,
 				70A810DD2D217BCA00B1DA83 /* BasalMetabolicRate */,
@@ -771,8 +771,8 @@
 		7079C2782CC6657F00E23D59 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				70F6658C2D2D987E00F208D5 /* Gemini */,
 				70F6658B2D2D986800F208D5 /* Firebase */,
+				70F6658C2D2D987E00F208D5 /* Gemini */,
 				70E5134F2D2C9FDC005EA699 /* MacroCalculator.swift */,
 				70F665892D2D981A00F208D5 /* BMICalculator.swift */,
 				70A810F32D21CD1F00B1DA83 /* TargetCalorieCalculator.swift */,
@@ -794,8 +794,9 @@
 			isa = PBXGroup;
 			children = (
 				708764EC2CDCB6500093C5C9 /* MyMealsViewController.swift */,
-				704F1ABC2D22BCEB00F457F5 /* MyMealsVC+AddNewMealDelegate.swift */,
+				704F1ABC2D22BCEB00F457F5 /* MyMealsVC+AddMealManually.swift */,
 				70AE61752D1C466D00FF9017 /* MyMealsVC+MealCellDelegate.swift */,
+				701097382D2DC0770052A904 /* MyMealsVC+CameraDelegate.swift */,
 				70D11C462D14C8C300EFB5B2 /* MyMealsVC+CollectionView.swift */,
 				70D11C482D14CCAA00EFB5B2 /* MyMealsVC+DataSource.swift */,
 				708DDC982D16327700F1DBFF /* MyMealsVC+Selectors.swift */,
@@ -838,11 +839,10 @@
 		708DDC8A2D15F3BA00F1DBFF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				700745152D12E2DC00AA5248 /* AddNewMealViewController.swift */,
-				708DDC902D15F45400F1DBFF /* AddNewMealControllerDelegate.swift */,
-				704F1ABE2D22C0D100F457F5 /* AddNewMealVC+CameraVCDelegate.swift */,
-				708DDC862D15CBD600F1DBFF /* AddNewMealVC+CollectionView.swift */,
-				708AD94F2D1727ED00CD2EB7 /* AddNewMealVC+Selectors.swift */,
+				700745152D12E2DC00AA5248 /* AddMealManuallyViewController.swift */,
+				708DDC902D15F45400F1DBFF /* AddMealManuallyDelegate.swift */,
+				708DDC862D15CBD600F1DBFF /* AddMealManuallyVC+CollectionView.swift */,
+				708AD94F2D1727ED00CD2EB7 /* AddMealManuallyVC+Selectors.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -850,7 +850,6 @@
 		708DDC8C2D15F3D800F1DBFF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				700745202D12E56700AA5248 /* AddNewMealHeaderView.swift */,
 				708DDC882D15CEE200F1DBFF /* AddNewMealStackView.swift */,
 				7007451A2D12E3D600AA5248 /* MacroSliderView.swift */,
 				7007451E2D12E47D00AA5248 /* MealTypeCell.swift */,
@@ -861,7 +860,7 @@
 		708DDC8D2D15F3FA00F1DBFF /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				708DDC8E2D15F42700F1DBFF /* AddNewMealViewModel.swift */,
+				708DDC8E2D15F42700F1DBFF /* AddMealManuallyViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1017,6 +1016,7 @@
 			children = (
 				7079C26A2CC63A5A00E23D59 /* CustomSignInMethodButton.swift */,
 				70A811012D21F6BF00B1DA83 /* CustomSegmentedControl.swift */,
+				7010973A2D2DC7C50052A904 /* CustomModalHeaderView.swift */,
 				70A401582D1F737100FBD8A6 /* CustomGradientBarView.swift */,
 				7079C26E2CC63ADF00E23D59 /* CustomFooterButton.swift */,
 				704F1AD02D232FD500F457F5 /* CalorieProgressView.swift */,
@@ -1288,7 +1288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				708DDC932D15F63200F1DBFF /* UIStackView+Ext.swift in Sources */,
-				708DDC912D15F45400F1DBFF /* AddNewMealControllerDelegate.swift in Sources */,
+				708DDC912D15F45400F1DBFF /* AddMealManuallyDelegate.swift in Sources */,
 				70A811052D22009300B1DA83 /* WeightSelectionVC+Selectors.swift in Sources */,
 				708764F82CDCB8020093C5C9 /* MealCell.swift in Sources */,
 				7036BC8B2D2607FB00DA067A /* HomeVC+CollectionView.swift in Sources */,
@@ -1297,7 +1297,7 @@
 				706E5B8B2CE545CB00CFEAF4 /* UIViewController+Ext.swift in Sources */,
 				7056B5412D186B9B001844D7 /* CameraVC+GeminiService.swift in Sources */,
 				7056B5162D183A6B001844D7 /* CameraViewModel.swift in Sources */,
-				704F1ABD2D22BCEB00F457F5 /* MyMealsVC+AddNewMealDelegate.swift in Sources */,
+				704F1ABD2D22BCEB00F457F5 /* MyMealsVC+AddMealManually.swift in Sources */,
 				70B872EB2D24A27800FD99B5 /* TransparentView.swift in Sources */,
 				70F6658A2D2D981A00F208D5 /* BMICalculator.swift in Sources */,
 				7056B5522D187CF3001844D7 /* CameraVC+ScanResult.swift in Sources */,
@@ -1306,7 +1306,6 @@
 				70B872E92D249F6100FD99B5 /* NutriAIView.swift in Sources */,
 				70D11C492D14CCAA00EFB5B2 /* MyMealsVC+DataSource.swift in Sources */,
 				704F1ABB2D22A94A00F457F5 /* SignUpVC+Selectors.swift in Sources */,
-				704F1ABF2D22C0D100F457F5 /* AddNewMealVC+CameraVCDelegate.swift in Sources */,
 				70A811122D220CB300B1DA83 /* GenderSelectionVC+Selectors.swift in Sources */,
 				70E834302CC934DA00FF3CCC /* FitSelectionViewController.swift in Sources */,
 				7036BC772D26062300DA067A /* CalorieGoalCell.swift in Sources */,
@@ -1316,7 +1315,7 @@
 				7079C2472CC6336D00E23D59 /* AppDelegate.swift in Sources */,
 				7036BC792D26065E00DA067A /* BodyConditionCell.swift in Sources */,
 				7079C2672CC639AA00E23D59 /* UITextField+Ext.swift in Sources */,
-				708DDC8F2D15F42700F1DBFF /* AddNewMealViewModel.swift in Sources */,
+				708DDC8F2D15F42700F1DBFF /* AddMealManuallyViewModel.swift in Sources */,
 				7036BC812D26071400DA067A /* CalorieGoalCellVM.swift in Sources */,
 				70E834172CC8DE6000FF3CCC /* HomeViewController.swift in Sources */,
 				7056B5132D183A28001844D7 /* CameraViewController.swift in Sources */,
@@ -1345,6 +1344,7 @@
 				70B446052CCA7CF20019B407 /* GoalSelectionViewModel.swift in Sources */,
 				7007451F2D12E47D00AA5248 /* MealTypeCell.swift in Sources */,
 				70D29C8C2D175D810045161C /* AuthInputView.swift in Sources */,
+				701097392D2DC0770052A904 /* MyMealsVC+CameraDelegate.swift in Sources */,
 				70E8341A2CC8E75400FF3CCC /* OnboardingViewController.swift in Sources */,
 				70D11C432D14772300EFB5B2 /* MyMealsSectionProvider.swift in Sources */,
 				70E5134A2D2C521A005EA699 /* CustomBarView.swift in Sources */,
@@ -1369,6 +1369,7 @@
 				70A401532D1F54C500FBD8A6 /* AuthServiceProtocol.swift in Sources */,
 				7056B51C2D183C0C001844D7 /* CustomAnimation.swift in Sources */,
 				704F1ACF2D22FD9400F457F5 /* CalorieGoalView.swift in Sources */,
+				7010973B2D2DC7C50052A904 /* CustomModalHeaderView.swift in Sources */,
 				701FB1912D20AE550087CF66 /* BMIHelpView.swift in Sources */,
 				701FB1932D20AFD00087CF66 /* BMIStackView.swift in Sources */,
 				70B44A6C2D194F02007A03FE /* Message.swift in Sources */,
@@ -1424,7 +1425,7 @@
 				7056B50A2D1837C1001844D7 /* CameraServiceDelegate.swift in Sources */,
 				70E834232CC9219F00FF3CCC /* Float+Ext.swift in Sources */,
 				70AE61782D1C4BD200FF9017 /* HeightSelectionViewController.swift in Sources */,
-				708AD9502D1727ED00CD2EB7 /* AddNewMealVC+Selectors.swift in Sources */,
+				708AD9502D1727ED00CD2EB7 /* AddMealManuallyVC+Selectors.swift in Sources */,
 				70A810FB2D21F0D500B1DA83 /* AgeSelectionVC+PickerView.swift in Sources */,
 				7036BC7B2D26068C00DA067A /* AIPromotionCell.swift in Sources */,
 				70A810E92D21BED400B1DA83 /* HarrisBenedictBMRCalculation.swift in Sources */,
@@ -1435,13 +1436,12 @@
 				70F665822D2D848F00F208D5 /* MacronutrientCell.swift in Sources */,
 				70D29C8E2D17806C0045161C /* Date+Ext.swift in Sources */,
 				708AD9522D1729C800CD2EB7 /* UICollectionViewLayout+Ext.swift in Sources */,
-				708DDC872D15CBD700F1DBFF /* AddNewMealVC+CollectionView.swift in Sources */,
+				708DDC872D15CBD700F1DBFF /* AddMealManuallyVC+CollectionView.swift in Sources */,
 				70F665852D2D8C2300F208D5 /* MacronutrientType.swift in Sources */,
 				708764FC2CDCE47C0093C5C9 /* CalendarCellViewModel.swift in Sources */,
 				708DDC892D15CEE200F1DBFF /* AddNewMealStackView.swift in Sources */,
 				7036BC8D2D26084900DA067A /* HomeVC+DataSource.swift in Sources */,
 				7056B51E2D183DCB001844D7 /* CameraViewControllerDelegate.swift in Sources */,
-				700745212D12E56700AA5248 /* AddNewMealHeaderView.swift in Sources */,
 				7036BC832D26071E00DA067A /* BodyConditionCellVM.swift in Sources */,
 				7056B52D2D184A28001844D7 /* PhotoPickerServiceDelegate.swift in Sources */,
 				70E7E2A72D1D91AB004C3B92 /* FitSelectionViewModel.swift in Sources */,
@@ -1450,7 +1450,7 @@
 				70E7E2A52D1D8B52004C3B92 /* AgeSelectionViewModel.swift in Sources */,
 				70E8340B2CC8CEA900FF3CCC /* AuthService.swift in Sources */,
 				708764F62CDCB7B50093C5C9 /* CalendarCell.swift in Sources */,
-				700745162D12E2DC00AA5248 /* AddNewMealViewController.swift in Sources */,
+				700745162D12E2DC00AA5248 /* AddMealManuallyViewController.swift in Sources */,
 				70D11C472D14C8C300EFB5B2 /* MyMealsVC+CollectionView.swift in Sources */,
 				70E8341C2CC8F10700FF3CCC /* UserDefaults+Ext.swift in Sources */,
 			);

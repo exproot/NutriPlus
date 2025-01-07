@@ -12,15 +12,7 @@ final class ScanResultViewController: UIViewController {
   lazy var viewModel = ScanResultViewModel(meal: nil)
   
   // MARK: - UI Components
-  private lazy var controllerTitle = CustomLabel(text: "AI Scan Result", fontSize: 16, fontWeight: .bold, textColor: .label)
-  lazy var cancelButton = CustomButton(title: "Cancel", foregroundColor: .systemRed)
-  lazy var doneButton = CustomButton(title: "Done", foregroundColor: .systemBlue)
-  private lazy var seperatorView: UIView = {
-    let customView = UIView()
-    customView.backgroundColor = .systemFill
-    customView.translatesAutoresizingMaskIntoConstraints = false
-    return customView
-  }()
+  lazy var modalHeaderView = CustomModalHeaderView(title: "AI Scan Result")
   private lazy var mealCalorie = CustomLabel(text: "", fontSize: 18, fontWeight: .semibold, textColor: .secondaryLabel, alignment: .center)
   private lazy var mealTitle = CustomLabel(text: "", fontSize: 28, fontWeight: .bold, textColor: .label, numberOfLines: 2)
   private lazy var mealDescription = CustomLabel(text: "", fontSize: 12, fontWeight: .semibold, textColor: .secondaryLabel, numberOfLines: 0)
@@ -61,10 +53,7 @@ final class ScanResultViewController: UIViewController {
 
   private func setupUI() {
     view.backgroundColor = .systemBackground
-    view.addSubview(controllerTitle)
-    view.addSubview(cancelButton)
-    view.addSubview(doneButton)
-    view.addSubview(seperatorView)
+    view.addSubview(modalHeaderView)
     view.addSubview(mealCalorie)
     view.addSubview(mealTitle)
     view.addSubview(mealDescription)
@@ -73,25 +62,16 @@ final class ScanResultViewController: UIViewController {
 
   private func setupConstraints() {
     NSLayoutConstraint.activate([
-      cancelButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
-      cancelButton.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+      modalHeaderView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+      modalHeaderView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+      modalHeaderView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+      modalHeaderView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.13),
 
-      doneButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
-      doneButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-
-      controllerTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      controllerTitle.centerYAnchor.constraint(equalTo: cancelButton.centerYAnchor),
-
-      seperatorView.topAnchor.constraint(equalTo: cancelButton.bottomAnchor, constant: 8),
-      seperatorView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-      seperatorView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-      seperatorView.heightAnchor.constraint(equalToConstant: 1),
-
-      mealCalorie.topAnchor.constraint(equalTo: seperatorView.bottomAnchor, constant: 16),
+      mealCalorie.topAnchor.constraint(equalTo: modalHeaderView.bottomAnchor, constant: 16),
       mealCalorie.trailingAnchor.constraint(equalTo: view.trailingAnchor),
       mealCalorie.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.25),
 
-      mealTitle.topAnchor.constraint(equalTo: seperatorView.bottomAnchor, constant: 16),
+      mealTitle.topAnchor.constraint(equalTo: modalHeaderView.bottomAnchor, constant: 16),
       mealTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
       mealTitle.trailingAnchor.constraint(equalTo: mealCalorie.leadingAnchor),
 

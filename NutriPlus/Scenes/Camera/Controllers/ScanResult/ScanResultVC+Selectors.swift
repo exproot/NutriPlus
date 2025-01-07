@@ -30,7 +30,7 @@ extension ScanResultViewController {
 
 extension ScanResultViewController {
   func setupActions() {
-    cancelButton.addTarget(self, action: #selector(handleCancelButton), for: .touchUpInside)
-    doneButton.addTarget(self, action: #selector(handleDoneButton), for: .touchUpInside)
+    modalHeaderView.cancelButton.addTarget(self, action: #selector(handleCancelButton), for: .touchUpInside)
+    modalHeaderView.doneButton.addTarget(self, action: #selector(handleDoneButton), for: .touchUpInside)
   }
 }

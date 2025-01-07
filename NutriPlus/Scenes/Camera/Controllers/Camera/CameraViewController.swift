@@ -54,6 +54,11 @@ final class CameraViewController: UIViewController {
     tabBarController?.tabBar.isHidden = true
   }
 
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    tabBarController?.tabBar.isHidden = false
+  }
+
   private func setupBindings() {
     viewModel.$takePhotoButtonIsEnabled
       .receive(on: DispatchQueue.main)

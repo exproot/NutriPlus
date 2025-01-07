@@ -1,5 +1,5 @@
 //
-//  AddNewMealViewModel.swift
+//  AddMealManuallyViewModel.swift
 //  NutriPlus
 //
 //  Created by Ertan Yağmur on 20.12.2024.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class AddNewMealViewModel {
+final class AddMealManuallyViewModel {
   var selectedMealTypeIndex: Int? = nil
   let mealTypes = ["Breakfast", "Dinner", "Snacks"]
 

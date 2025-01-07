@@ -1,5 +1,5 @@
 //
-//  AddNewMealStackView.swift
+//  AddMealManuallyStackView.swift
 //  NutriPlus
 //
 //  Created by Ertan Yağmur on 20.12.2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class AddNewMealStackView: UIStackView {
+final class AddMealManuallyStackView: UIStackView {
   private var calorieSlider: MacroSliderView!
   private var proteinSlider: MacroSliderView!
   private var carbsSlider: MacroSliderView!

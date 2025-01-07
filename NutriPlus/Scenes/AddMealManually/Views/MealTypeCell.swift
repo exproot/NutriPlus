@@ -30,7 +30,7 @@ final class MealTypeCell: UICollectionViewCell {
   // MARK: - UI Setup
   private func setupViews() {
     let normalView = UIView(frame: bounds)
-    normalView.backgroundColor = .systemGray6
+    normalView.backgroundColor = .systemGray5
     normalView.layer.cornerRadius = 10
 
     let squareImage = UIImageView(image: UIImage(systemName: "square")?.withTintColor(.label, renderingMode: .alwaysOriginal))
@@ -45,7 +45,7 @@ final class MealTypeCell: UICollectionViewCell {
     ])
 
     let selectedView = UIView(frame: bounds)
-    selectedView.backgroundColor = .systemGray6
+    selectedView.backgroundColor = .systemGray5
     selectedView.layer.cornerRadius = 10
 
     let dotSquareImage = UIImageView(image: UIImage(systemName: "dot.square")?.withTintColor(.label, renderingMode: .alwaysOriginal))

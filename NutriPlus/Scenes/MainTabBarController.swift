@@ -11,7 +11,7 @@ final class MainTabBarController: UITabBarController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    createTabBar()
+    setupTabs()
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -19,7 +19,7 @@ final class MainTabBarController: UITabBarController {
     navigationController?.navigationBar.isHidden = true
   }
 
-  private func createTabBar() {
+  private func setupTabs() {
     view.backgroundColor = .systemBackground
     let homeVC = UINavigationController(rootViewController: HomeViewController())
     let myMealsVC = UINavigationController(rootViewController: MyMealsViewController())
