@@ -12,8 +12,8 @@ extension MainTabBarController {
     let shape = CAShapeLayer()
     shape.path = tabBarPath()
     shape.lineWidth = 1
-    shape.strokeColor = UIColor.quaternarySystemFill.cgColor
-    shape.fillColor = UIColor.quaternarySystemFill.cgColor
+    shape.strokeColor = UIColor.secondarySystemFill.cgColor
+    shape.fillColor = UIColor.secondarySystemFill.cgColor
     tabBar.layer.insertSublayer(shape, at: 0)
     tabBar.itemWidth = 60
     tabBar.itemPositioning = .centered

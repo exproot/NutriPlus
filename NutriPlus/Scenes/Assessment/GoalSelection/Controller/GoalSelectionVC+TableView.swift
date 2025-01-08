@@ -55,7 +55,6 @@ extension GoalSelectionViewController: UITableViewDataSource {
 
 extension GoalSelectionViewController {
   func configureTableView() {
-    tableView.backgroundColor = .white
     tableView.separatorStyle = .none
     tableView.isScrollEnabled = false
     tableView.register(GoalCell.self, forCellReuseIdentifier: GoalCell.identifier)

@@ -12,6 +12,8 @@ final class CustomTextField: UITextField {
     case mail, password, confirmation
   }
 
+  let rightButton = UIButton(type: .custom)
+
   init(placeholder: String, borderStyle: UITextField.BorderStyle, returnKeyType: UIReturnKeyType, spellCheckingType: UITextSpellCheckingType, autoCorrectionType: UITextAutocorrectionType) {
     super.init(frame: .zero)
     self.placeholder = placeholder
@@ -54,10 +56,24 @@ final class CustomTextField: UITextField {
     fatalError("init(coder:) has not been implemented")
   }
 
+  private func setupRightButton() {
+    let frame = CGRect(x: 0, y: 0, width: 30 + 20, height: 30)
+    let containerView = UIView(frame: frame)
+
+    rightButton.setImage(UIImage(systemName: "eye.slash.fill")?.withTintColor(.label, renderingMode: .alwaysOriginal), for: .normal)
+    rightButton.addTarget(self, action: #selector(toggleShowHide), for: .touchUpInside)
+    rightButton.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+    containerView.addSubview(rightButton)
+
+    rightViewMode = .always
+    rightView = containerView
+    isSecureTextEntry = true
+  }
+
   // MARK: - UI Setup
   private func configureAuthField(type: AuthType) {
     layer.masksToBounds = true
-    backgroundColor = .systemGray6
+    backgroundColor = .tertiarySystemFill
     spellCheckingType = .no
     autocapitalizationType = .none
     autocorrectionType = .no
@@ -70,17 +86,27 @@ final class CustomTextField: UITextField {
       placeholder = "Enter email adress"
       addIconWithPadding("envelope.circle.fill", padding: 20, isLeftView: true, isConfirmation: false)
     case .password:
-      isSecureTextEntry = true
       keyboardType = .default
       returnKeyType = .done
       placeholder = "Enter password"
       addIconWithPadding("lock.fill", padding: 20, isLeftView: true, isConfirmation: false)
+      setupRightButton()
     case .confirmation:
-      isSecureTextEntry = true
       keyboardType = .default
       returnKeyType = .done
       placeholder = "Re-Enter Password"
       addIconWithPadding("lock.open", padding: 20, isLeftView: true, isConfirmation: true)
+      setupRightButton()
+    }
+  }
+
+  @objc private func toggleShowHide() {
+    isSecureTextEntry.toggle()
+
+    if isSecureTextEntry {
+      rightButton.setImage(UIImage(systemName: "eye.slash.fill")?.withTintColor(.label, renderingMode: .alwaysOriginal), for: .normal)
+    } else {
+      rightButton.setImage(UIImage(systemName: "eye.fill")?.withTintColor(.label, renderingMode: .alwaysOriginal), for: .normal)
     }
   }
 }

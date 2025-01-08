@@ -11,13 +11,7 @@ final class GoalCell: UITableViewCell {
   static let identifier = "GoalCell"
 
   // MARK: - UI Components
-  private lazy var titleLabel: UILabel = {
-    let lbl = UILabel()
-    lbl.font = .systemFont(ofSize: 20, weight: .semibold)
-    lbl.textColor = .black
-    lbl.translatesAutoresizingMaskIntoConstraints = false
-    return lbl
-  }()
+  private lazy var titleLabel = CustomLabel(text: "", fontSize: 20, fontWeight: .semibold, textColor: .black)
 
   override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -36,7 +30,7 @@ final class GoalCell: UITableViewCell {
 
   // MARK: - UI Setup
   private func setupUI() {
-    contentView.backgroundColor = .gray.withAlphaComponent(0.2)
+    backgroundColor = .clear
     contentView.layer.cornerRadius = 10
     contentView.layer.masksToBounds = true
     contentView.addSubview(titleLabel)

@@ -36,6 +36,7 @@
 		70485D862D2E5159006A9D9F /* MainTabBar+Selectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70485D852D2E5159006A9D9F /* MainTabBar+Selectors.swift */; };
 		70485D8A2D2E5370006A9D9F /* MainTabBarShapeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70485D892D2E5370006A9D9F /* MainTabBarShapeLayer.swift */; };
 		70485D8C2D2E53E9006A9D9F /* TabBarButtonsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70485D8B2D2E53E9006A9D9F /* TabBarButtonsDelegate.swift */; };
+		70485D9A2D2E7C81006A9D9F /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70485D992D2E7C81006A9D9F /* UIColor+Ext.swift */; };
 		704F1AB72D22A82D00F457F5 /* SignInVC+Selectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704F1AB62D22A82D00F457F5 /* SignInVC+Selectors.swift */; };
 		704F1ABB2D22A94A00F457F5 /* SignUpVC+Selectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704F1ABA2D22A94A00F457F5 /* SignUpVC+Selectors.swift */; };
 		704F1ABD2D22BCEB00F457F5 /* MyMealsVC+AddMealManually.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704F1ABC2D22BCEB00F457F5 /* MyMealsVC+AddMealManually.swift */; };
@@ -219,6 +220,7 @@
 		70485D852D2E5159006A9D9F /* MainTabBar+Selectors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainTabBar+Selectors.swift"; sourceTree = "<group>"; };
 		70485D892D2E5370006A9D9F /* MainTabBarShapeLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarShapeLayer.swift; sourceTree = "<group>"; };
 		70485D8B2D2E53E9006A9D9F /* TabBarButtonsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButtonsDelegate.swift; sourceTree = "<group>"; };
+		70485D992D2E7C81006A9D9F /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		704F1AB62D22A82D00F457F5 /* SignInVC+Selectors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignInVC+Selectors.swift"; sourceTree = "<group>"; };
 		704F1ABA2D22A94A00F457F5 /* SignUpVC+Selectors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpVC+Selectors.swift"; sourceTree = "<group>"; };
 		704F1ABC2D22BCEB00F457F5 /* MyMealsVC+AddMealManually.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyMealsVC+AddMealManually.swift"; sourceTree = "<group>"; };
@@ -396,32 +398,6 @@
 			path = AddMealManually;
 			sourceTree = "<group>";
 		};
-		701A4E1B2CCA98C900013A72 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				70E7E2A42D1D8B52004C3B92 /* AgeSelectionViewModel.swift */,
-				70E7E2A22D1D7DF1004C3B92 /* WeightSelectionViewModel.swift */,
-				70E7E2A02D1D7C4B004C3B92 /* HeightSelectionViewModel.swift */,
-				70E7E2A62D1D91AB004C3B92 /* FitSelectionViewModel.swift */,
-				70E7E2A82D1D9903004C3B92 /* GenderSelectionViewModel.swift */,
-				70B446042CCA7CF20019B407 /* GoalSelectionViewModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		701A4E1C2CCA98FA00013A72 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				70A810F92D21F0B800B1DA83 /* AgeSelection */,
-				70A810FE2D21F29200B1DA83 /* WeightSelection */,
-				70A811032D21FFF500B1DA83 /* HeightSelection */,
-				70A8110C2D2208F800B1DA83 /* FitSelection */,
-				70A811102D220CA300B1DA83 /* GenderSelection */,
-				70A811132D220DBA00B1DA83 /* GoalSelection */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
 		701A4E272CCAB9AF00013A72 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,6 +465,110 @@
 				70485D852D2E5159006A9D9F /* MainTabBar+Selectors.swift */,
 			);
 			path = MainTabBar;
+			sourceTree = "<group>";
+		};
+		70485D8D2D2E7105006A9D9F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				70E8341E2CC905B800FF3CCC /* AgeSelectionViewController.swift */,
+				70A810FA2D21F0D500B1DA83 /* AgeSelectionVC+PickerView.swift */,
+				70A810FC2D21F12700B1DA83 /* AgeSelectionVC+Selectors.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		70485D8E2D2E7109006A9D9F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				70E7E2A42D1D8B52004C3B92 /* AgeSelectionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		70485D8F2D2E711A006A9D9F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				70E834202CC90DED00FF3CCC /* WeightSelectionViewController.swift */,
+				70A811042D22009300B1DA83 /* WeightSelectionVC+Selectors.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		70485D902D2E711D006A9D9F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				70E7E2A22D1D7DF1004C3B92 /* WeightSelectionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		70485D912D2E712F006A9D9F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				70AE61772D1C4BD200FF9017 /* HeightSelectionViewController.swift */,
+				70A8110A2D22064400B1DA83 /* HeightSelectionVC+Selectors.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		70485D922D2E7136006A9D9F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				70E7E2A02D1D7C4B004C3B92 /* HeightSelectionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		70485D932D2E7147006A9D9F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				70E8342F2CC934DA00FF3CCC /* FitSelectionViewController.swift */,
+				70A8110D2D22090900B1DA83 /* FitSelectionVC+Selectors.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		70485D942D2E714D006A9D9F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				70E7E2A62D1D91AB004C3B92 /* FitSelectionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		70485D952D2E715A006A9D9F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				70E834352CC93F8D00FF3CCC /* GenderSelectionViewController.swift */,
+				70A811112D220CB300B1DA83 /* GenderSelectionVC+Selectors.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		70485D962D2E7162006A9D9F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				70E7E2A82D1D9903004C3B92 /* GenderSelectionViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		70485D972D2E7175006A9D9F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				70B446022CCA79CE0019B407 /* GoalSelectionViewController.swift */,
+				70A811142D220E0600B1DA83 /* GoalSelectionVC+Selectors.swift */,
+				70A811162D220E7400B1DA83 /* GoalSelectionVC+TableView.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		70485D982D2E7178006A9D9F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				70B446042CCA7CF20019B407 /* GoalSelectionViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		704F1AB42D22A7FA00F457F5 /* Controller */ = {
@@ -746,8 +826,8 @@
 				708764FF2CDCEDF90093C5C9 /* Home */,
 				70E8341D2CC9059B00FF3CCC /* Assessment */,
 				7079C25B2CC6387F00E23D59 /* Auth */,
-				70E834182CC8E74800FF3CCC /* Onboarding */,
 				70485D832D2E512C006A9D9F /* MainTabBar */,
+				70E834182CC8E74800FF3CCC /* Onboarding */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -761,6 +841,7 @@
 				708DDC922D15F63200F1DBFF /* UIStackView+Ext.swift */,
 				7079C2662CC639AA00E23D59 /* UITextField+Ext.swift */,
 				7079C2702CC63AF800E23D59 /* UIButton+Ext.swift */,
+				70485D992D2E7C81006A9D9F /* UIColor+Ext.swift */,
 				701FB1942D20D0B80087CF66 /* Double+Ext.swift */,
 				70E834222CC9219F00FF3CCC /* Float+Ext.swift */,
 				70D29C8D2D17806C0045161C /* Date+Ext.swift */,
@@ -994,9 +1075,8 @@
 		70A810F92D21F0B800B1DA83 /* AgeSelection */ = {
 			isa = PBXGroup;
 			children = (
-				70E8341E2CC905B800FF3CCC /* AgeSelectionViewController.swift */,
-				70A810FA2D21F0D500B1DA83 /* AgeSelectionVC+PickerView.swift */,
-				70A810FC2D21F12700B1DA83 /* AgeSelectionVC+Selectors.swift */,
+				70485D8E2D2E7109006A9D9F /* ViewModel */,
+				70485D8D2D2E7105006A9D9F /* Controller */,
 			);
 			path = AgeSelection;
 			sourceTree = "<group>";
@@ -1004,8 +1084,8 @@
 		70A810FE2D21F29200B1DA83 /* WeightSelection */ = {
 			isa = PBXGroup;
 			children = (
-				70E834202CC90DED00FF3CCC /* WeightSelectionViewController.swift */,
-				70A811042D22009300B1DA83 /* WeightSelectionVC+Selectors.swift */,
+				70485D902D2E711D006A9D9F /* ViewModel */,
+				70485D8F2D2E711A006A9D9F /* Controller */,
 			);
 			path = WeightSelection;
 			sourceTree = "<group>";
@@ -1013,8 +1093,8 @@
 		70A811032D21FFF500B1DA83 /* HeightSelection */ = {
 			isa = PBXGroup;
 			children = (
-				70AE61772D1C4BD200FF9017 /* HeightSelectionViewController.swift */,
-				70A8110A2D22064400B1DA83 /* HeightSelectionVC+Selectors.swift */,
+				70485D922D2E7136006A9D9F /* ViewModel */,
+				70485D912D2E712F006A9D9F /* Controller */,
 			);
 			path = HeightSelection;
 			sourceTree = "<group>";
@@ -1022,8 +1102,8 @@
 		70A8110C2D2208F800B1DA83 /* FitSelection */ = {
 			isa = PBXGroup;
 			children = (
-				70E8342F2CC934DA00FF3CCC /* FitSelectionViewController.swift */,
-				70A8110D2D22090900B1DA83 /* FitSelectionVC+Selectors.swift */,
+				70485D942D2E714D006A9D9F /* ViewModel */,
+				70485D932D2E7147006A9D9F /* Controller */,
 			);
 			path = FitSelection;
 			sourceTree = "<group>";
@@ -1053,8 +1133,8 @@
 		70A811102D220CA300B1DA83 /* GenderSelection */ = {
 			isa = PBXGroup;
 			children = (
-				70E834352CC93F8D00FF3CCC /* GenderSelectionViewController.swift */,
-				70A811112D220CB300B1DA83 /* GenderSelectionVC+Selectors.swift */,
+				70485D962D2E7162006A9D9F /* ViewModel */,
+				70485D952D2E715A006A9D9F /* Controller */,
 			);
 			path = GenderSelection;
 			sourceTree = "<group>";
@@ -1062,9 +1142,8 @@
 		70A811132D220DBA00B1DA83 /* GoalSelection */ = {
 			isa = PBXGroup;
 			children = (
-				70B446022CCA79CE0019B407 /* GoalSelectionViewController.swift */,
-				70A811142D220E0600B1DA83 /* GoalSelectionVC+Selectors.swift */,
-				70A811162D220E7400B1DA83 /* GoalSelectionVC+TableView.swift */,
+				70485D982D2E7178006A9D9F /* ViewModel */,
+				70485D972D2E7175006A9D9F /* Controller */,
 			);
 			path = GoalSelection;
 			sourceTree = "<group>";
@@ -1166,8 +1245,12 @@
 			isa = PBXGroup;
 			children = (
 				70E834372CC940F200FF3CCC /* Views */,
-				701A4E1C2CCA98FA00013A72 /* Controllers */,
-				701A4E1B2CCA98C900013A72 /* ViewModels */,
+				70A810F92D21F0B800B1DA83 /* AgeSelection */,
+				70A810FE2D21F29200B1DA83 /* WeightSelection */,
+				70A811032D21FFF500B1DA83 /* HeightSelection */,
+				70A8110C2D2208F800B1DA83 /* FitSelection */,
+				70A811102D220CA300B1DA83 /* GenderSelection */,
+				70A811132D220DBA00B1DA83 /* GoalSelection */,
 			);
 			path = Assessment;
 			sourceTree = "<group>";
@@ -1361,6 +1444,7 @@
 				70A810F42D21CD1F00B1DA83 /* TargetCalorieCalculator.swift in Sources */,
 				70B446052CCA7CF20019B407 /* GoalSelectionViewModel.swift in Sources */,
 				7007451F2D12E47D00AA5248 /* MealTypeCell.swift in Sources */,
+				70485D9A2D2E7C81006A9D9F /* UIColor+Ext.swift in Sources */,
 				70D29C8C2D175D810045161C /* AuthInputView.swift in Sources */,
 				701097392D2DC0770052A904 /* MyMealsVC+CameraDelegate.swift in Sources */,
 				70E8341A2CC8E75400FF3CCC /* OnboardingViewController.swift in Sources */,

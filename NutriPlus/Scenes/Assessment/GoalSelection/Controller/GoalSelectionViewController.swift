@@ -43,6 +43,7 @@ final class GoalSelectionViewController: BaseAssessmentViewController {
 
   // MARK: - UI Setup
   private func setupUI() {
+    tableView.backgroundColor = .clear
     view.backgroundColor = .white
     view.addSubview(titleLabel)
     view.addSubview(tableView)

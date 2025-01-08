@@ -41,6 +41,8 @@ final class SignUpViewController: KeyboardHandlingViewController {
     authInputView.passwordTextField.delegate = self
 
     lockImageCancellable = viewModel.$confirmImageString
+      .removeDuplicates()
+      .print("-------")
       .sink { imageString in
         confirmationField.addIconWithPadding(imageString, padding: 20, isLeftView: true, isConfirmation: true)
       }
