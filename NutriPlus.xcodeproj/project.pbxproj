@@ -33,6 +33,9 @@
 		7036BC892D2607E000DA067A /* HomeSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7036BC882D2607E000DA067A /* HomeSections.swift */; };
 		7036BC8B2D2607FB00DA067A /* HomeVC+CollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7036BC8A2D2607FB00DA067A /* HomeVC+CollectionView.swift */; };
 		7036BC8D2D26084900DA067A /* HomeVC+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7036BC8C2D26084900DA067A /* HomeVC+DataSource.swift */; };
+		70485D862D2E5159006A9D9F /* MainTabBar+Selectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70485D852D2E5159006A9D9F /* MainTabBar+Selectors.swift */; };
+		70485D8A2D2E5370006A9D9F /* MainTabBarShapeLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70485D892D2E5370006A9D9F /* MainTabBarShapeLayer.swift */; };
+		70485D8C2D2E53E9006A9D9F /* TabBarButtonsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70485D8B2D2E53E9006A9D9F /* TabBarButtonsDelegate.swift */; };
 		704F1AB72D22A82D00F457F5 /* SignInVC+Selectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704F1AB62D22A82D00F457F5 /* SignInVC+Selectors.swift */; };
 		704F1ABB2D22A94A00F457F5 /* SignUpVC+Selectors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704F1ABA2D22A94A00F457F5 /* SignUpVC+Selectors.swift */; };
 		704F1ABD2D22BCEB00F457F5 /* MyMealsVC+AddMealManually.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704F1ABC2D22BCEB00F457F5 /* MyMealsVC+AddMealManually.swift */; };
@@ -213,6 +216,9 @@
 		7036BC882D2607E000DA067A /* HomeSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSections.swift; sourceTree = "<group>"; };
 		7036BC8A2D2607FB00DA067A /* HomeVC+CollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+CollectionView.swift"; sourceTree = "<group>"; };
 		7036BC8C2D26084900DA067A /* HomeVC+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+DataSource.swift"; sourceTree = "<group>"; };
+		70485D852D2E5159006A9D9F /* MainTabBar+Selectors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainTabBar+Selectors.swift"; sourceTree = "<group>"; };
+		70485D892D2E5370006A9D9F /* MainTabBarShapeLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarShapeLayer.swift; sourceTree = "<group>"; };
+		70485D8B2D2E53E9006A9D9F /* TabBarButtonsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarButtonsDelegate.swift; sourceTree = "<group>"; };
 		704F1AB62D22A82D00F457F5 /* SignInVC+Selectors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignInVC+Selectors.swift"; sourceTree = "<group>"; };
 		704F1ABA2D22A94A00F457F5 /* SignUpVC+Selectors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SignUpVC+Selectors.swift"; sourceTree = "<group>"; };
 		704F1ABC2D22BCEB00F457F5 /* MyMealsVC+AddMealManually.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyMealsVC+AddMealManually.swift"; sourceTree = "<group>"; };
@@ -474,6 +480,17 @@
 			path = Enums;
 			sourceTree = "<group>";
 		};
+		70485D832D2E512C006A9D9F /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				70E834132CC8DE0A00FF3CCC /* MainTabBarController.swift */,
+				70485D8B2D2E53E9006A9D9F /* TabBarButtonsDelegate.swift */,
+				70485D892D2E5370006A9D9F /* MainTabBarShapeLayer.swift */,
+				70485D852D2E5159006A9D9F /* MainTabBar+Selectors.swift */,
+			);
+			path = MainTabBar;
+			sourceTree = "<group>";
+		};
 		704F1AB42D22A7FA00F457F5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -730,7 +747,7 @@
 				70E8341D2CC9059B00FF3CCC /* Assessment */,
 				7079C25B2CC6387F00E23D59 /* Auth */,
 				70E834182CC8E74800FF3CCC /* Onboarding */,
-				70E834132CC8DE0A00FF3CCC /* MainTabBarController.swift */,
+				70485D832D2E512C006A9D9F /* MainTabBar */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -1318,6 +1335,7 @@
 				708DDC8F2D15F42700F1DBFF /* AddMealManuallyViewModel.swift in Sources */,
 				7036BC812D26071400DA067A /* CalorieGoalCellVM.swift in Sources */,
 				70E834172CC8DE6000FF3CCC /* HomeViewController.swift in Sources */,
+				70485D862D2E5159006A9D9F /* MainTabBar+Selectors.swift in Sources */,
 				7056B5132D183A28001844D7 /* CameraViewController.swift in Sources */,
 				70A810FD2D21F12700B1DA83 /* AgeSelectionVC+Selectors.swift in Sources */,
 				708DDC972D1613E700F1DBFF /* MealService.swift in Sources */,
@@ -1434,6 +1452,7 @@
 				7036BC722D2604C500DA067A /* HomeViewModel.swift in Sources */,
 				70E834392CC9410300FF3CCC /* GenderView.swift in Sources */,
 				70F665822D2D848F00F208D5 /* MacronutrientCell.swift in Sources */,
+				70485D8A2D2E5370006A9D9F /* MainTabBarShapeLayer.swift in Sources */,
 				70D29C8E2D17806C0045161C /* Date+Ext.swift in Sources */,
 				708AD9522D1729C800CD2EB7 /* UICollectionViewLayout+Ext.swift in Sources */,
 				708DDC872D15CBD700F1DBFF /* AddMealManuallyVC+CollectionView.swift in Sources */,
@@ -1442,6 +1461,7 @@
 				708DDC892D15CEE200F1DBFF /* AddNewMealStackView.swift in Sources */,
 				7036BC8D2D26084900DA067A /* HomeVC+DataSource.swift in Sources */,
 				7056B51E2D183DCB001844D7 /* CameraViewControllerDelegate.swift in Sources */,
+				70485D8C2D2E53E9006A9D9F /* TabBarButtonsDelegate.swift in Sources */,
 				7036BC832D26071E00DA067A /* BodyConditionCellVM.swift in Sources */,
 				7056B52D2D184A28001844D7 /* PhotoPickerServiceDelegate.swift in Sources */,
 				70E7E2A72D1D91AB004C3B92 /* FitSelectionViewModel.swift in Sources */,

@@ -48,11 +48,13 @@ final class CalorieStatsViewController: UIViewController {
     super.viewWillAppear(animated)
     navigationController?.navigationBar.isHidden = false
     navigationController?.navigationBar.tintColor = .label
+    tabBarController?.tabBar.isHidden = true
   }
 
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
     navigationController?.navigationBar.isHidden = true
+    tabBarController?.tabBar.isHidden = false
   }
 
   private func setupBindings() {

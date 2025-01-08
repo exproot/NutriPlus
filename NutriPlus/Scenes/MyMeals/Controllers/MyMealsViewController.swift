@@ -12,12 +12,6 @@ final class MyMealsViewController: UIViewController {
   var dataSource: UICollectionViewDiffableDataSource<Section, AnyHashable>!
   var collectionView: UICollectionView!
 
-  // MARK: - UI Comp
-  lazy var plusButton = CustomButton(imageString: "plus.circle.fill", pointSize: 35, foregroundColor: .systemOrange)
-  lazy var cameraOptionButton = CustomButton(imageString: "camera.circle.fill", pointSize: 25, foregroundColor: .systemOrange)
-  lazy var manualOptionButton = CustomButton(imageString: "list.bullet.circle.fill", pointSize: 25, foregroundColor: .systemOrange)
-  var buttonsVisible = false
-
   // MARK: - View Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -26,8 +20,10 @@ final class MyMealsViewController: UIViewController {
     setupCollectionView()
     configureDataSource()
     applyInitialSnapshot()
-    setupPlusButton()
-    setupOptionButtons()
+
+    if let tabBar = tabBarController as? MainTabBarController {
+      tabBar.tabBarButtonsDelegate = self
+    }
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -46,37 +42,6 @@ final class MyMealsViewController: UIViewController {
 
 // MARK: - UI Setup
 extension MyMealsViewController {
-  private func setupOptionButtons() {
-    [manualOptionButton, cameraOptionButton].forEach { button in
-      view.addSubview(button)
-      button.alpha = 0
-    }
-
-    NSLayoutConstraint.activate([
-      manualOptionButton.centerYAnchor.constraint(equalTo: plusButton.centerYAnchor, constant: -20),
-      manualOptionButton.trailingAnchor.constraint(equalTo: plusButton.leadingAnchor),
-
-      cameraOptionButton.centerYAnchor.constraint(equalTo: plusButton.centerYAnchor, constant: -20),
-      cameraOptionButton.leadingAnchor.constraint(equalTo: plusButton.trailingAnchor)
-    ])
-
-    cameraOptionButton.addTarget(self, action: #selector(cameraOptionButtonTapped), for: .touchUpInside)
-    manualOptionButton.addTarget(self, action: #selector(manualOptionButtonTapped), for: .touchUpInside)
-  }
-
-
-  private func setupPlusButton() {
-    view.addSubview(plusButton)
-
-    NSLayoutConstraint.activate([
-      plusButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-      plusButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 20)
-    ])
-
-    plusButton.addTarget(self, action: #selector(plusButtonTapped(_:)), for: .touchUpInside)
-  }
-
-
   func pushChatController(with message: String) {
     let chatController = ChatViewController(with: message)
     navigationController?.pushViewController(chatController, animated: true)
