@@ -12,7 +12,19 @@ final class ProfileHeaderView: UIView {
   lazy var backgroundImage = CustomImageView(isSystemImage: false, imageString: "Wavy-BG", contentMode: .scaleAspectFill)
   lazy var profileImageView = CustomImageView(contentMode: .scaleAspectFit)
   lazy var dateLabel = CustomLabel(text: "...", fontSize: 14, fontWeight: .regular, textColor: .white)
-  lazy var greetingLabel = CustomLabel(text: "...", fontSize: 28, fontWeight: .bold, textColor: .white)
+  lazy var greetingLabel = CustomLabel(text: "...", fontSize: 24, fontWeight: .bold, textColor: .white, numberOfLines: 2)
+  lazy var settingsButton: UIButton = {
+    let image = UIImage(systemName: "gear")?.withTintColor(.white, renderingMode: .alwaysOriginal).applyingSymbolConfiguration(.init(pointSize: 20))
+
+    let customButton = UIButton(type: .system)
+    customButton.setImage(image, for: .normal)
+    customButton.backgroundColor = .black
+    customButton.layer.cornerRadius = 12
+    customButton.layer.borderWidth = 2
+    customButton.layer.borderColor = UIColor.darkGray.cgColor
+    customButton.translatesAutoresizingMaskIntoConstraints = false
+    return customButton
+  }()
 
   override init(frame: CGRect) {
     super.init(frame: .zero)
@@ -48,6 +60,7 @@ final class ProfileHeaderView: UIView {
     addSubview(profileImageView)
     addSubview(dateLabel)
     addSubview(greetingLabel)
+    addSubview(settingsButton)
 
     NSLayoutConstraint.activate([
       backgroundImage.topAnchor.constraint(equalTo: self.topAnchor),
@@ -60,12 +73,17 @@ final class ProfileHeaderView: UIView {
       profileImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.5),
       profileImageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
 
+      settingsButton.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor),
+      settingsButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -25),
+      settingsButton.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.4),
+      settingsButton.widthAnchor.constraint(equalTo: settingsButton.heightAnchor),
+
       dateLabel.leadingAnchor.constraint(equalTo: profileImageView.trailingAnchor, constant: 4),
-      dateLabel.topAnchor.constraint(equalTo: profileImageView.topAnchor, constant: 12),
+      dateLabel.topAnchor.constraint(equalTo: settingsButton.topAnchor, constant: -4),
 
       greetingLabel.leadingAnchor.constraint(equalTo: dateLabel.leadingAnchor),
-      greetingLabel.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor)
-
+      greetingLabel.trailingAnchor.constraint(equalTo: settingsButton.leadingAnchor, constant: -8),
+      greetingLabel.bottomAnchor.constraint(equalTo: settingsButton.bottomAnchor)
     ])
   }
 }

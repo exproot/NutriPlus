@@ -48,6 +48,7 @@ extension MyMealsViewController {
       snapshot.appendItems(viewModel.mealItems, toSection: .meals)
     }
 
+    updateEmptyStateVisibility()
     dataSource.apply(snapshot, animatingDifferences: true)
   }
 }

@@ -54,14 +54,17 @@ final class ChatViewController: KeyboardHandlingViewController {
 
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    tabBarController?.tabBar.isHidden = true
     let appearance = UINavigationBarAppearance()
+    navigationController?.navigationBar.isHidden = false
+    navigationController?.navigationBar.tintColor = .label
+    tabBarController?.tabBar.isHidden = true
     appearance.backgroundColor = .systemGroupedBackground
     navigationController?.navigationBar.scrollEdgeAppearance = appearance
   }
 
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
+    navigationController?.navigationBar.isHidden = true
     tabBarController?.tabBar.isHidden = false
     navigationController?.navigationBar.scrollEdgeAppearance = nil
   }

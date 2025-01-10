@@ -9,7 +9,6 @@ import UIKit
 
 final class MainTabBarController: UITabBarController {
   weak var tabBarButtonsDelegate: TabBarButtonsDelegate?
-  var buttonsVisible = false
 
   // MARK: - UI Components
   lazy var cameraOptionButton = CustomButton(imageString: "camera.circle.fill", pointSize: 30, foregroundColor: .systemOrange)
@@ -23,16 +22,21 @@ final class MainTabBarController: UITabBarController {
     customButton.configuration = config
     return customButton
   }()
+  var buttonsVisible = false
 
   // MARK: - Controller Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
     delegate = self
-    setupTabBar()
     setupPlusButton()
     setupOptionButtons()
     setupActions()
     setupTabs()
+  }
+
+  override func viewDidLayoutSubviews() {
+    super.viewDidLayoutSubviews()
+    setupTabBar()
   }
 
   override func viewWillAppear(_ animated: Bool) {
@@ -47,8 +51,8 @@ final class MainTabBarController: UITabBarController {
     let myMealsVC = UINavigationController(rootViewController: MyMealsViewController())
 
     homeVC.tabBarItem.title = "Home"
-    homeVC.tabBarItem.tag = 0
     myMealsVC.tabBarItem.title = "My Meals"
+    homeVC.tabBarItem.tag = 0
     myMealsVC.tabBarItem.tag = 1
     tabBar.tintColor = .label
 

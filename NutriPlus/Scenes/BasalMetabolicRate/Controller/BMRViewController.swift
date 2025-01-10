@@ -26,6 +26,19 @@ final class BMRViewController: UIViewController {
     setupBindings()
   }
 
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    navigationController?.navigationBar.isHidden = false
+    navigationController?.navigationBar.tintColor = .label
+    tabBarController?.tabBar.isHidden = true
+  }
+
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    navigationController?.navigationBar.isHidden = true
+    tabBarController?.tabBar.isHidden = false
+  }
+
   private func setupBindings() {
     viewModel.$progressValue
       .receive(on: DispatchQueue.main)

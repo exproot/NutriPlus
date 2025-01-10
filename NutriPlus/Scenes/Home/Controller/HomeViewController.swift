@@ -29,6 +29,7 @@ final class HomeViewController: UIViewController {
     applyInitialSnapshot()
     setupUI()
     setupConstraints()
+    setupActions()
     setupBindings()
   }
 
@@ -88,4 +89,3 @@ extension HomeViewController {
     ])
   }
 }
-

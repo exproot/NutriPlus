@@ -23,4 +23,19 @@ enum ActivityLevel: Int {
     case .veryAthletic: return 1.9
     }
   }
+
+  var description: String {
+    switch self {
+    case .sedentary:
+      return "Sedentary"
+    case .lightlyActive:
+      return "Lightly Active"
+    case .moderatelyActive:
+      return "Moderately Active"
+    case .athletic:
+      return "Athletic"
+    case .veryAthletic:
+      return "Very Athletic"
+    }
+  }
 }

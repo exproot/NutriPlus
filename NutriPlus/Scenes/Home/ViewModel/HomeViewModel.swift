@@ -62,8 +62,8 @@ final class HomeViewModel {
 
     if let currentUser = authService.getCurrentUser(), let email = currentUser.email {
       let namePart = (email.split(separator: "@").first)?.lowercased()
-      greetingText = "Hello, \(namePart ?? "")"
-      userImageString = "person.crop.circle"
+      greetingText = "Welcome, \n\(namePart ?? "N/a")"
+      userImageString = "\(namePart?.first?.description ?? "a").circle.fill"
     }
   }
 

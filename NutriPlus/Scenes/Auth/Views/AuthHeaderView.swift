@@ -22,7 +22,7 @@ final class AuthHeaderView: UIView {
   
   private lazy var iconImageView: UIImageView = {
     let iv = UIImageView()
-    iv.image = UIImage(named: "logo")
+    iv.image = UIImage(named: "applogo")
     iv.layer.cornerRadius = 10
     iv.clipsToBounds = true
     iv.tintColor = .label

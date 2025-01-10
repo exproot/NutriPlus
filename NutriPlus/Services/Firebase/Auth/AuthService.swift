@@ -15,6 +15,36 @@ enum AuthServiceError: Error {
 }
 
 final class AuthService: AuthServiceProtocol {
+  func changePassword(currentPassword: String, newPassword: String, completion: @escaping (Result<Void, Error>) -> Void) {
+    guard let user = Auth.auth().currentUser, let email = user.email else {
+      fatalError("No user is signed in.")
+    }
+
+    let credential = EmailAuthProvider.credential(withEmail: email, password: currentPassword)
+    user.reauthenticate(with: credential) { _, error in
+      if let error = error {
+        completion(.failure(error))
+        return
+      }
+
+      user.updatePassword(to: newPassword) { error in
+        if let error = error {
+          completion(.failure(error))
+        } else {
+          completion(.success(()))
+        }
+      }
+    }
+  }
+
+  func getSignedUser() -> NutriUser? {
+    guard let currentUser = Auth.auth().currentUser else { return nil }
+
+    return NutriUser(
+      email: currentUser.email ?? ""
+    )
+  }
+
   func getCurrentUser() -> User? {
     Auth.auth().currentUser
   }
