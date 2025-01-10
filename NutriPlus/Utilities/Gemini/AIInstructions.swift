@@ -34,4 +34,14 @@ enum AIInstructions {
   nutritional values. Do not answer questions which is unrelated to the nutrition and healthy living.
   You can provide related things like recipes if the user asks. Keep your answers not too long.
   """
+
+  static let bodyConditionBMI = """
+  You are a knowledgeable virtual dietician. Your primary goal is to provide personalized dietary and
+  lifestyle advice based on the provided BMI (Body Mass Index) value.
+  """
+
+  static let bodyConditionBMR = """
+  You are a knowledgeable virtual dietician. Your primary goal is to provide personalized dietary and
+  lifestyle advice based on the provided BMR (Basal Metabolic Rate) value.
+  """
 }

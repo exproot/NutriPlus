@@ -19,6 +19,7 @@ final class BMIViewController: UIViewController {
   private lazy var categoryLabel = CustomLabel(text: "", fontSize: 18, fontWeight: .light, textColor: .label, alignment: .center, numberOfLines: 0)
   private lazy var helpLabel = CustomLabel(text: "We Can Help", fontSize: 32, fontWeight: .bold, textColor: .label, alignment: .center, numberOfLines: 0)
   private lazy var bmiStackView = BMIStackView()
+  private lazy var nutriAiButton =  CustomButton(title: "Get Insights from AI", backgroundColor: .systemOrange, foregroundColor: .systemBackground)
 
   // MARK: - Controller Lifecycle
   init(viewModel: BMIViewModel) {
@@ -66,6 +67,18 @@ final class BMIViewController: UIViewController {
     view.addSubview(gradientView)
   }
 
+  private func setupUI() {
+    view.backgroundColor = .systemBackground
+    configureGradientView()
+    view.addSubview(titleLabel)
+    view.addSubview(bmiLabel)
+    view.addSubview(categoryLabel)
+    view.addSubview(helpLabel)
+    view.addSubview(bmiStackView)
+    view.addSubview(nutriAiButton)
+    setupConstraints()
+  }
+
   private func setupConstraints() {
     NSLayoutConstraint.activate([
       titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
@@ -89,18 +102,23 @@ final class BMIViewController: UIViewController {
       bmiStackView.topAnchor.constraint(equalTo: helpLabel.bottomAnchor, constant: 20),
       bmiStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
       bmiStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-      bmiStackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.26)
-    ])
-  }
+      bmiStackView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.26),
 
-  private func setupUI() {
-    view.backgroundColor = .systemBackground
-    configureGradientView()
-    view.addSubview(titleLabel)
-    view.addSubview(bmiLabel)
-    view.addSubview(categoryLabel)
-    view.addSubview(helpLabel)
-    view.addSubview(bmiStackView)
-    setupConstraints()
+      nutriAiButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+      nutriAiButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      nutriAiButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.07),
+      nutriAiButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9)
+    ])
+
+    nutriAiButton.addTarget(self, action: #selector(handleAIButton), for: .touchUpInside)
+  }
+}
+
+// MARK: - Selectors
+extension BMIViewController {
+  @objc func handleAIButton() {
+    let controller = ChatViewController(with: "BMI is \(bmiLabel.text ?? "10")", and: AIInstructions.bodyConditionBMI)
+
+    navigationController?.pushViewController(controller, animated: true)
   }
 }

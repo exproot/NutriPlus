@@ -34,4 +34,24 @@ final class ChatViewModel {
       }
     }
   }
+
+  func sendMessage(_ text: String, instruction: String) {
+    let userMessage = Message(text: text, isSentByUser: true)
+    messages.append(userMessage)
+
+    geminiService.getResponse(text, history: messages, instruction: instruction) { [weak self] result in
+      switch result {
+      case .success(let response):
+        let aiMessage = Message(text: response, isSentByUser: false)
+        DispatchQueue.main.async {
+          self?.messages.append(aiMessage)
+        }
+      case .failure:
+        let errorMessage = Message(text: "Failed to get response. Try again.", isSentByUser: false)
+        DispatchQueue.main.async {
+          self?.messages.append(errorMessage)
+        }
+      }
+    }
+  }
 }

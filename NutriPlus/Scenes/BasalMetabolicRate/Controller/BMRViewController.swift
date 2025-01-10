@@ -18,6 +18,7 @@ final class BMRViewController: UIViewController {
   private lazy var progressView = BMRCircularProgressView()
   private lazy var targetLabel = CustomLabel(text: "", fontSize: 32, fontWeight: .bold, textColor: .label)
   private lazy var goalLabel = CustomLabel(text: "", fontSize: 20, fontWeight: .light, textColor: .label)
+  private lazy var nutriAiButton =  CustomButton(title: "Get Insights from AI", backgroundColor: .systemOrange, foregroundColor: .systemBackground)
 
   // MARK: - Controller Lifecycle
   override func viewDidLoad() {
@@ -78,6 +79,7 @@ final class BMRViewController: UIViewController {
     view.backgroundColor = .systemBackground
     configureLabels()
     configureProgressView()
+    view.addSubview(nutriAiButton)
     setupConstraints()
   }
 
@@ -100,7 +102,23 @@ final class BMRViewController: UIViewController {
 
       goalLabel.topAnchor.constraint(equalTo: progressView.bottomAnchor, constant: 20),
       goalLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-      goalLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20)
+      goalLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+
+      nutriAiButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+      nutriAiButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+      nutriAiButton.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.07),
+      nutriAiButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9)
     ])
+
+    nutriAiButton.addTarget(self, action: #selector(handleAIButton), for: .touchUpInside)
+  }
+}
+
+// MARK: - Selectors
+extension BMRViewController {
+  @objc func handleAIButton() {
+    let controller = ChatViewController(with: "BMR is \(bmrLabel.text ?? "1600") kcal", and: AIInstructions.bodyConditionBMR)
+
+    navigationController?.pushViewController(controller, animated: true)
   }
 }

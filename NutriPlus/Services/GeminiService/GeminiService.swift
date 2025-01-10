@@ -24,9 +24,9 @@ final class GeminiService {
   private var model: GenerativeModel?
   
 
-  func getResponse(_ message: String, history: [Message], completion: @escaping (Result<String, Error>) -> Void) {
+  func getResponse(_ message: String, history: [Message], instruction: String = AIInstructions.mealDetails, completion: @escaping (Result<String, Error>) -> Void) {
     let apiKey = Bundle.main.infoDictionary?["GEMINI_API_KEY"] as? String ?? ""
-    model = GenerativeModel(name: "gemini-1.5-flash", apiKey: apiKey, systemInstruction: AIInstructions.mealDetails)
+    model = GenerativeModel(name: "gemini-1.5-flash", apiKey: apiKey, systemInstruction: instruction)
     guard let model = model else { return }
 
     let chatHistory = history.map { message in

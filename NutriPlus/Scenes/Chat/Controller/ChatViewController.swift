@@ -26,6 +26,11 @@ final class ChatViewController: KeyboardHandlingViewController {
   lazy var sendButton = CustomButton(title: "Send", backgroundColor: .systemOrange)
 
   // MARK: - Controller Lifecycle
+  init(with message: String, and instruction: String) {
+    super.init(nibName: nil, bundle: nil)
+    viewModel.sendMessage(message, instruction: instruction)
+  }
+
   init(with message: String) {
     super.init(nibName: nil, bundle: nil)
     viewModel.sendMessage(message)
