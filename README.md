@@ -21,14 +21,14 @@
 
 #### Authenticate with Firebase and fill up your personal assessment data to experience Nutri+ properly.
 <p align="row">
-<img src= login+assessments.gif width="200">
-<img src= home-module.gif width="200">
+<img src= /repo-assets/login+assessments.gif width="200">
+<img src= /repo-assets/home-module.gif width="200">
 </p>
 
 #### Easily track your meals — add them manually or scan their images using Gemini AI.
 <p align="row">
-<img src= scan-meals-with-ai.gif width="200">
-<img src= add-meals-manually.gif width="200">
+<img src= /repo-assets/scan-meals-with-ai.gif width="200">
+<img src= /repo-assets/add-meals-manually.gif width="200">
 </p>
 
 ## Meta
