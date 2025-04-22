@@ -86,7 +86,7 @@ To use Gemini AI for food recognition and nutritional insights, you must configu
 1. Create a **secrets.json** file with your Gemini AI API key:
 
 ```
-  "GEMINI_API_KEY": "YOUR_API_KEY"
+  GEMINI_API_KEY: "YOUR_API_KEY"
 ```
 2. Set this file as configuration for both debug and release in the project settings.
 
