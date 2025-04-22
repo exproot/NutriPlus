@@ -40,6 +40,16 @@ Nutri+ is a native iOS application built with Swift and UIKit, designed to offer
 
 - iOS 15.2+
 - Xcode 14.0+
+
+## Third-Party Libraries
+
+Nutri+ utilizes several third-party libraries for enhanced functionality. Below is a list of the libraries used:
+
+- ![Firebase](https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black)  
+
+- ![Gemini](https://img.shields.io/badge/Google%20Gemini-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white)
+
+- Lottie
   
 ## Architecture
 
@@ -47,7 +57,7 @@ Nutri+ follows **MVVM** architecture to ensure separation of concerns and better
 
 **Combine** is used to bind the **UI** with the **ViewModel**, providing a reactive and efficient approach for handling updates and changes in the user interface.
 
-## 🧠 AI Integration with Gemini
+## AI Integration with Gemini
 
 Nutri+ leverages **Gemini AI** for food recognition and nutritional insights. Users can capture photos of their meals, which are sent to Gemini along with a specific instruction. Gemini processes the image and returns a structured **JSON** response containing the meal’s name, calories, and nutritional information.
 
