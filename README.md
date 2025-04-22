@@ -45,11 +45,10 @@ Nutri+ is a native iOS application built with Swift and UIKit, designed to offer
 
 Nutri+ utilizes several third-party libraries for enhanced functionality. Below is a list of the libraries used:
 
-- ![Firebase](https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black)  
-
-- ![Gemini](https://img.shields.io/badge/Google%20Gemini-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white)
-
-- Lottie
+- [Firebase](https://github.com/firebase/firebase-ios-sdk)  
+- [Google Generative AI Swift](https://github.com/google-gemini/deprecated-generative-ai-swift)
+- [Lottie](https://github.com/airbnb/lottie-ios)
+- [SwiftLint](https://github.com/kodecocodes/swift-style-guide/tree/main)
   
 ## Architecture
 
