@@ -12,23 +12,29 @@
 
   <p align="center">
     Tracking meals, getting insights and living a healthier life never been much easier with AI-powered Nutri+.
-    
   </p>
 
 </p>
 
 ## Screenshots and Demos
 
-#### Authenticate with Firebase and fill up your personal assessment data to experience Nutri+ properly.
-<p align="row">
-<img src= /repo-assets/login+assessments.gif width="200">
-<img src= /repo-assets/home-module.gif width="200">
+### Auth & Assessment Modules
+* Authenticate with Firebase, fill up your personal assessment data and get ready to experience Nutri+.
+
+<p align="center">
+  <a> 
+    <img src= /repo-assets/login+assessments.gif width="200">
+    <img src= /repo-assets/home-module.gif width="200">
+  </a>
 </p>
 
-#### Easily track your meals — add them manually or scan their images using Gemini AI.
-<p align="row">
-<img src= /repo-assets/scan-meals-with-ai.gif width="200">
-<img src= /repo-assets/add-meals-manually.gif width="200">
+### Adding & Scanning Meals
+* Easily track your meals — add them manually or scan their images using Gemini AI.
+<p align="center">
+  <a> 
+    <img src= /repo-assets/scan-meals-with-ai.gif width="200">
+    <img src= /repo-assets/add-meals-manually.gif width="200">
+  </a>
 </p>
 
 ## Meta
