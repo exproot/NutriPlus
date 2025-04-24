@@ -74,7 +74,7 @@ Nutri+ uses **Firebase Firestore** for data storage, ensuring real-time updates 
 
 **Firebase Authentication** is implemented to manage user sign-in and sign-up, providing a secure and simple way for users to access their personalized meal tracking data.
 
-## Firebase and Gemini AI Setup
+## Firebase and Gemini SDK Setup
 
 ### Firebase Configuration
 
@@ -85,11 +85,11 @@ To enable Firebase functionality in Nutri+, you need to add your **GoogleService
 3. Add an **iOS application** to your Firebase project.
 4. Download the **GoogleService-Info.plist** file and place it in the **Supporting** directory of the project.
 
-### Gemini AI API Key Configuration
+### Gemini SDK API Key Configuration
 
 To use Gemini AI for food recognition and nutritional insights, you must configure your **API key**:
 
-1. Create a **secrets.json** file with your Gemini AI API key:
+1. Create a **SECRETS** configuration file with your Gemini AI API key:
 
 ```
   GEMINI_API_KEY: "YOUR_API_KEY"
